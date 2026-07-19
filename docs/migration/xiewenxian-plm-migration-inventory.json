@@ -518,5 +518,5 @@
     "*.pyc",
     "holygrail2 virtual environments and caches"
   ],
-  "status": "LOCAL_VALIDATION_COMPLETE_GITHUB_PENDING"
+  "status": "COMPLETED_AWAITING_HUMAN_REVIEW"
 }

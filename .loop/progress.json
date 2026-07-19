@@ -5,7 +5,7 @@
   "canonical_repository": "https://github.com/baobaoagi-cpu/plm",
   "current_milestone": "Repository Migration Repair",
   "current_iteration": 11,
-  "status": "LOCAL_ACCEPTANCE_COMPLETE_GITHUB_PENDING",
+  "status": "NEEDS_HUMAN_PLM_MIGRATION_REVIEW",
   "tasks": {
     "task_001": {"status": "COMPLETED"},
     "task_002": {"status": "COMPLETED"},
@@ -14,7 +14,7 @@
     "task_005": {"status": "NOT_AUTHORIZED"}
   },
   "repository_migration_repair": {
-    "status": "LOCAL_ACCEPTANCE_COMPLETE_GITHUB_PENDING",
+    "status": "COMPLETED",
     "branch": "codex/xie-wenxian-plm-migration",
     "historical_repository": "baobaoagi-cpu/holygrail2",
     "historical_branch": "codex/xie-wenxian-soul-container-v0.1",
@@ -37,9 +37,12 @@
       "secret_scan": "PASS_0_HIGH_CONFIDENCE_MATCHES",
       "forbidden_import_scan": "PASS_0_PRODUCTION_MATCHES",
       "tracy_contamination_scan": "PASS_0_PRODUCTION_MATCHES",
-      "git_diff_check": "PASS"
+      "git_diff_check": "PASS",
+      "github_actions": "PASS"
     }
   },
-  "next_allowed_action": "Complete final scans, push migration branch, verify GitHub Actions, then request human PLM migration review.",
+  "plm_update": "COMPLETED",
+  "pull_request": "https://github.com/baobaoagi-cpu/plm/pull/1",
+  "next_allowed_action": "Human PLM migration review only.",
   "forbidden_next_action": "Do not begin Task 005, LINE OA deployment, owner account delivery, STT, formal TTS, Pipecat pipeline, LiveKit, Mem0, public voice, production or Persona Release."
 }

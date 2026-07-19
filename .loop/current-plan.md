@@ -9,7 +9,7 @@
 Make `baobaoagi-cpu/plm` the canonical repository for the Xie Wenxian Owner Calibration Sandbox,
 while preserving Phase 2 evidence status and PLM's sole-orchestrator/generation invariants.
 
-## Delivered locally
+## Delivered
 
 - 31-entry source inventory and PLM target mapping.
 - Phase 2 candidate register, confirmation queue, evidence inventory and conflict/gap artifacts.
@@ -17,11 +17,11 @@ while preserving Phase 2 evidence status and PLM's sole-orchestrator/generation 
 - Backend-free, call-disabled LIFF shell rewritten from safe legacy UX concepts.
 - Raw V2 hash/custody review; raw mother document remains ignored and untracked.
 - Migration tests, Python quality checks and TypeScript strict validation.
+- Repair branch pushed to the canonical PLM repository and Draft PR #1 created.
+- GitHub Actions quality gates passed.
 
-## Pending
+## Pending human action
 
-- Final staged secret, forbidden-import and contamination scans.
-- Git commit/push and GitHub Actions.
 - Human PLM migration review.
 
 ## Forbidden

@@ -33,7 +33,10 @@ The final evidence record is `.loop/evidence/xiewenxian-plm-migration-i11.json`.
 Ruff, mypy strict, the complete pytest suite, strict TypeScript, npm audit, secret scanning,
 forbidden-import scanning, Tracy-contamination scanning, namespace isolation and Git diff checks.
 
-Decision: `LOCAL_ACCEPTANCE_COMPLETE_GITHUB_PENDING`
+Decision: `COMPLETE`
 
-Next allowed action: publish the repair branch, verify GitHub Actions, and request human migration
-review. Production and Task 005 remain unauthorized.
+Draft PR: `https://github.com/baobaoagi-cpu/plm/pull/1`
+
+GitHub Actions: `PASS`
+
+Next allowed action: human PLM migration review. Production and Task 005 remain unauthorized.

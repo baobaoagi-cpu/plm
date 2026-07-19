@@ -1,6 +1,6 @@
 # 謝文憲 PLM Repository Migration Repair
 
-狀態：`LOCAL_VALIDATION_COMPLETE / GITHUB_ACTIONS_PENDING`
+狀態：`COMPLETED / NEEDS_HUMAN_PLM_MIGRATION_REVIEW`
 
 ## Canonical ownership
 

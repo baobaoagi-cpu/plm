@@ -41,15 +41,17 @@
     "production_tracy_contamination_matches": 0,
     "json_parse_failures": 0,
     "git_diff_check": "PASS",
-    "github_actions": "PENDING"
+    "github_actions": "PASS"
   },
   "artifact_sha256": {
-    "migration_inventory": "ddeda1c733691b01786adea54a2fe5e9a8909fb587d70caf386b9e08b5f71b6a",
+    "migration_inventory": "f7743ecbe10790e5b7add8f5b7cce4f6aeba14451c5f6293a2d97ed5acf6acc0",
     "candidate_register": "565ea160992c06c8de24e814be4b8316eda668ef2b99dec8521c6c7f2415773e",
     "owner_confirmation_queue": "efadb88808198e9d445d968323b481b903e9c782f92a4646d26ada24d0e2fabb",
     "conflict_gap_report": "f0d61557ab6157872e4b7c54941d51a41e1a4dcc2e8036ee243620aa34734041",
     "identity_module": "8fc0c9f464810f63e0287c1a26fc8b39f7ea9f47e863ebc297df19434dec7f1e",
     "liff_calibration_shell": "ef569b1b746fba360d12b19856baa3ade76680a210bc6f84bfa0238ebf6e4a06"
   },
+  "pull_request": "https://github.com/baobaoagi-cpu/plm/pull/1",
+  "plm_update": "COMPLETED",
   "stop_state": "NEEDS_HUMAN_PLM_MIGRATION_REVIEW"
 }

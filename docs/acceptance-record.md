@@ -73,7 +73,7 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 
 ## Repository Migration Repair — 謝文憲 Phase 2／3A → PLM
 
-- Status: `LOCAL_ACCEPTANCE_COMPLETE / GITHUB_ACTIONS_PENDING`
+- Status: `COMPLETED / NEEDS_HUMAN_PLM_MIGRATION_REVIEW`
 - Canonical repository: `baobaoagi-cpu/plm`
 - Historical source: `baobaoagi-cpu/holygrail2@a1ad3825cf17935622c158795dee019be99bcaaa`
 - Source inventory: `PASS`，31 entries，六種分類均受支援
@@ -93,7 +93,8 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - Secret scan: `PASS`（tracked diff 與 raw V2 均為 0 high-confidence matches）
 - Forbidden import / Tracy contamination scans: `PASS`（production code 0 matches）
 - JSON parse / Git diff check: `PASS`
-- GitHub Actions: `PENDING`
+- GitHub Actions: `PASS`
+- Draft PR: `https://github.com/baobaoagi-cpu/plm/pull/1`
 - Production connections or paid provider calls: `0`
 - Release persona created: `NO`
 - Stop condition: `NEEDS_HUMAN_PLM_MIGRATION_REVIEW`
