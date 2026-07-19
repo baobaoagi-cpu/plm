@@ -16,6 +16,9 @@
 - LINE OA / LIFF integration blueprint covering authenticated identity, versioned WebSocket
   contracts, continuous audio, generation-safe interruption, deployment boundaries and staged
   release gates without importing the legacy runtime.
+- Provider-independent, thread-safe Generation Guard with explicit lifecycle transitions,
+  per-session active ownership, terminal late-data rejection, atomic replacement/cancellation,
+  bounded terminal cleanup, redacted snapshots and structured state-change events.
 
 ### Security
 
@@ -27,5 +30,6 @@
 - Use one WebSocket session per generation.
 - Treat socket close only as an inferred cancellation layer and discard stale audio locally.
 - Keep Pipecat as the sole orchestrator; the legacy pipeline remains reference-only.
-- Task 003 is complete. Task 004 remains unauthorized and the post-publish stop is
-  `NEEDS_HUMAN_POST_PUBLISH_REVIEW`.
+- Task 003 and the public initial publish are complete.
+- Task 004 is complete. Task 005 and LINE OA integration remain unauthorized; the current stop is
+  `NEEDS_HUMAN_MILESTONE_APPROVAL`.

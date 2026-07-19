@@ -39,6 +39,26 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - Project state: `NEEDS_HUMAN_MILESTONE_APPROVAL`
 # Acceptance Record
 
+## Task 004 — Generation Guard
+
+- Status: `COMPLETED`
+- Explicit lifecycle and mechanical transition table: `PASS`
+- At most one active generation per session: `PASS`
+- Terminal generation permanently rejects late data: `PASS`
+- Unknown and mismatched tokens fail closed: `PASS`
+- Cancel/complete concurrency and 20-way replacement: `PASS`
+- 100 late chunks dropped without exception: `PASS`
+- Terminal cleanup and active-record preservation: `PASS`
+- Metadata restrictions, redacted snapshot and safe event projection: `PASS`
+- Event sink called outside lock: `PASS`
+- Forbidden runtime imports: `NONE`
+- Ruff: `PASS`
+- mypy strict: `PASS` (51 project files)
+- pytest: `PASS` (107 tests)
+- Paid provider calls: `0`
+- Task 005 started: `NO`
+- Stop condition: `NEEDS_HUMAN_MILESTONE_APPROVAL`
+
 ## GitHub initial publish and LINE OA integration design
 
 - Integration blueprint: `DESIGN_COMPLETE_NOT_IMPLEMENTED`

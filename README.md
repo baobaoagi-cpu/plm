@@ -3,8 +3,8 @@
 以 Pipecat 作為唯一對話編排核心、LiveKit 作為 WebRTC 媒體層，並以 MiniMax
 WebSocket TTS 作為正式聲音輸出的可中斷即時語音系統。
 
-目前狀態：Task 001、Task 002 與 Task 003 已完成驗收。Legacy LINE OA 打電話功能包已完成
-唯讀稽核；整合藍圖已建立，但尚未獲准抽取或實作 Task 004。
+目前狀態：Task 001 至 Task 004 已完成驗收。Task 004 提供供應商無關的 Generation
+Guard Core；Legacy LINE OA 打電話功能包仍只作為唯讀參考，正式整合尚未獲准。
 
 ## 核心原則
 
@@ -85,6 +85,7 @@ MiniMaxTTSService。
 2. Phase 0 / Task 002：MiniMax WebSocket Spike 與真實事件、音訊格式、TTFA 驗證。
 3. Task 003：協定模型與真實事件 fixtures。
 4. Legacy audit：LINE OA 功能包唯讀盤點與分階段整合藍圖。
-5. Task 004 之後：須另經人工 milestone 核准；不得由本次發布自動啟動。
+5. Task 004：Generation lifecycle、取消登記、晚到資料硬閘門、cleanup 與安全事件。
+6. Task 005 之後：須另經人工 milestone 核准；不得自動啟動。
 
 完整需求見 `minimax-duplex-voice-spec-v1.0.md`。

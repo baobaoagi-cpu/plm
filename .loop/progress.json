@@ -2,14 +2,15 @@
   "schema_version": 1,
   "updated_at": "2026-07-19T00:00:00+08:00",
   "project": "minimax-duplex-voice",
-  "current_milestone": "GitHub Initial Publish",
-  "current_iteration": 9,
-  "status": "NEEDS_HUMAN_POST_PUBLISH_REVIEW",
+  "current_milestone": "Task 004 - Generation Guard",
+  "current_iteration": 10,
+  "status": "NEEDS_HUMAN_MILESTONE_APPROVAL",
   "tasks": {
     "task_001": {"status": "COMPLETED"},
     "task_002": {"status": "COMPLETED"},
     "task_003": {"status": "COMPLETED"},
-    "task_004": {"status": "NOT_AUTHORIZED"}
+    "task_004": {"status": "COMPLETED"},
+    "task_005": {"status": "NOT_AUTHORIZED"}
   },
   "legacy_audit": {
     "status": "COMPLETED",
@@ -34,7 +35,7 @@
     "document": "docs/line-oa-voice-call-integration-blueprint.md",
     "pipecat_sole_orchestrator": true,
     "legacy_runtime_imported": false,
-    "task_004_started": false
+    "task_004_completed": true
   },
   "initial_publish": {
     "status": "COMPLETED",
@@ -45,6 +46,15 @@
     "mypy_strict": "PASS_41_FILES",
     "pytest": "PASS_47"
   },
-  "next_allowed_action": "Human post-publish review and explicit approval of a single extraction stage.",
-  "forbidden_next_action": "Do not integrate legacy code, modify the reference repository, or begin Task 004."
+  "task_004_acceptance": {
+    "status": "COMPLETED",
+    "build_iterations": 2,
+    "source_files_checked": 51,
+    "tests_passed": 107,
+    "paid_provider_calls": 0,
+    "forbidden_runtime_imports": 0,
+    "evidence": ".loop/evidence/task004-generation-guard-i10.md"
+  },
+  "next_allowed_action": "Human review and explicit milestone approval for Task 005 or another bounded action.",
+  "forbidden_next_action": "Do not begin Task 005, LINE OA integration, a formal TTS service, Pipecat pipeline, LiveKit transport, or paid provider probes."
 }
