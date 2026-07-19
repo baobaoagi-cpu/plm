@@ -48,7 +48,7 @@
   },
   "task_004_acceptance": {
     "status": "COMPLETED",
-    "build_iterations": 2,
+    "build_iterations": 3,
     "source_files_checked": 51,
     "tests_passed": 107,
     "paid_provider_calls": 0,

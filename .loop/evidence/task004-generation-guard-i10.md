@@ -36,6 +36,15 @@ MiniMax provider, Pipecat, LiveKit, LINE OA or Legacy package code was called or
 - One non-failing sandbox warning remained because pytest could not write `.pytest_cache`; all
   collection, execution and assertions completed.
 
+### Build iteration 3
+
+- The GitHub two-core runner exposed a test-only thread-pool starvation: twenty barrier
+  participants were submitted to the smaller default executor, so queued workers could not reach
+  the barrier.
+- The test now owns an explicit twenty-worker executor. The concurrency count and assertions were
+  preserved; no Guard implementation or acceptance criterion was weakened.
+- Full local gates passed again before the repair commit.
+
 ## Concurrency and late-data evidence
 
 - Two worker threads raced `cancel` against `complete`; exactly one terminal transition won.

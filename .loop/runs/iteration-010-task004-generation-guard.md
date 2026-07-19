@@ -18,6 +18,8 @@ gate authorized for Task 004.
 
 - Build iteration 1: 107 tests passed; three static findings remained.
 - Build iteration 2: Ruff, mypy strict and all 107 tests passed.
+- Build iteration 3: repaired CI-only starvation in the test harness with an explicit twenty-worker
+  executor; concurrency strength remained unchanged.
 - Paid API calls: 0.
 - Task 003 protocol/fixtures modified: no.
 - Forbidden integrations started: no.

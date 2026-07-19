@@ -2,7 +2,7 @@
 
 ## Milestone result
 
-Task 004 Generation Guard is `COMPLETED` in two bounded build/verification iterations.
+Task 004 Generation Guard is `COMPLETED` in three bounded build/verification iterations.
 
 ## Delivered
 

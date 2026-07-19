@@ -5,6 +5,7 @@ import asyncio
 import json
 import threading
 from collections.abc import Callable
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import pytest
@@ -365,9 +366,11 @@ async def test_concurrent_replace_active_leaves_exactly_one_active() -> None:
         barrier.wait()
         return guard.replace_active("session-a", "newer_generation")
 
-    tokens = await asyncio.gather(
-        *(asyncio.to_thread(replace) for _ in range(worker_count))
-    )
+    loop = asyncio.get_running_loop()
+    with ThreadPoolExecutor(max_workers=worker_count) as executor:
+        tokens = await asyncio.gather(
+            *(loop.run_in_executor(executor, replace) for _ in range(worker_count))
+        )
 
     current = guard.get_active("session-a")
     assert current in tokens
