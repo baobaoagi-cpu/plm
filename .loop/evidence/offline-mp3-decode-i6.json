@@ -1,0 +1,20 @@
+{
+  "iteration": 6,
+  "decoder": "miniaudio.mp3_read_s16",
+  "network_provider_call": false,
+  "full_stream": {
+    "input_bytes": 43098,
+    "decoded": true,
+    "sample_rate": 24000,
+    "channels": 1,
+    "frames": 62831
+  },
+  "first_chunk": {
+    "input_bytes": 2048,
+    "decoded": true,
+    "sample_rate": 24000,
+    "channels": 1,
+    "frames": 1775
+  },
+  "conclusion": "SINGLE_CHUNK_DECODABLE_VERIFIED"
+}

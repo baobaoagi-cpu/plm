@@ -1,0 +1,11 @@
+{
+  "event": "task_finished",
+  "trace_id": "fixture-trace-finished",
+  "extra_info": {
+    "audio_format": "mp3",
+    "audio_sample_rate": 24000,
+    "audio_channel": 1,
+    "audio_length": 1439
+  },
+  "base_resp": {"status_code": 0, "status_msg": "synthetic success"}
+}

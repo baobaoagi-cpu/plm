@@ -1,0 +1,1 @@
+"""Semantic text chunker placeholder."""

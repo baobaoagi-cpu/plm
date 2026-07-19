@@ -1,0 +1,1 @@
+"""Interruption simulator placeholder."""

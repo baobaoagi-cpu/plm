@@ -1,0 +1,1 @@
+"""Streaming LLM protocol placeholder."""

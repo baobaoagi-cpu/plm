@@ -1,0 +1,1 @@
+"""Replaceable streaming STT boundary."""

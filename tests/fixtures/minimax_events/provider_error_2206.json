@@ -1,0 +1,5 @@
+{
+  "event": "task_failed",
+  "trace_id": "fixture-trace-reuse-rejected",
+  "base_resp": {"status_code": 2206, "status_msg": "synthetic reuse rejection"}
+}

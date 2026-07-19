@@ -1,0 +1,6 @@
+{
+  "event": "task_continued",
+  "trace_id": "fixture-trace-continued-final",
+  "is_final": true,
+  "base_resp": {"status_code": 0, "status_msg": "synthetic success"}
+}

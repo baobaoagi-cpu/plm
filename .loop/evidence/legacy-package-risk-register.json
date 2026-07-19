@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "reference_commit": "2ae148d46b5d018ae5999ee68f3db6da5cc5566f",
+  "status": "COMPLETE",
+  "risks": [
+    {"id":"LVR-001","severity":"CRITICAL","title":"MiniMax same-session reuse contradicts verified provider behavior","classification":"VERIFIED","evidence":["backend/modules/minimax-realtime.ts:1-15","backend/modules/minimax-realtime.ts:53-109","backend/modules/minimax-realtime.ts:278-357","docs/minimax-spike-results.md"],"action":"Deprecate pool; enforce one session per generation."},
+    {"id":"LVR-002","severity":"CRITICAL","title":"Browser drops mic upload while AI audio or tail gate is active","classification":"VERIFIED","evidence":["frontend/src/hooks/useAudio.ts:209-225","frontend/src/hooks/useAudio.ts:512-513"],"action":"Rewrite capture so upload is continuous during playback."},
+    {"id":"LVR-003","severity":"CRITICAL","title":"Legacy VoicePipeline would create a second orchestrator beside Pipecat","classification":"VERIFIED","evidence":["backend/modules/voice-pipeline.ts:1-18","backend/modules/voice-pipeline.ts:63-159"],"action":"Deprecate class; extract tests/behavior only."},
+    {"id":"LVR-004","severity":"HIGH","title":"Caller-controlled LINE userId is trusted as session identity","classification":"VERIFIED","evidence":["frontend/src/hooks/useWebSocket.ts:101-110","backend/routes/voice-call.ts:293-350","backend/modules/voice-session.ts:38-59"],"action":"Verify LIFF ID token server-side and derive identity there."},
+    {"id":"LVR-005","severity":"HIGH","title":"Unversioned WebSocket protocol has no generation, sequence, ACK or structured errors","classification":"VERIFIED","evidence":["frontend/src/hooks/useWebSocket.ts:18-29","backend/routes/voice-call.ts:34-40"],"action":"Define versioned schema before integration."},
+    {"id":"LVR-006","severity":"HIGH","title":"MP3/PCM documentation and implementation disagree","classification":"VERIFIED","evidence":["backend/modules/minimax-tts.ts:1-11","backend/modules/minimax-tts.ts:322-327","frontend/src/hooks/useAudio.ts:291-467"],"action":"Treat MP3 24 kHz mono as verified; PCM remains unknown."},
+    {"id":"LVR-007","severity":"HIGH","title":"Transcript echo heuristic cannot replace acoustic echo cancellation","classification":"INFERRED","evidence":["frontend/src/hooks/useAudio.ts:151-163","backend/modules/voice/echo-filter.ts:39-62"],"action":"Use browser AEC/far-end reference; retain text filter only as auxiliary signal."},
+    {"id":"LVR-008","severity":"HIGH","title":"Phase plus multiple booleans can diverge","classification":"VERIFIED","evidence":["backend/modules/voice-pipeline.ts:63-75","backend/modules/voice-pipeline.ts:151-159"],"action":"Replace with one authoritative Floor State Machine in its authorized milestone."},
+    {"id":"LVR-009","severity":"HIGH","title":"Legacy TypeScript backend directly constructs pipeline instead of Python runtime boundary","classification":"VERIFIED","evidence":["backend/routes/voice-call.ts:319-323"],"action":"Build a versioned LIFF-to-Python transport adapter after approval."},
+    {"id":"LVR-010","severity":"MEDIUM","title":"Compressed playback and pre-connect ASR buffers lack explicit caps","classification":"VERIFIED","evidence":["frontend/src/hooks/useAudio.ts:54-60","backend/modules/streaming-asr.ts:65-70,153-158,257-270"],"action":"Add byte/time caps and overflow policy."},
+    {"id":"LVR-011","severity":"HIGH","title":"Legacy logs include synthesis text, provider messages, traces and response bodies","classification":"VERIFIED","evidence":["backend/modules/minimax-realtime.ts:161,175,205-208,337","backend/modules/minimax-tts.ts:202,256,342-346,391-411"],"action":"Do not port logs; use PLM redaction helpers."},
+    {"id":"LVR-012","severity":"MEDIUM","title":"ScriptProcessor combines capture and playback timing in a monolithic hook","classification":"VERIFIED","evidence":["frontend/src/hooks/useAudio.ts:141-225,291-467"],"action":"Rewrite with isolated worklets and deterministic buffer ownership."},
+    {"id":"LVR-013","severity":"MEDIUM","title":"Filler assets referenced by code are absent from package","classification":"VERIFIED","evidence":["frontend/src/hooks/useAudio.ts:554-588","43-file inventory"],"action":"Do not assume fillers are self-contained; decide separately."},
+    {"id":"LVR-014","severity":"MEDIUM","title":"Tracked production env file requires deployment-owner review before any reuse","classification":"VERIFIED","evidence":["frontend/.env.production tracked","variable names VITE_LIFF_ID and VITE_WS_URL","high-confidence secret scan zero"],"action":"Do not copy values; re-provision approved PLM configuration."},
+    {"id":"LVR-015","severity":"LOW","title":"Repository-wide PLM lint traverses the read-only legacy clone","classification":"VERIFIED","evidence":["uv run --locked ruff check . reported 641 pre-existing legacy findings","uv run --locked ruff check src scripts tests passed"],"action":"Keep validation scoped to PLM sources or explicitly exclude references after separate approval; never auto-fix legacy files."}
+  ],
+  "security": {
+    "high_confidence_secret_hits": 0,
+    "env_files": [
+      {"path":"frontend/.env.example","tracked":true,"variable_names":["VITE_LIFF_ID","VITE_WS_URL"],"result":"SAFE"},
+      {"path":"frontend/.env.production","tracked":true,"variable_names":["VITE_LIFF_ID","VITE_WS_URL"],"result":"SAFE_WITH_OWNER_REVIEW"}
+    ],
+    "values_recorded": false
+  }
+}

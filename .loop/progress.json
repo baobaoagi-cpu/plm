@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-19T00:00:00+08:00",
+  "project": "minimax-duplex-voice",
+  "current_milestone": "GitHub Initial Publish",
+  "current_iteration": 9,
+  "status": "NEEDS_HUMAN_POST_PUBLISH_REVIEW",
+  "tasks": {
+    "task_001": {"status": "COMPLETED"},
+    "task_002": {"status": "COMPLETED"},
+    "task_003": {"status": "COMPLETED"},
+    "task_004": {"status": "NOT_AUTHORIZED"}
+  },
+  "legacy_audit": {
+    "status": "COMPLETED",
+    "iterations_used": 3,
+    "reference_branch": "voice-call-package",
+    "reference_commit": "2ae148d46b5d018ae5999ee68f3db6da5cc5566f",
+    "reference_clean": true,
+    "inventory_files": 43,
+    "inventory_missing": 0,
+    "inventory_extra": 0,
+    "risk_count": 15,
+    "high_confidence_secret_hits": 0,
+    "env_values_recorded": false,
+    "provider_api_calls": 0,
+    "evidence": [
+      ".loop/evidence/legacy-package-inventory.json",
+      ".loop/evidence/legacy-package-risk-register.json"
+    ]
+  },
+  "integration_blueprint": {
+    "status": "DESIGN_COMPLETE_NOT_IMPLEMENTED",
+    "document": "docs/line-oa-voice-call-integration-blueprint.md",
+    "pipecat_sole_orchestrator": true,
+    "legacy_runtime_imported": false,
+    "task_004_started": false
+  },
+  "initial_publish": {
+    "status": "COMPLETED",
+    "repository": "https://github.com/baobaoagi-cpu/plm",
+    "branch": "main",
+    "security_scan": "PASS",
+    "ruff": "PASS",
+    "mypy_strict": "PASS_41_FILES",
+    "pytest": "PASS_47"
+  },
+  "next_allowed_action": "Human post-publish review and explicit approval of a single extraction stage.",
+  "forbidden_next_action": "Do not integrate legacy code, modify the reference repository, or begin Task 004."
+}

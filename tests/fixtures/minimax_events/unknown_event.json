@@ -1,0 +1,7 @@
+{
+  "event": "future_provider_event",
+  "trace_id": "fixture-trace-unknown",
+  "voice_id": "synthetic-sensitive-voice",
+  "data": {"message": "synthetic private content"},
+  "base_resp": {"status_code": 0, "status_msg": "synthetic success"}
+}

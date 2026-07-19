@@ -1,0 +1,1 @@
+"""STT provider factory placeholder."""

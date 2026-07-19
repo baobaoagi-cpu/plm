@@ -1,0 +1,5 @@
+{
+  "event": "connected_success",
+  "trace_id": "fixture-trace-connected",
+  "base_resp": {"status_code": 0, "status_msg": "synthetic success"}
+}
