@@ -70,3 +70,30 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - mypy strict: `PASS` (41 source files)
 - pytest: `PASS` (47 tests)
 - Stop condition: `NEEDS_HUMAN_POST_PUBLISH_REVIEW`
+
+## Repository Migration Repair — 謝文憲 Phase 2／3A → PLM
+
+- Status: `LOCAL_ACCEPTANCE_COMPLETE / GITHUB_ACTIONS_PENDING`
+- Canonical repository: `baobaoagi-cpu/plm`
+- Historical source: `baobaoagi-cpu/holygrail2@a1ad3825cf17935622c158795dee019be99bcaaa`
+- Source inventory: `PASS`，31 entries，六種分類均受支援
+- Phase 2 candidates: `PASS`，46 candidate，0 owner quotes，runtime/production false
+- Owner Confirmation Queue: `PASS`，15 pending，0 decisions
+- Raw V2: `REFERENCE_ONLY`，27,291 bytes，SHA-256 已驗證，Git ignored
+- Phase 3A identity isolation: `PASS`，PLM-native module，預設停用／kill switch 開啟
+- Tenant／Persona／Mem0／LINE／Voice／DB／storage／cache／session isolation: `PASS`
+- Legacy second orchestrator / connection pool imported: `NO`
+- Generation Guard modified or bypassed: `NO`
+- LIFF shell: `TYPECHECK_PASS / CALL_DISABLED / BACKEND_FREE`
+- Ruff: `PASS`
+- mypy strict: `PASS`（55 source files）
+- pytest: `PASS`（126 tests）
+- npm audit: `PASS`（0 vulnerabilities）
+- TypeScript strict: `PASS`
+- Secret scan: `PASS`（tracked diff 與 raw V2 均為 0 high-confidence matches）
+- Forbidden import / Tracy contamination scans: `PASS`（production code 0 matches）
+- JSON parse / Git diff check: `PASS`
+- GitHub Actions: `PENDING`
+- Production connections or paid provider calls: `0`
+- Release persona created: `NO`
+- Stop condition: `NEEDS_HUMAN_PLM_MIGRATION_REVIEW`

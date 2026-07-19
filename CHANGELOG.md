@@ -19,6 +19,12 @@
 - Provider-independent, thread-safe Generation Guard with explicit lifecycle transitions,
   per-session active ownership, terminal late-data rejection, atomic replacement/cancellation,
   bounded terminal cleanup, redacted snapshots and structured state-change events.
+- PLM-canonical 謝文憲 Phase 2 candidate register、Owner Confirmation Queue、來源／衝突治理資產。
+- PLM-native Owner Calibration 3A identity policy：專屬 tenant、persona、Mem0 reservation、
+  LINE／Voice slots、storage namespaces、allowlist、Sandbox notice 與 fail-closed kill switch。
+- Backend-free、預設停用的謝文憲 LIFF call shell、mic permission、waveform 與 dial tone；未搬
+  legacy audio/WebSocket hooks、persona assets 或第二套編排器。
+- Repository Migration inventory/report、V2 custody review、隔離／污染測試與 Web strict CI。
 
 ### Security
 
@@ -32,4 +38,6 @@
 - Keep Pipecat as the sole orchestrator; the legacy pipeline remains reference-only.
 - Task 003 and the public initial publish are complete.
 - Task 004 is complete. Task 005 and LINE OA integration remain unauthorized; the current stop is
-  `NEEDS_HUMAN_MILESTONE_APPROVAL`.
+  `NEEDS_HUMAN_PLM_MIGRATION_REVIEW` after the separately authorized Repository Migration Repair.
+- `baobaoagi-cpu/plm` is the sole canonical repository for the Xie Wenxian system. The historical
+  holygrail2 branch is provenance only and was not modified or deleted.

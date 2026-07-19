@@ -1,30 +1,36 @@
 # Current Milestone Plan
 
-## Milestone result
+## Milestone
 
-Task 004 Generation Guard is `COMPLETED` in three bounded build/verification iterations.
+`Repository Migration Repair`
 
-## Delivered
+## Goal
 
-- Explicit GenerationState transition table and typed token/record/error models
-- Thread-safe per-session active generation ownership
-- Atomic cancellation, completion, failure, supersession and replacement
-- Hard acceptance gate for stale, terminal, mismatched and unknown tokens
-- Bounded terminal cleanup, record count, redacted snapshot and safe structured events
-- Offline lifecycle, race, late-data, cleanup, redaction and forbidden-import tests
+Make `baobaoagi-cpu/plm` the canonical repository for the Xie Wenxian Owner Calibration Sandbox,
+while preserving Phase 2 evidence status and PLM's sole-orchestrator/generation invariants.
 
-## Current state
+## Delivered locally
 
-`NEEDS_HUMAN_MILESTONE_APPROVAL`
+- 31-entry source inventory and PLM target mapping.
+- Phase 2 candidate register, confirmation queue, evidence inventory and conflict/gap artifacts.
+- PLM-native Phase 3A tenant identity, allowlist, Sandbox mode, kill switch and namespace bindings.
+- Backend-free, call-disabled LIFF shell rewritten from safe legacy UX concepts.
+- Raw V2 hash/custody review; raw mother document remains ignored and untracked.
+- Migration tests, Python quality checks and TypeScript strict validation.
 
-## Next allowed action
+## Pending
 
-Human reviews Task 004 evidence and explicitly approves the next bounded milestone.
+- Final staged secret, forbidden-import and contamination scans.
+- Git commit/push and GitHub Actions.
+- Human PLM migration review.
 
 ## Forbidden
 
-- Modify or commit to the Legacy Reference Repository
-- Copy the legacy package wholesale into PLM
-- Begin extraction, LINE integration or Task 005
-- Create a production MiniMax service, Pipecat pipeline or LiveKit integration
-- Copy legacy env values or execute paid provider probes
+- Task 005 or formal MiniMaxTTSService.
+- LINE webhook, STT, TTS, LIFF identity/transport activation or Pipecat Pipeline.
+- LiveKit addition, Mem0 writes, production, public voice or Persona Release.
+- Legacy TypeScript pipeline, MiniMax connection pool or any Tracy asset.
+
+## Required stop
+
+`NEEDS_HUMAN_PLM_MIGRATION_REVIEW`

@@ -25,4 +25,14 @@ jobs:
         run: uv run mypy
       - name: Unit tests
         run: uv run pytest tests/unit
-
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install LIFF shell dependencies
+        working-directory: web
+        run: npm ci --ignore-scripts
+      - name: Typecheck LIFF shell
+        working-directory: web
+        run: npm run typecheck

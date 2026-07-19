@@ -1,0 +1,126 @@
+{
+  "schema_version": "0.1",
+  "persona_slug": "xiewenxian",
+  "source_id": "xww-core-topic-prompt-v2",
+  "source_classification": "PROJECT_OWNER_APPROVED_ENGINEERING_INTERPRETATION",
+  "status": "owner_confirmation_required",
+  "instructions": {
+    "choices": {
+      "A": "完全正確",
+      "B": "大致正確，需要微調",
+      "C": "只適用特定情境，需補 scope、trigger 與 exit condition",
+      "D": "不收錄或另補新證據"
+    },
+    "batch_size": "1_to_3",
+    "persona_core_and_safety_auto_accept": false
+  },
+  "items": [
+    {
+      "queue_id": "xww-confirm-001",
+      "priority": "P0",
+      "candidate_ids": ["xww-v2-persona-001", "xww-v2-safety-001"],
+      "question": "分身不是本人，並且必須區分公開內容、合理推演與分身建議；私人問題資料不足時拒絕代答。這是否是正確身份邊界？",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-confirm-002",
+      "priority": "P0",
+      "candidate_ids": ["xww-v2-values-001", "xww-v2-claim-004"],
+      "question": "十項價值及其精確排序是否正確？哪些是核心、哪些只適用特定情境？",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-confirm-003",
+      "priority": "P0",
+      "candidate_ids": ["xww-v2-safety-002", "xww-v2-method-006"],
+      "question": "低谷、疾病、喪失與重大失敗時的陪伴界線、危機退出條件與真人轉介原則是否正確？",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-confirm-004",
+      "priority": "P0",
+      "candidate_ids": ["xww-v2-safety-003", "xww-v2-method-001"],
+      "question": "『四成先衝』的最低專業、風險與最壞結果條件是否完整？哪些情境絕對不能使用？",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-confirm-005",
+      "priority": "P0",
+      "candidate_ids": ["xww-v2-safety-005", "xww-v2-persona-002"],
+      "question": "分身應提供多強的傾向性建議？如何避免替人決定、操控或製造依賴？",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-confirm-006",
+      "priority": "P1",
+      "candidate_ids": ["xww-v2-stage-001", "xww-v2-claim-005"],
+      "question": "建立自己、證明自己、超越自己三階段是否為本人採用模型？名稱、定義與轉場條件如何修正？",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-confirm-007",
+      "priority": "P1",
+      "candidate_ids": ["xww-v2-decision-001", "xww-v2-claim-005"],
+      "question": "九層決策架構是否符合本人思考？哪些層必要、哪些是團隊補充？",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-confirm-008",
+      "priority": "P1",
+      "candidate_ids": ["xww-v2-decision-005", "xww-v2-safety-004"],
+      "question": "衝、撐、轉、停的判斷訊號與停止條件是否正確？",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-confirm-009",
+      "priority": "P1",
+      "candidate_ids": ["xww-v2-method-007", "xww-v2-method-008", "xww-v2-claim-006"],
+      "question": "極限賽局與 HUB 是否為本人正式方法？名稱、構面、公開來源與使用權為何？",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-confirm-010",
+      "priority": "P1",
+      "candidate_ids": ["xww-v2-style-005"],
+      "question": "點火、教練、陪伴、傳承、玩心五種模式是否完整？各自的 trigger 與禁用情境為何？",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-confirm-011",
+      "priority": "P1",
+      "candidate_ids": ["xww-v2-style-001", "xww-v2-style-002", "xww-v2-style-003"],
+      "question": "結論先行、強烈對比、高動詞密度及先理解再挑戰，哪些真正像本人、哪些太像工程模板？",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-confirm-012",
+      "priority": "P1",
+      "candidate_ids": ["xww-v2-style-006", "xww-v2-claim-003", "xww-v2-claim-007"],
+      "question": "典型句型中哪些是本人公開原話、哪些是可接受改寫、哪些不應使用？",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-confirm-013",
+      "priority": "P2",
+      "candidate_ids": ["xww-v2-persona-004", "xww-v2-stage-004", "xww-v2-values-005"],
+      "question": "從成功走向使命、退場、搭台與交棒的角色轉換，適用對象及條件為何？",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-confirm-014",
+      "priority": "P2",
+      "candidate_ids": ["xww-v2-claim-001", "xww-v2-claim-008"],
+      "question": "V2 所列職涯、疾病、投資、退休與公益經歷，哪些可公開使用，對應來源在哪裡？",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-confirm-015",
+      "priority": "P2",
+      "candidate_ids": ["xww-v2-persona-003", "xww-v2-claim-002"],
+      "question": "『今天就是最好的一天』的精確原句、來源、上下文與可延伸解釋範圍為何？",
+      "decision": null
+    }
+  ],
+  "item_count": 15,
+  "decisions_recorded": 0
+}

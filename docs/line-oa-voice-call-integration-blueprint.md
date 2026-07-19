@@ -2,7 +2,7 @@
 
 ## 1. Decision and boundary
 
-Status: `DESIGN_COMPLETE_NOT_IMPLEMENTED`
+Status: `MIGRATION_SHELL_PRESENT_INTEGRATION_NOT_IMPLEMENTED`
 
 This blueprint combines the useful LINE OA / LIFF call experience with the PLM runtime without
 adopting the legacy TypeScript pipeline. It does not authorize extraction, Task 004, a production
@@ -13,7 +13,8 @@ Non-negotiable decisions:
 - Pipecat is the only dialogue and floor-state orchestrator.
 - LiveKit, when authorized, is transport only; LiveKit Agents are not introduced.
 - MiniMax WebSocket TTS is the only production voice output engine.
-- The legacy reference repository remains ignored, read-only, and outside the runtime.
+- The legacy reference repository remains ignored, read-only, and outside the runtime. Migration
+  Repair reimplemented four backend-free UI-shell components without importing the legacy runtime.
 - Task 002 evidence controls provider behavior: one MiniMax WebSocket session per generation.
 - Browser microphone upload must continue while assistant audio is playing.
 - Closing a socket is an engineering stop mechanism, not proof of provider-side cancellation.
@@ -190,7 +191,10 @@ ambiguous credentials across environments.
 
 Extract/adapt `CallScreen`, `BreathingOrb`, `Waveform`, `MicPermission`, `DialTone` and LIFF startup.
 No backend, audio hook or provider code. Acceptance: login/error/mic-gesture UI tests and a backend-
-free feature flag. Rollback: remove the isolated frontend route.
+free feature flag. Migration Repair now provides a call-disabled React shell, microphone permission
+view, waveform and dial tone under `web/src/xiewenxian-calibration/`. They contain no LIFF SDK,
+backend, provider, avatar, identity, microphone capture or transport wiring. LIFF startup and an
+enabled route still require a future human gate. Rollback: remove the isolated frontend package.
 
 ### Stage 2 — Protocol and authenticated Python boundary
 
@@ -229,4 +233,5 @@ Integration cannot be called complete until all of the following are evidenced:
 - latency, interruption and failure-mode acceptance records;
 - independent rollback for every extraction stage.
 
-Current stop condition: `NEEDS_HUMAN_POST_PUBLISH_REVIEW` after the safe initial repository publish.
+Current stop condition: `NEEDS_HUMAN_PLM_MIGRATION_REVIEW`. Migration Repair does not authorize
+Stage 1 activation, LINE identity, audio, provider or production work.
