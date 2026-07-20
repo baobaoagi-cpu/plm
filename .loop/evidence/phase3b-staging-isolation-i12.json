@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-07-20T23:24:28+08:00",
+  "iteration": 12,
+  "milestone": "Phase 3B — Staging Identity and Data-Isolation Proof",
+  "branch": "codex/xiewenxian-phase-3b-staging-isolation",
+  "base_commit": "846d374819bce085e2f47cb7b5ccc835a383173f",
+  "scope": {
+    "tenant": "xie_wenxian",
+    "environment": "staging",
+    "synthetic_only": true,
+    "external_database_contacted": false,
+    "real_identity_used": false,
+    "real_user_data_used": false,
+    "mem0_connected": false,
+    "line_connected": false,
+    "production_connections": 0,
+    "release_persona_created": false
+  },
+  "identity_and_isolation": {
+    "verified_assertion_required": "VERIFIED",
+    "raw_external_id_persisted": false,
+    "synthetic_students_tested": 2,
+    "conversation_ab_isolation": "VERIFIED",
+    "student_memory_ab_isolation": "VERIFIED",
+    "prompt_log_ab_isolation": "VERIFIED",
+    "owner_evidence_owner_only": "VERIFIED",
+    "owner_evidence_excluded_from_student_memory": "VERIFIED"
+  },
+  "persona": {
+    "candidate_register_sha256": "565ea160992c06c8de24e814be4b8316eda668ef2b99dec8521c6c7f2415773e",
+    "candidate_count": 46,
+    "source_classification": "PROJECT_OWNER_APPROVED_ENGINEERING_INTERPRETATION",
+    "owner_confirmation_status": "NOT_OWNER_CONFIRMED",
+    "runtime_eligible": false,
+    "production_eligible": false,
+    "fail_closed_loader": "VERIFIED"
+  },
+  "database": {
+    "target": "PostgreSQL 15+",
+    "schema": "xiewenxian_staging",
+    "migration_files": 2,
+    "ast_parse": "VERIFIED",
+    "contract_tests": "VERIFIED",
+    "forced_rls_tables": 6,
+    "external_apply": "UNKNOWN_NOT_EXECUTED",
+    "reason_not_executed": "No human-confirmed staging database identity or rollback window"
+  },
+  "admin": {
+    "contracts": ["/", "/data-map", "/persona", "/soul-foundry"],
+    "methods": ["GET"],
+    "mutation_allowed": false,
+    "publish_allowed": false,
+    "http_server_created": false,
+    "ui_created": false
+  },
+  "verification": {
+    "baseline_pytest": "PASS_126",
+    "phase3b_focused_pytest": "PASS_41",
+    "final_pytest": "PASS_167",
+    "ruff": "PASS",
+    "mypy_strict": "PASS_63_FILES",
+    "typescript_strict": "PASS",
+    "npm_audit": "PASS_0_VULNERABILITIES",
+    "diff_high_confidence_secret_matches": 0,
+    "phase3b_forbidden_runtime_matches": 0,
+    "generation_guard_modified": false,
+    "dependency_files_modified": true,
+    "dependency_change": "dev-only pglast PostgreSQL AST parser pinned in uv.lock",
+    "json_parse_failures": 0,
+    "git_diff_check": "PASS",
+    "github_actions": "PENDING"
+  },
+  "artifact_sha256": {
+    "identity_mapping": "139d79e7a6fa0c9483b07a557bcb30de1d7b2867d5dae1e6944588bd19032722",
+    "staging_store": "453d992b3d82ab424c0f57d72058af3335789f87156dadd53cfc6a32a415468a",
+    "persona_loader": "422278ab58e637b2fd0bd27ce7948e7fcb8343928cc07370d01d700295d69d20",
+    "admin_contracts": "9f1b27e76a6794e0a62c90200cd3855abda840d378c58db17a6e4c2eae83524b",
+    "migration_up": "6f822275443a83f43341feb8df67f4c23a5c353aca81861118429aa839dd81f1",
+    "migration_down": "c365e738ba6df6979d1fb173bbf4d30e3c7c6a6a13a6269c21ecd34b684af17a",
+    "phase3b_spec": "315b34a7fec6d9a000c04bb7e340d0c9a7ce13f9d4721d860f37287cb41a8e65"
+  },
+  "stop_state": "NEEDS_HUMAN_PHASE_3B_REVIEW"
+}

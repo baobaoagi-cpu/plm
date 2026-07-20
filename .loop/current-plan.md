@@ -2,35 +2,36 @@
 
 ## Milestone
 
-`Repository Migration Repair`
+`Phase 3B — Staging Identity and Data-Isolation Proof`
 
 ## Goal
 
-Make `baobaoagi-cpu/plm` the canonical repository for the Xie Wenxian Owner Calibration Sandbox,
-while preserving Phase 2 evidence status and PLM's sole-orchestrator/generation invariants.
+Prove with synthetic data that Xie Wenxian staging identities, conversations, student memory,
+prompt logs and owner evidence cannot cross tenant, principal or data-class boundaries.
 
-## Delivered
+## Delivered locally
 
-- 31-entry source inventory and PLM target mapping.
-- Phase 2 candidate register, confirmation queue, evidence inventory and conflict/gap artifacts.
-- PLM-native Phase 3A tenant identity, allowlist, Sandbox mode, kill switch and namespace bindings.
-- Backend-free, call-disabled LIFF shell rewritten from safe legacy UX concepts.
-- Raw V2 hash/custody review; raw mother document remains ignored and untracked.
-- Migration tests, Python quality checks and TypeScript strict validation.
-- Repair branch pushed to the canonical PLM repository and Draft PR #1 created.
-- GitHub Actions quality gates passed.
+- Verified LINE／Partner／synthetic assertion to hashed `effective_user_id` mapping.
+- Xie Wenxian-only staging tenant and principal kinds.
+- Synthetic-only conversation, student-memory, prompt-log and owner-evidence proof store.
+- Fail-closed candidate persona loader pinned to the governed register hash.
+- PostgreSQL 15+ up/down migration contracts with forced RLS and provider-role guards.
+- Four immutable GET-only admin contracts: `/`, `/data-map`, `/persona`, `/soul-foundry`.
+- Forty-one Phase 3B tests plus the full regression suite.
 
-## Pending human action
+## Remaining validation
 
-- Human PLM migration review.
+- Final secret, forbidden-import, Tracy-contamination and Git-diff scans.
+- Durable evidence hashes and iteration record.
+- Commit, push and GitHub Actions.
 
-## Forbidden
+## Explicitly not delivered
 
-- Task 005 or formal MiniMaxTTSService.
-- LINE webhook, STT, TTS, LIFF identity/transport activation or Pipecat Pipeline.
-- LiveKit addition, Mem0 writes, production, public voice or Persona Release.
-- Legacy TypeScript pipeline, MiniMax connection pool or any Tracy asset.
+- External DB migration execution or persistence adapter.
+- Real LINE／Partner verification, real user identity, Mem0, R2 or audio.
+- Admin HTTP server or UI.
+- Release persona, production, Task 005, Pipecat pipeline or LiveKit.
 
 ## Required stop
 
-`NEEDS_HUMAN_PLM_MIGRATION_REVIEW`
+`NEEDS_HUMAN_PHASE_3B_REVIEW`

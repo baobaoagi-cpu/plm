@@ -5,8 +5,9 @@ WebSocket TTS 作為正式聲音輸出的可中斷即時語音系統。
 
 目前狀態：Task 001 至 Task 004 已完成驗收。PLM 現為謝文憲專用聖杯、Owner
 Calibration Sandbox 與未來 LINE OA／LIFF 對話系統的唯一 canonical repository。
-Repository Migration Repair 已完成本地驗證，等待人工 migration review；正式 LINE、
-STT、TTS、Pipecat Pipeline、LiveKit、Mem0 與 production 仍未獲准。
+Phase 3B 已加入 staging-only 身份映射、synthetic data isolation proof、PostgreSQL migration
+contract 與四個 read-only admin contracts；沒有連接外部 DB、LINE、Mem0 或 production。
+正式 STT、TTS、Pipecat Pipeline、LiveKit、Mem0 與 production 仍未獲准。
 
 ## 核心原則
 
@@ -93,7 +94,24 @@ MiniMaxTTSService。
 - Migration inventory：`docs/migration/xiewenxian-plm-migration-inventory.json`。
 - Migration report：`docs/migration/xiewenxian-plm-migration-report.md`。
 
-目前停止點：`NEEDS_HUMAN_PLM_MIGRATION_REVIEW`。
+Repository Migration Review 已由 Phase 3B 人工決策承接；目前全域停止點為
+`NEEDS_HUMAN_PHASE_3B_REVIEW`。
+
+## Phase 3B Staging Identity and Data-Isolation Proof
+
+- LINE／Partner 身份只有經外部 adapter 驗證後才能映射；client 提供的未驗證 ID fail closed。
+- `effective_user_id` 使用來源系統與 SHA-256 指紋穩定映射，不保存 raw external ID。
+- In-memory proof store 只接受 `synthetic:` 測試內容，驗證兩名 synthetic students 的
+  conversation、student memory 與 prompt log 不串線。
+- Owner Evidence 只能由 OWNER 建立，且 Python／SQL 都禁止流入 Student Memory。
+- `migrations/phase3b/` 提供 PostgreSQL 15+ staging schema、forced RLS、least privilege、
+  provider-role guards 與 staging-only rollback；尚未對任何外部 DB 執行。
+- `/`、`/data-map`、`/persona`、`/soul-foundry` 只有 immutable GET contract，沒有 HTTP
+  server、可寫 UI 或 publish 能力。
+
+完整規格與結果見 `docs/specs/phase3b-staging-identity-isolation.md` 與
+`docs/phase3b-staging-isolation-results.md`。Phase 3B 完成後停止在
+`NEEDS_HUMAN_PHASE_3B_REVIEW`。
 
 ## 里程碑
 

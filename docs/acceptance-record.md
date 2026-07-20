@@ -98,3 +98,32 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - Production connections or paid provider calls: `0`
 - Release persona created: `NO`
 - Stop condition: `NEEDS_HUMAN_PLM_MIGRATION_REVIEW`
+
+## Phase 3B — Staging Identity and Data-Isolation Proof
+
+- Status: `LOCAL_ACCEPTANCE_COMPLETE / GITHUB_ACTIONS_PENDING`
+- Tenant: `xie_wenxian` only
+- Environment: `staging` only
+- Real LINE／Partner verification called: `NO`
+- Raw external IDs persisted or logged: `NO`
+- Synthetic student A/B conversation isolation: `PASS`
+- Synthetic student A/B memory isolation: `PASS`
+- Synthetic student A/B prompt-log isolation: `PASS`
+- Owner Evidence → Student Memory hard rejection: `PASS`
+- Candidate persona loader hash/governance fail-closed: `PASS`
+- Read-only admin contracts: `PASS`（4 routes, GET-only, no mutation/publish）
+- PostgreSQL migration AST parse: `PASS`（up/down）
+- PostgreSQL migration contract tests: `PASS`
+- External staging DB migration applied: `NO / NOT_AUTHORIZED_WITHOUT_DB_IDENTITY`
+- Ruff: `PASS`
+- mypy strict: `PASS`（63 source files）
+- pytest: `PASS`（167 tests）
+- TypeScript strict: `PASS`
+- npm audit: `PASS`（0 vulnerabilities）
+- Secret / forbidden import / Tracy contamination scans: `PASS`
+- Git diff / JSON parse checks: `PASS`
+- GitHub Actions: `PENDING`
+- Production connections or paid provider calls: `0`
+- Pipecat／Generation Guard modified: `NO`
+- Release persona created: `NO`
+- Stop condition: `NEEDS_HUMAN_PHASE_3B_REVIEW`

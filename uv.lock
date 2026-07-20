@@ -403,6 +403,7 @@ dependencies = [
 [package.dev-dependencies]
 dev = [
     { name = "mypy" },
+    { name = "pglast" },
     { name = "pytest" },
     { name = "pytest-asyncio" },
     { name = "ruff" },
@@ -419,6 +420,7 @@ requires-dist = [
 [package.metadata.requires-dev]
 dev = [
     { name = "mypy", specifier = ">=1.17,<2" },
+    { name = "pglast", specifier = ">=7,<8" },
     { name = "pytest", specifier = ">=8.4,<10" },
     { name = "pytest-asyncio", specifier = ">=1.1,<2" },
     { name = "ruff", specifier = ">=0.12,<1" },
@@ -608,6 +610,22 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/5a/82/42f767fc1c1143d6fd36efb827202a2d997a375e160a71eb2888a925aac1/pathspec-1.1.1.tar.gz", hash = "sha256:17db5ecd524104a120e173814c90367a96a98d07c45b2e10c2f3919fff91bf5a", size = 135180, upload-time = "2026-04-27T01:46:08.907Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ba3bddbc499654a07f151cba08f6153988714/pathspec-1.1.1-py3-none-any.whl", hash = "sha256:a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189", size = 57328, upload-time = "2026-04-27T01:46:07.06Z" },
+]
+
+[[package]]
+name = "pglast"
+version = "7.17"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/5b/c8/80578033b68657b794d36017ac918c0488ce07b8ad759db0d365edf5634f/pglast-7.17.tar.gz", hash = "sha256:46b6c313ca7c5fd4c0dc621407330809f1df53b99a7d53a5331cd8452af7f2e2", size = 3414063, upload-time = "2026-07-10T06:47:00.42Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/40/46/037b9439471e7ef8a4c86b1b5b8115db073caef6ea04c6d4a1c01e9a4702/pglast-7.17-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:71b4d4379ab7aa714dbad324e46f8ab44495cda7789e46ceb24b6bab22b70d5a", size = 1436269, upload-time = "2026-07-10T07:07:59.253Z" },
+    { url = "https://files.pythonhosted.org/packages/63/7d/6a99d346fa7cb05ece6f84b9c81d1c7bd8d874e2aca423b9ca97f7792384/pglast-7.17-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:077263844e2438ee26c203c2221183e4458694b47e5fd1b87c2c20d7e69e7e24", size = 1363508, upload-time = "2026-07-10T07:08:00.498Z" },
+    { url = "https://files.pythonhosted.org/packages/79/45/40dc80b36d61bc279642ccc7db1311cd0fa9598e5204998597167fa39eea/pglast-7.17-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:96ff098ecd1d06c0a8773a674999a2eff84d705b3beb2d1e3dd50e5b538c1ee6", size = 5850652, upload-time = "2026-07-10T07:08:01.872Z" },
+    { url = "https://files.pythonhosted.org/packages/f3/4c/4f5a33e6089262c87177b6b0b369728df98399470dad5d8da2e739d369ab/pglast-7.17-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:d9b8b3a846c065896494c06cb2eb48add0c5c2e23cac263b5b2d4977f8551a93", size = 5946289, upload-time = "2026-07-10T07:08:03.626Z" },
+    { url = "https://files.pythonhosted.org/packages/15/05/8f12d29c0e9e131dbb61f9735ee5755e8d860bd5f0117d7385520a0a6a94/pglast-7.17-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:015eacaac047fbbd14e895ec4a3ff3a7e11a562753ab70baf9d80b30f60e6807", size = 5656277, upload-time = "2026-07-10T07:08:05.468Z" },
+    { url = "https://files.pythonhosted.org/packages/cc/12/64eb2ebabfb6e07c0338316a66ff18989abd2ad818461f0c36b18c6c1a87/pglast-7.17-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:e55c8d6f15707df554124891d1e6e05d7b0eba14425553c01b8e049514815328", size = 5740046, upload-time = "2026-07-10T07:08:07.223Z" },
+    { url = "https://files.pythonhosted.org/packages/31/62/ec8fdb48932ed63aa95c251e4fc81efe2e7b8a9d4f2568ef324e6db57b6f/pglast-7.17-cp312-cp312-win32.whl", hash = "sha256:027b7e8d582dfbe60ac38451790e47a272182a5acdfb4d5bdda8eda7d947d18c", size = 1280854, upload-time = "2026-07-10T07:08:08.96Z" },
+    { url = "https://files.pythonhosted.org/packages/15/c1/a83839b7fbd806d31ab5e75120303133c56d765d01ff33ad29a82afb9d57/pglast-7.17-cp312-cp312-win_amd64.whl", hash = "sha256:a9a3156b8229c6bfb8c091afb741c9618b44a4bfb4dfa970ad47f0bf944e0179", size = 1347121, upload-time = "2026-07-10T07:08:10.103Z" },
 ]
 
 [[package]]

@@ -233,5 +233,6 @@ Integration cannot be called complete until all of the following are evidenced:
 - latency, interruption and failure-mode acceptance records;
 - independent rollback for every extraction stage.
 
-Current stop condition: `NEEDS_HUMAN_PLM_MIGRATION_REVIEW`. Migration Repair does not authorize
-Stage 1 activation, LINE identity, audio, provider or production work.
+Current stop condition: `NEEDS_HUMAN_PHASE_3B_REVIEW`. Phase 3B identity mapping is a verified-
+assertion contract with synthetic data only; it does not authorize Stage 1 activation, real LINE
+identity verification, audio, provider or production work.
