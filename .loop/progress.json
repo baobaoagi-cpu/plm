@@ -5,7 +5,7 @@
   "canonical_repository": "https://github.com/baobaoagi-cpu/plm",
   "current_milestone": "Phase 3B — Staging Identity and Data-Isolation Proof",
   "current_iteration": 12,
-  "status": "LOCAL_ACCEPTANCE_COMPLETE_GITHUB_PENDING",
+  "status": "NEEDS_HUMAN_PHASE_3B_REVIEW",
   "tasks": {
     "task_001": {"status": "COMPLETED"},
     "task_002": {"status": "COMPLETED"},
@@ -14,7 +14,7 @@
     "task_005": {"status": "NOT_AUTHORIZED"}
   },
   "phase_3b": {
-    "status": "LOCAL_ACCEPTANCE_COMPLETE_GITHUB_PENDING",
+    "status": "COMPLETED",
     "branch": "codex/xiewenxian-phase-3b-staging-isolation",
     "tenant": "xie_wenxian",
     "environment": "staging",
@@ -38,9 +38,10 @@
       "typescript_strict": "PASS",
       "security_scans": "PASS",
       "npm_audit": "PASS_0_VULNERABILITIES",
-      "github_actions": "PENDING"
+      "github_actions": "PASS"
     }
   },
-  "next_allowed_action": "Finish validation, publish the Phase 3B branch, then request human review.",
+  "pull_request": "https://github.com/baobaoagi-cpu/plm/pull/2",
+  "next_allowed_action": "Human Phase 3B review only.",
   "forbidden_next_action": "Do not connect external DB, real LINE users, Mem0, R2, production voice, release persona, Task 005, Pipecat pipeline or LiveKit."
 }

@@ -19,11 +19,15 @@ prompt logs and owner evidence cannot cross tenant, principal or data-class boun
 - Four immutable GET-only admin contracts: `/`, `/data-map`, `/persona`, `/soul-foundry`.
 - Forty-one Phase 3B tests plus the full regression suite.
 
-## Remaining validation
+## Validation complete
 
-- Final secret, forbidden-import, Tracy-contamination and Git-diff scans.
-- Durable evidence hashes and iteration record.
-- Commit, push and GitHub Actions.
+- Secret, real-identity, forbidden-import, Tracy-contamination and Git-diff scans passed.
+- Durable evidence hashes and iteration record are committed.
+- Phase 3B branch and Draft PR #2 are published; GitHub Actions passed.
+
+## Pending human action
+
+- Human Phase 3B review.
 
 ## Explicitly not delivered
 

@@ -1,6 +1,6 @@
 # Phase 3B — Staging Identity and Data-Isolation Proof
 
-Status: `LOCAL_ACCEPTANCE_COMPLETE / GITHUB_ACTIONS_PENDING`
+Status: `COMPLETED / NEEDS_HUMAN_PHASE_3B_REVIEW`
 
 ## Goal
 

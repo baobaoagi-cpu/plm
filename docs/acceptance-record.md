@@ -101,7 +101,7 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 
 ## Phase 3B — Staging Identity and Data-Isolation Proof
 
-- Status: `LOCAL_ACCEPTANCE_COMPLETE / GITHUB_ACTIONS_PENDING`
+- Status: `COMPLETED / NEEDS_HUMAN_PHASE_3B_REVIEW`
 - Tenant: `xie_wenxian` only
 - Environment: `staging` only
 - Real LINE／Partner verification called: `NO`
@@ -122,7 +122,8 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - npm audit: `PASS`（0 vulnerabilities）
 - Secret / forbidden import / Tracy contamination scans: `PASS`
 - Git diff / JSON parse checks: `PASS`
-- GitHub Actions: `PENDING`
+- GitHub Actions: `PASS`
+- Draft PR: `https://github.com/baobaoagi-cpu/plm/pull/2`
 - Production connections or paid provider calls: `0`
 - Pipecat／Generation Guard modified: `NO`
 - Release persona created: `NO`

@@ -69,7 +69,7 @@
     "dependency_change": "dev-only pglast PostgreSQL AST parser pinned in uv.lock",
     "json_parse_failures": 0,
     "git_diff_check": "PASS",
-    "github_actions": "PENDING"
+    "github_actions": "PASS"
   },
   "artifact_sha256": {
     "identity_mapping": "139d79e7a6fa0c9483b07a557bcb30de1d7b2867d5dae1e6944588bd19032722",
@@ -80,5 +80,7 @@
     "migration_down": "c365e738ba6df6979d1fb173bbf4d30e3c7c6a6a13a6269c21ecd34b684af17a",
     "phase3b_spec": "315b34a7fec6d9a000c04bb7e340d0c9a7ce13f9d4721d860f37287cb41a8e65"
   },
+  "pull_request": "https://github.com/baobaoagi-cpu/plm/pull/2",
+  "phase_3b_status": "COMPLETED",
   "stop_state": "NEEDS_HUMAN_PHASE_3B_REVIEW"
 }
