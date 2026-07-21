@@ -54,6 +54,12 @@
 - API keys, authorization headers, full Voice IDs, and synthesis text are excluded from evidence.
 - Phase 3B migration reruns now set the fixed staging tenant only with transaction-local scope, so
   an already-forced RLS policy cannot reject the idempotent tenant seed or leak context.
+- Gate DB-1 now qualifies outer RLS references explicitly, directly tests a known foreign
+  principal ID and pins its disposable PostgreSQL image by digest.
+- Browser playback rejects duplicate or regressed audio sequence numbers within a generation; CI
+  now executes the offline browser assertion suite.
+- Call-grant nonce replay protection is explicitly classified as
+  `VERIFIED_SINGLE_PROCESS_OFFLINE_ONLY`; distributed and restart-safe enforcement remains unknown.
 
 ### Decision
 

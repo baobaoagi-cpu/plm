@@ -34,6 +34,7 @@ export class OfflineDuplexAudioLab {
   private readonly inputFrames: Uint8Array[] = [];
   private readonly outputFrames: OutputFrame[] = [];
   private activeGenerationId: string | null = null;
+  private lastQueuedOutputSequence = 0;
   private queuedOutputBytes = 0;
   private capturedFrames = 0;
   private clearedOutputFrames = 0;
@@ -75,6 +76,7 @@ export class OfflineDuplexAudioLab {
     }
     this.clearPlayback();
     this.activeGenerationId = generationId;
+    this.lastQueuedOutputSequence = 0;
   }
 
   queueAssistantAudio(
@@ -90,11 +92,15 @@ export class OfflineDuplexAudioLab {
     if (!Number.isInteger(sequence) || sequence < 1 || payload.byteLength < 1) {
       throw new Error("assistant audio frame is invalid");
     }
+    if (sequence <= this.lastQueuedOutputSequence) {
+      throw new Error("assistant audio sequence must increase within a generation");
+    }
     if (this.queuedOutputBytes + payload.byteLength > this.maxOutputBytes) {
       throw new Error("playback queue backpressure");
     }
     this.outputFrames.push({ generationId, sequence, payload: payload.slice() });
     this.queuedOutputBytes += payload.byteLength;
+    this.lastQueuedOutputSequence = sequence;
     return true;
   }
 
@@ -115,6 +121,7 @@ export class OfflineDuplexAudioLab {
   interrupt(generationId: string): number {
     if (generationId !== this.activeGenerationId) return 0;
     this.activeGenerationId = null;
+    this.lastQueuedOutputSequence = 0;
     return this.clearPlayback();
   }
 
@@ -129,6 +136,7 @@ export class OfflineDuplexAudioLab {
   hangup(): void {
     if (this.ended) return;
     this.activeGenerationId = null;
+    this.lastQueuedOutputSequence = 0;
     this.clearPlayback();
     this.inputFrames.length = 0;
     this.ended = true;

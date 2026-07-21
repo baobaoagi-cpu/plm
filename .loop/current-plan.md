@@ -30,7 +30,9 @@ observability before any real identity, transport, microphone or provider integr
 - 1,000 reconnects; every connection used a fresh session-bound grant.
 - 10,000 telemetry events; retained tail bounded at 128.
 - 1,000 interrupted generations; zero stale playback and zero terminal records retained.
-- Ruff, mypy strict, 261 pytest tests, TypeScript strict and 19 browser assertions passed.
+- Ruff, mypy strict, 262 pytest tests, TypeScript strict and 22 browser assertions passed.
+- Call-grant replay is `VERIFIED_SINGLE_PROCESS_OFFLINE_ONLY`; distributed and restart-safe replay
+  protection remains `UNKNOWN`.
 
 ## Pending human action
 

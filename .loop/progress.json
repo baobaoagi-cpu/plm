@@ -47,9 +47,11 @@
     "local_validation": {
       "ruff": "PASS",
       "mypy_strict": "PASS_85_FILES",
-      "pytest": "PASS_261",
+      "pytest": "PASS_262",
       "typescript_strict": "PASS",
-      "browser_offline_tests": "PASS_19_ASSERTIONS",
+      "browser_offline_tests": "PASS_22_ASSERTIONS",
+      "call_grant_replay_scope": "VERIFIED_SINGLE_PROCESS_OFFLINE_ONLY",
+      "distributed_replay_protection": "UNKNOWN",
       "npm_dependency_tree": "PASS"
     }
   },

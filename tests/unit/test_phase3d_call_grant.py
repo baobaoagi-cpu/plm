@@ -62,7 +62,7 @@ def test_short_lived_grant_binds_session_subject_audience_and_purpose() -> None:
     assert claims.expires_at_ms - claims.issued_at_ms == 60_000
 
 
-def test_grant_is_single_use_across_connections() -> None:
+def test_grant_is_single_use_across_connections_with_shared_validator() -> None:
     clock = [1_000.0]
     validator = _validator(clock)
     token = _grant(clock)

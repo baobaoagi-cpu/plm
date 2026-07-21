@@ -36,7 +36,9 @@ connection attempt and does not revive old playback.
 
 - HMAC-SHA256 grants bind audience, purpose, session, subject fingerprint, nonce, key ID and time.
 - Grant TTL is at most 120 seconds in this contract; verification permits bounded clock skew.
-- A nonce is single-use, replay storage is bounded and key rotation accepts only configured keys.
+- A nonce is single-use only inside one Python process with a shared validator/guard
+  (`VERIFIED_SINGLE_PROCESS_OFFLINE_ONLY`); replay storage is bounded and key rotation accepts only
+  configured keys. Multi-worker, multi-container and restart-safe replay rejection are `UNKNOWN`.
 - Telemetry accepts allowlisted lifecycle events and machine-safe attributes only.
 - Session/generation IDs are hashed; grant, content, transcript, prompt and audio fields are banned.
 - Connect, first-audio TTFA and interruption-clear latency use monotonic markers only.

@@ -50,6 +50,18 @@ expectThrow(
   "ended lab must reject microphone data",
 );
 
+const sequenceLab = new OfflineDuplexAudioLab();
+sequenceLab.startGeneration("sequence-generation");
+assert(sequenceLab.queueAssistantAudio("sequence-generation", 2, new Uint8Array([1])), "first sequence accepted");
+expectThrow(
+  () => sequenceLab.queueAssistantAudio("sequence-generation", 2, new Uint8Array([2])),
+  "duplicate assistant audio sequence must be rejected",
+);
+expectThrow(
+  () => sequenceLab.queueAssistantAudio("sequence-generation", 1, new Uint8Array([3])),
+  "regressed assistant audio sequence must be rejected",
+);
+
 const state = new OfflineClientStateMachine();
 for (const event of [
   "request_permission",
@@ -73,4 +85,4 @@ assert(observeEchoCancellation({ echoCancellation: true }) === "enabled", "AEC e
 assert(observeEchoCancellation({ echoCancellation: false }) === "disabled", "AEC disabled observation");
 assert(observeEchoCancellation(undefined) === "unreported", "AEC absence must remain unknown");
 
-console.log("OFFLINE_CLIENT_TESTS_PASS assertions=19");
+console.log("OFFLINE_CLIENT_TESTS_PASS assertions=22");

@@ -207,7 +207,8 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - Interrupt hard-clear / late output: `PASS / REJECTED`
 - Client state machine invalid transitions: `REJECTED`
 - Call grant audience/purpose/session/subject/nonce/time binding: `PASS`
-- Tampered, expired, replayed and wrong-scope grants: `REJECTED`
+- Tampered, expired, replayed and wrong-scope grants:
+  `VERIFIED_SINGLE_PROCESS_OFFLINE_ONLY / REJECTED`
 - Protocol duplicate/reorder/gap/session/stale generation: `REJECTED`
 - Invalid UTF-8/oversized/unknown/sensitive frames: `REJECTED / REDACTED`
 - 10,000 protocol frames: `PASS / 64 MESSAGE IDS RETAINED`
@@ -216,10 +217,11 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - 1,000 generation interruptions: `PASS / 0 STALE PLAYBACK`
 - Ruff: `PASS`
 - mypy strict: `PASS` (85 source files)
-- pytest: `PASS` (261)
+- pytest: `PASS` (262)
 - Phase 3D focused tests: `PASS` (29)
 - TypeScript strict: `PASS`
-- Browser offline assertions: `PASS` (19)
+- Browser offline assertions: `PASS` (22)
+- Browser duplicate/regressed output sequences: `REJECTED`
 - Architecture boundary tests: `PASS` (3)
 - npm dependency tree: `PASS`
 - npm audit: `PASS_INHERITED_UNCHANGED_LOCKFILE_FROM_PHASE_3B`

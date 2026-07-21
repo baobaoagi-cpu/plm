@@ -54,7 +54,11 @@ def _safe_id(name: str, value: str) -> str:
 
 
 class NonceReplayGuard:
-    """Bound unexpired grant nonces and fail closed when capacity is exhausted."""
+    """Bound unexpired grant nonces within one Python process.
+
+    This offline guard is not a distributed nonce store. Callers must share one instance across
+    validators in the same process; multi-worker or restart-safe single use remains unverified.
+    """
 
     def __init__(self, *, max_entries: int = 4_096) -> None:
         if max_entries < 1:
@@ -140,7 +144,7 @@ class CallGrantSigner:
 
 
 class CallGrantValidator:
-    """Verify signature, binding, time window and single-use nonce."""
+    """Verify signature, binding, time window and process-local single-use nonce."""
 
     def __init__(
         self,

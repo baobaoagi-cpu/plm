@@ -12,7 +12,7 @@
 
 | Threat | Control | Evidence |
 |---|---|---|
-| Replayed call grant | Single-use bounded nonce store | duplicate token rejected |
+| Replayed call grant | Bounded process-local nonce store | duplicate token rejected only within one Python process; distributed/restart-safe enforcement UNKNOWN |
 | Cross-session or cross-subject grant | Signed session/subject binding | mismatch rejected |
 | Wrong audience/purpose/key | Strict signed claims/key ring | rejected |
 | Protocol reorder, gap or duplicate | Contiguous sequence + recent message IDs | rejected without state advance |

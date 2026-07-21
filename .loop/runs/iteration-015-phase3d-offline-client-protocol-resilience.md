@@ -26,15 +26,18 @@ real audio, provider calls or production connections.
   isolated pytest temp produced a full pass. No product assertion failed.
 - Final security review extended nonce retention through the accepted clock-skew window; the new
   replay regression increased the final suite to 261 tests.
+- Post-review repair explicitly limited that replay claim to a shared in-process guard, added
+  duplicate/regressed browser output-sequence rejection and put the executable browser assertions
+  into CI.
 
 ## Validation
 
 - Ruff: pass.
 - mypy strict: pass, 85 source files.
-- pytest: pass, 261 tests; 2.39 seconds test time on final run.
+- pytest: pass, 262 tests; 5.15 seconds test time on the post-review run.
 - Phase 3D focused: 29 tests pass in 0.65 seconds.
 - TypeScript strict: pass.
-- Browser offline assertions: 19 pass.
+- Browser offline assertions: 22 pass.
 - npm dependency tree: pass.
 - JSON, Git diff, high-confidence secret, forbidden-runtime and dependency-diff scans: pass.
 
