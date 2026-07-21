@@ -44,4 +44,12 @@ real audio, provider calls or production connections.
 - Real identity/audio/transcript/memory/evidence records: 0.
 - Paid API cost: USD 0.00.
 
-Decision: `NEEDS_HUMAN_PHASE_3D_REVIEW`.
+## Publication
+
+- Human Phase 3D review: approved.
+- Gate DB-1: Draft PR #4, base Phase 3C, two initial quality runs passed.
+- Phase 3D: Draft PR #5, base Gate DB-1, two initial quality runs passed.
+- Initial local and remote branch SHAs matched.
+- No merge, deployment or Phase 3E work occurred.
+
+Decision: `NEEDS_HUMAN_POST_PHASE_3D_PUBLISH_REVIEW`.

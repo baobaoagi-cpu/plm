@@ -74,3 +74,6 @@
   `NEEDS_HUMAN_GATE_DB1_REVIEW`; external staging and production remain disconnected.
 - Phase 3D proves only offline client/protocol mechanics. Real browser, LIFF, WebSocket, provider,
   transport and production behavior remain unverified; stop at `NEEDS_HUMAN_PHASE_3D_REVIEW`.
+- Human Phase 3D review is approved. Gate DB-1 and Phase 3D are published as stacked Draft PRs #4
+  and #5 with initial GitHub Actions passing; neither is merged or deployed. The current stop is
+  `NEEDS_HUMAN_POST_PHASE_3D_PUBLISH_REVIEW`.

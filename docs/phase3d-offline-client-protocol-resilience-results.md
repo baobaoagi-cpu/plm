@@ -1,6 +1,6 @@
 # Phase 3D — Offline Client and Protocol Resilience Results
 
-Status: `COMPLETED / NEEDS_HUMAN_PHASE_3D_REVIEW`
+Status: `COMPLETED / APPROVED / NEEDS_HUMAN_POST_PHASE_3D_PUBLISH_REVIEW`
 
 ## Outcome
 
@@ -53,4 +53,12 @@ framing boundary but is not connected to `getUserMedia`. AEC is an observed brow
 - `.loop/runs/iteration-015-phase3d-offline-client-protocol-resilience.md`
 - `docs/security/phase3d-offline-threat-model.md`
 
-Required stop: `NEEDS_HUMAN_PHASE_3D_REVIEW`.
+## Publication
+
+- Gate DB-1 Draft PR: `https://github.com/baobaoagi-cpu/plm/pull/4`
+- Phase 3D Draft PR: `https://github.com/baobaoagi-cpu/plm/pull/5`
+- Stacked bases: Phase 3C → Gate DB-1 → Phase 3D
+- Initial push and PR quality runs: all passed
+- Merge/deployment: none
+
+Required stop: `NEEDS_HUMAN_POST_PHASE_3D_PUBLISH_REVIEW`.

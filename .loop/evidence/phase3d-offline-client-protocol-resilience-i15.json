@@ -51,6 +51,22 @@
     "real_identity_or_content_records": 0,
     "paid_api_cost_usd": 0.0
   },
+  "publication": {
+    "human_phase3d_review": "APPROVED",
+    "gate_db1_branch": "codex/xiewenxian-gate-db1-rls",
+    "gate_db1_initial_commit": "f1d724fff6d456b89210964a898d5def739683e4",
+    "gate_db1_draft_pr": "https://github.com/baobaoagi-cpu/plm/pull/4",
+    "gate_db1_base": "codex/xiewenxian-phase-3c-offline-duplex",
+    "gate_db1_initial_github_actions": "PASS_2_QUALITY_RUNS",
+    "phase3d_branch": "codex/xiewenxian-phase-3d-offline-resilience",
+    "phase3d_initial_commit": "970acf1f20b7d8ccd7b0070ad542a52f12f0bdc8",
+    "phase3d_draft_pr": "https://github.com/baobaoagi-cpu/plm/pull/5",
+    "phase3d_base": "codex/xiewenxian-gate-db1-rls",
+    "phase3d_initial_github_actions": "PASS_2_QUALITY_RUNS",
+    "draft_prs_open": true,
+    "merged": false,
+    "deployed": false
+  },
   "file_hashes": {
     "src/duplex_voice/api/call_grant.py": "6af5c2ec19a85a54c57450208a757ff151d2f33a363483409ae174b97bfa1ead",
     "src/duplex_voice/api/ingress.py": "455a96ef9cccf001a9c871f9b702211a22bb6feb210f1bbf8f4ff0e0857fdde9",
@@ -67,5 +83,5 @@
     "real_liff_websocket_behavior": "UNKNOWN",
     "real_provider_behavior": "UNKNOWN"
   },
-  "next_stop": "NEEDS_HUMAN_PHASE_3D_REVIEW"
+  "next_stop": "NEEDS_HUMAN_POST_PHASE_3D_PUBLISH_REVIEW"
 }

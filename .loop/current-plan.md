@@ -9,7 +9,7 @@
 Harden browser audio framing, client lifecycle, call grants, Protocol v1 ordering/replay and safe
 observability before any real identity, transport, microphone or provider integration.
 
-## Delivered locally
+## Delivered and published
 
 - PCM16LE 16 kHz mono 20 ms browser framer and unconnected AudioWorklet capture contract.
 - Independent offline microphone/playback queues with backpressure, hard clear and final generation
@@ -19,6 +19,10 @@ observability before any real identity, transport, microphone or provider integr
 - Protocol ingress gate for order, replay, session, audio timestamp and generation validation.
 - Bounded redacted lifecycle events and monotonic latency metrics.
 - Threat model, architecture-boundary tests and deterministic high-volume soak.
+- Gate DB-1 branch published as stacked Draft PR #4 against Phase 3C.
+- Phase 3D branch published as stacked Draft PR #5 against Gate DB-1.
+- Initial push and pull-request GitHub Actions: two quality runs per PR, all passed.
+- Initial published local and remote SHAs matched exactly.
 
 ## Verified
 
@@ -30,7 +34,7 @@ observability before any real identity, transport, microphone or provider integr
 
 ## Pending human action
 
-- Human Phase 3D review.
+- Human post-Phase 3D publish review. Both pull requests remain open and draft.
 
 ## Explicitly not delivered
 
@@ -41,4 +45,4 @@ observability before any real identity, transport, microphone or provider integr
 
 ## Required stop
 
-`NEEDS_HUMAN_PHASE_3D_REVIEW`
+`NEEDS_HUMAN_POST_PHASE_3D_PUBLISH_REVIEW`
