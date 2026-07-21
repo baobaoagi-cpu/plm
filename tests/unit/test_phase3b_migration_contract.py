@@ -24,6 +24,7 @@ def test_migration_is_staging_scoped_and_provider_role_safe() -> None:
     sql = _sql()
 
     assert "create schema if not exists xiewenxian_staging" in sql
+    assert "set_config('app.current_tenant_id', 'xie_wenxian', true)" in sql
     assert "current_database()" in sql
     assert "server_version_num" in sql
     assert "from pg_roles where rolname = 'xiewenxian_staging_app'" in sql

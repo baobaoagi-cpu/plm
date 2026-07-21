@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-07-21T13:10:41+08:00",
+  "gate": "Gate DB-1 — Local PostgreSQL RLS Execution Proof",
+  "iteration": 14,
+  "status": "COMPLETED",
+  "execution": {
+    "postgres_version": "15.18",
+    "image": "postgres@sha256:3d0f7584ed7d04e27fa050d6683a74746608faf21f202be78460d679cc56461f",
+    "network": "none",
+    "published_ports": 0,
+    "storage": "tmpfs",
+    "synthetic_only": true,
+    "final_clean_run_elapsed_ms": 3373,
+    "container_removed": true
+  },
+  "proof": {
+    "migration_apply_count": 2,
+    "rls_asserted_behaviors": 15,
+    "total_gate_checks": 19,
+    "forced_rls_table_count": 6,
+    "role_attribute_proof": "PASS",
+    "student_ab_isolation": "VERIFIED",
+    "owner_evidence_student_memory_separation": "VERIFIED",
+    "missing_context_fail_closed": "VERIFIED",
+    "table_owner_forced_rls": "VERIFIED",
+    "admin_readonly": "VERIFIED",
+    "rollback_guard": "VERIFIED_REJECTED",
+    "approved_staging_rollback": "VERIFIED"
+  },
+  "defect_repair": {
+    "original_migration_rerunnable_after_forced_rls": false,
+    "cause": "tenant seed lacked transaction-local RLS tenant context",
+    "repair": "transaction-local fixed staging tenant context",
+    "acceptance_threshold_changed": false
+  },
+  "external_effects": {
+    "external_database_connections": 0,
+    "provider_calls": 0,
+    "line_connections": 0,
+    "livekit_connections": 0,
+    "production_connections": 0,
+    "real_identity_or_content_records": 0,
+    "paid_api_cost_usd": 0.0
+  },
+  "validation": {
+    "ruff": "PASS",
+    "mypy_strict": "PASS_79_FILES",
+    "pytest": "PASS_232",
+    "typescript_strict": "PASS",
+    "npm_dependency_tree": "PASS",
+    "git_diff_check": "PASS",
+    "json_parse": "PASS",
+    "high_confidence_secret_scan": "PASS_0_MATCHES",
+    "forbidden_runtime_scan": "PASS_0_MATCHES",
+    "python_validation_elapsed_ms": 19846
+  },
+  "file_hashes": {
+    "migrations/phase3b/001_xiewenxian_staging_identity.sql": "5b085ed3fd66d0fca32a2e754523eca562686558c481b148724974aa211589dc",
+    "migrations/phase3b/001_xiewenxian_staging_identity.down.sql": "c365e738ba6df6979d1fb173bbf4d30e3c7c6a6a13a6269c21ecd34b684af17a",
+    "tests/integration/gate_db1_rls_proof.sql": "fd05b834206086bd633e95af45fefad074ddee842f51414296a1a4bf4b938025",
+    "scripts/run_gate_db1.ps1": "e5e04fd12e6618b80eec49d86ffea388c70870cf56a55b86c05fc8e8ede78cb9"
+  },
+  "trust_boundary": "RLS context must be derived from a verified server-side principal and reset per transaction",
+  "next_stop": "NEEDS_HUMAN_GATE_DB1_REVIEW"
+}

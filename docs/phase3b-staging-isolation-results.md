@@ -28,6 +28,13 @@ least-privilege conditional grants and a rollback guard that refuses non-staging
 No PostgreSQL server, Cloud SQL, Supabase project, Mem0, R2, LINE OA or production service was
 contacted. SQL parse and contract evidence must not be described as a live database smoke test.
 
+## Subsequent local execution gate
+
+Gate DB-1 was separately authorized and completed on 2026-07-21. The migration, forced RLS,
+provider roles and guarded rollback are now verified on disposable PostgreSQL 15.18 with synthetic
+data. This does not change the historical Phase 3B execution record and does not authorize an
+external staging database. See `docs/gate-db1-local-postgres-rls-results.md`.
+
 ## Admin contract
 
 `/`, `/data-map`, `/persona` and `/soul-foundry` return immutable evidence snapshots. They report

@@ -39,11 +39,15 @@
   Generation Guard enforcement, backpressure, idempotent hangup and deterministic race proofs.
 - Provider-neutral STT, LLM, generation-scoped TTS, identity-verification and transport contracts,
   plus reusable synthetic fakes and bounded redacted timeout/error mapping.
+- Gate DB-1 reproducible PostgreSQL 15 harness with a network-disabled tmpfs container, synthetic
+  RLS scenarios, provider-role checks, guarded rollback proof and guaranteed cleanup.
 
 ### Security
 
 - All credentials are environment-only; `.env` and audio artifacts are ignored by Git.
 - API keys, authorization headers, full Voice IDs, and synthesis text are excluded from evidence.
+- Phase 3B migration reruns now set the fixed staging tenant only with transaction-local scope, so
+  an already-forced RLS policy cannot reject the idempotent tenant seed or leak context.
 
 ### Decision
 
@@ -60,3 +64,5 @@
   used, and the required stop is `NEEDS_HUMAN_PHASE_3B_REVIEW`.
 - Phase 3C is offline hardening only. It creates no MiniMaxTTSService, Pipecat Pipeline, LINE or
   LiveKit integration and stops at `NEEDS_HUMAN_PHASE_3C_REVIEW` after CI.
+- Gate DB-1 verifies local PostgreSQL enforcement only and stops at
+  `NEEDS_HUMAN_GATE_DB1_REVIEW`; external staging and production remain disconnected.

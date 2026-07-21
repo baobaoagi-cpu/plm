@@ -1,5 +1,9 @@
 begin;
 
+-- The migration is rerunnable after forced RLS is active. Keep the context transaction-local so
+-- it cannot leak into a pooled application connection.
+select set_config('app.current_tenant_id', 'xie_wenxian', true);
+
 do $$
 begin
   if current_setting('server_version_num')::integer < 150000 then
