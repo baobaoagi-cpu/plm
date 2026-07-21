@@ -7,7 +7,8 @@ data only and without any external connection.
 
 ## Execution
 
-- PostgreSQL: 15.18, official `postgres:15-alpine` image.
+- PostgreSQL: 15.18, official image pinned as
+  `postgres@sha256:3d0f7584ed7d04e27fa050d6683a74746608faf21f202be78460d679cc56461f`.
 - Isolation: Docker network `none`, no published port, tmpfs database storage.
 - Roles: migration owner, app, admin-readonly; all non-login/non-superuser/non-`BYPASSRLS`.
 - Migration applications: 2 in the same fresh database.
@@ -15,6 +16,15 @@ data only and without any external connection.
 - Total gate checks: 19 passed.
 - Final clean gate elapsed time: 3,373 ms.
 - Cleanup: disposable container and all synthetic rows removed.
+
+## Post-review repair
+
+- Qualified every RLS correlation with its outer target relation to remove ambiguous column
+  resolution.
+- Captured the synthetic Student B principal ID before switching to Student A and used that known
+  foreign ID for a direct rejected write.
+- Pinned the runner default by image digest, then reran all 19 gate checks successfully in 7,076
+  ms.
 
 ## Red/green record
 
@@ -38,7 +48,7 @@ No acceptance requirement was changed and no product failure was hidden.
 
 - Ruff: pass.
 - mypy strict: pass, 79 files.
-- pytest: pass, 232 tests.
+- pytest: pass, 233 tests.
 - TypeScript strict: pass.
 - npm dependency tree: pass.
 - JSON, Git diff, high-confidence secret and forbidden-runtime scans: pass.

@@ -94,6 +94,23 @@ insert into xiewenxian_staging.prompt_log (
 select tenant_id, id, repeat('6', 64)
 from xiewenxian_staging.principals;
 
+-- Preserve Student B's known identifiers outside the RLS-filtered principals table so the
+-- later Student A check performs a real foreign-principal write instead of a zero-row SELECT.
+create temporary table gate_db1_student_b_target on commit preserve rows as
+select tenant_id, id as principal_id
+from xiewenxian_staging.principals;
+
+do $proof$
+declare
+  target_count bigint;
+begin
+  select count(*) into target_count from gate_db1_student_b_target;
+  if target_count <> 1 then
+    raise exception 'student B target capture failed: % rows', target_count;
+  end if;
+end
+$proof$;
+
 select set_config(
   'app.current_effective_user_id',
   'xie_wenxian:synthetic:owner',
@@ -217,9 +234,8 @@ begin
       principal_id,
       content_digest
     )
-    select tenant_id, id, repeat('0', 64)
-    from xiewenxian_staging.principals
-    where effective_user_id = 'xie_wenxian:synthetic:student-b';
+    select tenant_id, principal_id, repeat('0', 64)
+    from gate_db1_student_b_target;
     if found then
       raise exception 'student A wrote a student B conversation';
     end if;

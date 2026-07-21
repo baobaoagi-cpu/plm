@@ -29,6 +29,11 @@ idempotency, role attributes, rollback refusal and approved rollback.
 | Rollback with staging guard | VERIFIED, schema removed |
 | Container/data cleanup | VERIFIED |
 
+Post-review hardening reran the same gate using the digest-pinned image. RLS correlations now
+qualify the outer target relation explicitly, and the cross-user write proof inserts against a
+captured, known Student B principal ID while Student A is active. This closes the earlier loophole
+where an RLS-filtered source query could return zero rows without exercising `WITH CHECK`.
+
 ## Defect found and repaired
 
 The original migration succeeded once but was not rerunnable after forced RLS became active. Its

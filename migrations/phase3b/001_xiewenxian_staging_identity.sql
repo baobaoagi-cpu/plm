@@ -188,14 +188,14 @@ begin
       for all
       using (exists (
         select 1 from xiewenxian_staging.principals p
-        where p.id = principal_id
-          and p.tenant_id = tenant_id
+        where p.id = conversations.principal_id
+          and p.tenant_id = conversations.tenant_id
           and p.effective_user_id = current_setting('app.current_effective_user_id', true)
       ))
       with check (exists (
         select 1 from xiewenxian_staging.principals p
-        where p.id = principal_id
-          and p.tenant_id = tenant_id
+        where p.id = conversations.principal_id
+          and p.tenant_id = conversations.tenant_id
           and p.effective_user_id = current_setting('app.current_effective_user_id', true)
       ))
     $policy$;
@@ -211,13 +211,15 @@ begin
       for all
       using (exists (
         select 1 from xiewenxian_staging.principals p
-        where p.id = principal_id and p.tenant_id = tenant_id
+        where p.id = student_memory.principal_id
+          and p.tenant_id = student_memory.tenant_id
           and p.principal_kind = 'student'
           and p.effective_user_id = current_setting('app.current_effective_user_id', true)
       ))
       with check (exists (
         select 1 from xiewenxian_staging.principals p
-        where p.id = principal_id and p.tenant_id = tenant_id
+        where p.id = student_memory.principal_id
+          and p.tenant_id = student_memory.tenant_id
           and p.principal_kind = 'student'
           and p.effective_user_id = current_setting('app.current_effective_user_id', true)
       ))
@@ -234,12 +236,14 @@ begin
       for all
       using (exists (
         select 1 from xiewenxian_staging.principals p
-        where p.id = principal_id and p.tenant_id = tenant_id
+        where p.id = prompt_log.principal_id
+          and p.tenant_id = prompt_log.tenant_id
           and p.effective_user_id = current_setting('app.current_effective_user_id', true)
       ))
       with check (exists (
         select 1 from xiewenxian_staging.principals p
-        where p.id = principal_id and p.tenant_id = tenant_id
+        where p.id = prompt_log.principal_id
+          and p.tenant_id = prompt_log.tenant_id
           and p.effective_user_id = current_setting('app.current_effective_user_id', true)
       ))
     $policy$;
@@ -255,13 +259,15 @@ begin
       for all
       using (exists (
         select 1 from xiewenxian_staging.principals p
-        where p.id = principal_id and p.tenant_id = tenant_id
+        where p.id = owner_evidence.principal_id
+          and p.tenant_id = owner_evidence.tenant_id
           and p.principal_kind = 'owner'
           and p.effective_user_id = current_setting('app.current_effective_user_id', true)
       ))
       with check (exists (
         select 1 from xiewenxian_staging.principals p
-        where p.id = principal_id and p.tenant_id = tenant_id
+        where p.id = owner_evidence.principal_id
+          and p.tenant_id = owner_evidence.tenant_id
           and p.principal_kind = 'owner'
           and p.effective_user_id = current_setting('app.current_effective_user_id', true)
       ))
