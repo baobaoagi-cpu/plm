@@ -147,6 +147,7 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - Provider timeout and mid-stream fault termination: `PASS`
 - Architecture boundary tests: `PASS` (3)
 - npm dependency tree: `PASS`
+- JSON / Git diff / secret / forbidden-runtime / dependency-diff scans: `PASS`
 - npm audit: `PASS_INHERITED_UNCHANGED_LOCKFILE_FROM_PHASE_3B` (dependency files unchanged;
   online rerun not allowed by offline milestone)
 - Local/external PostgreSQL execution: `0 / SEPARATE_GATE`
@@ -195,3 +196,35 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - npm dependency tree: `PASS`
 - JSON / Git diff / secret / forbidden-runtime scans: `PASS`
 - Stop condition: `NEEDS_HUMAN_GATE_DB1_REVIEW`
+
+## Phase 3D — Offline Client and Protocol Resilience
+
+- Status: `COMPLETED / NEEDS_HUMAN_PHASE_3D_REVIEW`
+- Authorized offline missions: `5/5`
+- PCM16LE 16 kHz mono 20 ms framing: `VERIFIED SYNTHETIC`
+- AudioWorklet contract compiled: `PASS / NOT CONNECTED`
+- Microphone while playback queued: `VERIFIED SYNTHETIC`
+- Interrupt hard-clear / late output: `PASS / REJECTED`
+- Client state machine invalid transitions: `REJECTED`
+- Call grant audience/purpose/session/subject/nonce/time binding: `PASS`
+- Tampered, expired, replayed and wrong-scope grants: `REJECTED`
+- Protocol duplicate/reorder/gap/session/stale generation: `REJECTED`
+- Invalid UTF-8/oversized/unknown/sensitive frames: `REJECTED / REDACTED`
+- 10,000 protocol frames: `PASS / 64 MESSAGE IDS RETAINED`
+- 1,000 fresh-grant reconnects: `PASS`
+- 10,000 telemetry events: `PASS / 128 EVENTS RETAINED`
+- 1,000 generation interruptions: `PASS / 0 STALE PLAYBACK`
+- Ruff: `PASS`
+- mypy strict: `PASS` (85 source files)
+- pytest: `PASS` (261)
+- Phase 3D focused tests: `PASS` (29)
+- TypeScript strict: `PASS`
+- Browser offline assertions: `PASS` (19)
+- Architecture boundary tests: `PASS` (3)
+- npm dependency tree: `PASS`
+- npm audit: `PASS_INHERITED_UNCHANGED_LOCKFILE_FROM_PHASE_3B`
+- External/provider/LINE/LiveKit/database/production connections: `0`
+- Real identity/audio/transcript/memory/evidence records: `0`
+- Paid API cost: `USD 0.00`
+- Real browser AEC, LIFF/WebSocket and provider behavior: `UNKNOWN / NOT EXECUTED`
+- Stop condition: `NEEDS_HUMAN_PHASE_3D_REVIEW`

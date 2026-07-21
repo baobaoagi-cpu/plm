@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-07-21T14:08:23+08:00",
+  "milestone": "Phase 3D — Offline Client and Protocol Resilience",
+  "iteration": 15,
+  "status": "COMPLETED",
+  "scope": "OFFLINE_SYNTHETIC_ONLY",
+  "missions_completed": 5,
+  "proof": {
+    "protocol_frames": 10000,
+    "replay_message_ids_retained": 64,
+    "fresh_grant_reconnects": 1000,
+    "telemetry_events": 10000,
+    "telemetry_events_retained": 128,
+    "generation_interruptions": 1000,
+    "stale_playback": 0,
+    "terminal_generation_records_retained": 0,
+    "browser_assertions": 19,
+    "phase3d_python_tests": 29
+  },
+  "validation": {
+    "ruff": "PASS",
+    "mypy_strict": "PASS_85_FILES",
+    "pytest": "PASS_261",
+    "phase3d_focused_pytest": "PASS_29",
+    "typescript_strict": "PASS",
+    "browser_offline_tests": "PASS_19_ASSERTIONS",
+    "architecture_boundary_tests": "PASS_3",
+    "npm_dependency_tree": "PASS",
+    "npm_audit": "PASS_INHERITED_UNCHANGED_LOCKFILE_FROM_PHASE_3B",
+    "dependency_lockfile_diff": "NONE",
+    "git_diff_check": "PASS",
+    "json_parse": "PASS",
+    "high_confidence_secret_scan": "PASS_0_MATCHES",
+    "forbidden_runtime_scan": "PASS_0_MATCHES"
+  },
+  "security": {
+    "grant_ttl_max_seconds": 120,
+    "grant_binding": ["audience", "purpose", "session", "subject", "nonce", "key_id", "time"],
+    "replay_store_max_entries": 4096,
+    "telemetry_ids_hashed": true,
+    "telemetry_content_fields_forbidden": true,
+    "real_signing_key_used": false
+  },
+  "external_effects": {
+    "provider_calls": 0,
+    "database_connections": 0,
+    "line_connections": 0,
+    "livekit_connections": 0,
+    "production_connections": 0,
+    "real_identity_or_content_records": 0,
+    "paid_api_cost_usd": 0.0
+  },
+  "file_hashes": {
+    "src/duplex_voice/api/call_grant.py": "6af5c2ec19a85a54c57450208a757ff151d2f33a363483409ae174b97bfa1ead",
+    "src/duplex_voice/api/ingress.py": "455a96ef9cccf001a9c871f9b702211a22bb6feb210f1bbf8f4ff0e0857fdde9",
+    "src/duplex_voice/observability/event_log.py": "df0bd1cb8c65845f66757ec96efc3c2b94b1a8bc5226d2a606e261697c830741",
+    "src/duplex_voice/observability/metrics.py": "e6fec00547690d480da3be8077f63e1f301e1df9ef789b9919349dfc507460e9",
+    "web/src/xiewenxian-calibration/offline/Pcm16Framer.ts": "5ddebb5eb7baaf7fae543f7b49bf7eeb72ffd696657fb9e2a4fb1428fd2f8fc0",
+    "web/src/xiewenxian-calibration/offline/DuplexAudioLab.ts": "b791799523793a0e67e6c556d420cb128c2abb39a1583c822dfe2ca42f8b765a",
+    "web/src/xiewenxian-calibration/offline/ClientStateMachine.ts": "77050827270d65bb906f2d964f131eb2d6e80c2558f84284ffdd05afea9629d9",
+    "web/src/xiewenxian-calibration/offline/pcmCapture.worklet.ts": "e15b104d1c9e2abfce0f325f899bb754c1d22c0e84c3a691a15306343bf85dec"
+  },
+  "evidence_status": {
+    "offline_client_protocol_resilience": "VERIFIED",
+    "real_browser_aec": "UNKNOWN",
+    "real_liff_websocket_behavior": "UNKNOWN",
+    "real_provider_behavior": "UNKNOWN"
+  },
+  "next_stop": "NEEDS_HUMAN_PHASE_3D_REVIEW"
+}

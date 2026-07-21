@@ -41,6 +41,12 @@
   plus reusable synthetic fakes and bounded redacted timeout/error mapping.
 - Gate DB-1 reproducible PostgreSQL 15 harness with a network-disabled tmpfs container, synthetic
   RLS scenarios, provider-role checks, guarded rollback proof and guaranteed cleanup.
+- Phase 3D offline browser PCM framer, AudioWorklet contract, duplex lab and explicit call-state
+  machine with hard interruption/hangup cleanup.
+- Short-lived session/subject-bound call grants, bounded nonce replay defense, strict Protocol v1
+  ingress ordering and redacted bounded telemetry/latency contracts.
+- Deterministic resilience soak covering 10,000 frames, 1,000 reconnects, 10,000 events and 1,000
+  interrupted generations without provider or network access.
 
 ### Security
 
@@ -66,3 +72,5 @@
   LiveKit integration and stops at `NEEDS_HUMAN_PHASE_3C_REVIEW` after CI.
 - Gate DB-1 verifies local PostgreSQL enforcement only and stops at
   `NEEDS_HUMAN_GATE_DB1_REVIEW`; external staging and production remain disconnected.
+- Phase 3D proves only offline client/protocol mechanics. Real browser, LIFF, WebSocket, provider,
+  transport and production behavior remain unverified; stop at `NEEDS_HUMAN_PHASE_3D_REVIEW`.

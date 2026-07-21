@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T13:10:41+08:00",
+  "updated_at": "2026-07-21T14:08:23+08:00",
   "project": "plm-xie-wenxian-owner-calibration",
   "canonical_repository": "https://github.com/baobaoagi-cpu/plm",
-  "current_milestone": "Gate DB-1 — Local PostgreSQL RLS Execution Proof",
-  "current_iteration": 14,
-  "status": "NEEDS_HUMAN_GATE_DB1_REVIEW",
+  "current_milestone": "Phase 3D — Offline Client and Protocol Resilience",
+  "current_iteration": 15,
+  "status": "NEEDS_HUMAN_PHASE_3D_REVIEW",
   "tasks": {
     "task_001": {"status": "COMPLETED"},
     "task_002": {"status": "COMPLETED"},
@@ -13,38 +13,39 @@
     "task_004": {"status": "COMPLETED"},
     "task_005": {"status": "NOT_AUTHORIZED"}
   },
-  "phase_3b": {
-    "status": "COMPLETED",
-    "review_transition": "PHASE_3C_EXPLICITLY_AUTHORIZED"
-  },
+  "phase_3b": {"status": "COMPLETED"},
   "phase_3c": {
     "status": "COMPLETED",
     "branch": "codex/xiewenxian-phase-3c-offline-duplex",
-    "pull_request": "https://github.com/baobaoagi-cpu/plm/pull/3",
-    "missions_completed": 4,
-    "github_actions": "PASS_2_QUALITY_RUNS"
+    "pull_request": "https://github.com/baobaoagi-cpu/plm/pull/3"
   },
   "gate_db1": {
     "status": "COMPLETED",
     "branch": "codex/xiewenxian-gate-db1-rls",
     "postgres_version": "15.18",
-    "network": "none",
-    "synthetic_only": true,
-    "migration_apply_count": 2,
-    "rls_asserted_behaviors": 15,
-    "total_gate_checks": 19,
-    "container_removed": true,
+    "total_gate_checks": 19
+  },
+  "phase_3d": {
+    "status": "COMPLETED",
+    "branch": "codex/xiewenxian-phase-3d-offline-resilience",
+    "missions_completed": 5,
+    "protocol_frames": 10000,
+    "fresh_grant_reconnects": 1000,
+    "telemetry_events": 10000,
+    "generation_interruptions": 1000,
+    "stale_playback": 0,
     "external_connections": 0,
     "real_user_data_used": false,
     "production_connected": false,
     "local_validation": {
       "ruff": "PASS",
-      "mypy_strict": "PASS_79_FILES",
-      "pytest": "PASS_232",
+      "mypy_strict": "PASS_85_FILES",
+      "pytest": "PASS_261",
       "typescript_strict": "PASS",
+      "browser_offline_tests": "PASS_19_ASSERTIONS",
       "npm_dependency_tree": "PASS"
     }
   },
-  "next_allowed_action": "Human Gate DB-1 review only.",
-  "forbidden_next_action": "Do not connect an external database or provider, start Phase 3D or Task 005, create MiniMaxTTSService or Pipecat Pipeline, integrate LINE or LiveKit, use real data, or deploy production."
+  "next_allowed_action": "Human Phase 3D review only.",
+  "forbidden_next_action": "Do not start Phase 3E or Task 005, connect LINE, LIFF identity, WebSocket, microphone, provider, LiveKit, Mem0, R2 or external database, use real data, create a formal runtime, or deploy production."
 }

@@ -4,7 +4,8 @@
 
 - Status: `RESOLVED_FOR_OFFLINE_PROTOCOL_CONTRACTS_ONLY`
 - Allowed: backend-free, call-disabled shell rewritten in PLM.
-- Also allowed: Phase 3C provider-free Protocol v1 and synthetic audio contracts.
+- Also allowed: Phase 3C provider-free Protocol v1 and synthetic audio contracts, plus Phase 3D
+  offline browser, grant, replay, telemetry and soak contracts.
 - Still blocked: LIFF SDK identity, real audio hooks, WebSocket server, backend/provider integration.
 
 ## B-004 - Task 005 milestone authority
@@ -37,6 +38,15 @@
 - Blocks: real LINE verification, STT/LLM calls, formal MiniMax voice runtime and LiveKit transport.
 - Resolution: human supplies persona/environment-isolated staging identities and separately approves
   the corresponding integration milestone. Populating a secret does not activate an integration.
+
+## B-008 - Real browser and transport proof
+
+- Status: `NOT_AUTHORIZED / NOT_EXECUTED`
+- Phase 3D compiles an AudioWorklet and proves pure client/protocol logic only.
+- Blocks: `getUserMedia`, real device sample-rate/AEC tests, LIFF SDK, WebSocket transport, network
+  chaos and end-to-end duplex latency.
+- Resolution: dedicated staging identities, real-device test consent and a separately approved
+  integration milestone. Offline AEC observation must not be described as real AEC quality.
 
 ## Retained hard constraints
 

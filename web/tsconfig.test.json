@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "noEmit": false,
+    "outDir": ".phase3d-test",
+    "rootDir": "."
+  },
+  "include": [
+    "src/xiewenxian-calibration/offline/**/*.ts",
+    "tests/**/*.ts"
+  ]
+}
