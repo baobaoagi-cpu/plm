@@ -56,3 +56,12 @@
 - Generation Guard cannot be bypassed.
 - Raw V2 remains `REFERENCE_ONLY`; 46 candidates remain engineering interpretations.
 - Phase 3B accepts synthetic data only and cannot publish or create a release persona.
+
+## B-009 - Distributed call-grant replay protection
+
+- Status: `VERIFIED_SINGLE_PROCESS_OFFLINE_ONLY / DISTRIBUTED_UNKNOWN`
+- The bounded in-memory nonce guard rejects replay only when validators share the same guard in one
+  Python process. It is not durable across worker processes, containers or restarts.
+- Blocks: any multi-worker or horizontally scaled real transport milestone.
+- Resolution: provide an atomic shared nonce store, or prove and enforce a single-instance runtime,
+  under a separately authorized milestone. This repair does not start Phase 3E.

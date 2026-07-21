@@ -1,6 +1,6 @@
 # Phase 3D — Offline Client and Protocol Resilience
 
-Status: `COMPLETED / NEEDS_HUMAN_PHASE_3D_REVIEW`
+Status: `COMPLETED / APPROVED / NEEDS_HUMAN_FINAL_MERGE_REVIEW`
 
 ## Goal
 
@@ -60,4 +60,4 @@ connection attempt and does not revive old playback.
 
 ## Stop
 
-`NEEDS_HUMAN_PHASE_3D_REVIEW`
+`NEEDS_HUMAN_FINAL_MERGE_REVIEW`

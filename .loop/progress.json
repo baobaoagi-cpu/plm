@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T14:48:07+08:00",
+  "updated_at": "2026-07-21T15:25:00+08:00",
   "project": "plm-xie-wenxian-owner-calibration",
   "canonical_repository": "https://github.com/baobaoagi-cpu/plm",
   "current_milestone": "Phase 3D — Offline Client and Protocol Resilience",
-  "current_iteration": 15,
-  "status": "NEEDS_HUMAN_POST_PHASE_3D_PUBLISH_REVIEW",
+  "current_iteration": 16,
+  "status": "NEEDS_HUMAN_FINAL_MERGE_REVIEW",
   "tasks": {
     "task_001": {"status": "COMPLETED"},
     "task_002": {"status": "COMPLETED"},
@@ -22,9 +22,9 @@
   "gate_db1": {
     "status": "COMPLETED",
     "branch": "codex/xiewenxian-gate-db1-rls",
-    "published_commit": "f1d724fff6d456b89210964a898d5def739683e4",
+    "published_commit": "a45e62c728c33aadc6faa353f0e202d7d580e307",
     "pull_request": "https://github.com/baobaoagi-cpu/plm/pull/4",
-    "github_actions": "PASS_2_QUALITY_RUNS",
+    "github_actions": "PASS_2_QUALITY_RUNS_AFTER_REVIEW_REPAIR",
     "postgres_version": "15.18",
     "total_gate_checks": 19
   },
@@ -35,6 +35,9 @@
     "initial_published_commit": "970acf1f20b7d8ccd7b0070ad542a52f12f0bdc8",
     "pull_request": "https://github.com/baobaoagi-cpu/plm/pull/5",
     "github_actions_initial_publish": "PASS_2_QUALITY_RUNS",
+    "review_repair_commit": "3b4c0e652505f7774423e5050177cdfd89da8bb7",
+    "review_repair_github_actions": "PASS_2_QUALITY_RUNS",
+    "ci_offline_browser_assertions": "VERIFIED_PASS_22",
     "missions_completed": 5,
     "protocol_frames": 10000,
     "fresh_grant_reconnects": 1000,
@@ -55,6 +58,6 @@
       "npm_dependency_tree": "PASS"
     }
   },
-  "next_allowed_action": "Human post-Phase 3D publish review only.",
+  "next_allowed_action": "Human final stacked-PR merge review only; no merge has been performed.",
   "forbidden_next_action": "Do not start Phase 3E or Task 005, connect LINE, LIFF identity, WebSocket, microphone, provider, LiveKit, Mem0, R2 or external database, use real data, create a formal runtime, or deploy production."
 }

@@ -82,4 +82,4 @@
   transport and production behavior remain unverified; stop at `NEEDS_HUMAN_PHASE_3D_REVIEW`.
 - Human Phase 3D review is approved. Gate DB-1 and Phase 3D are published as stacked Draft PRs #4
   and #5 with initial GitHub Actions passing; neither is merged or deployed. The current stop is
-  `NEEDS_HUMAN_POST_PHASE_3D_PUBLISH_REVIEW`.
+  `NEEDS_HUMAN_FINAL_MERGE_REVIEW` after the approved review repair and passing Actions.

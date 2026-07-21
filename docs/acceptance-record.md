@@ -199,7 +199,7 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 
 ## Phase 3D — Offline Client and Protocol Resilience
 
-- Status: `COMPLETED / APPROVED / NEEDS_HUMAN_POST_PHASE_3D_PUBLISH_REVIEW`
+- Status: `COMPLETED / APPROVED / NEEDS_HUMAN_FINAL_MERGE_REVIEW`
 - Authorized offline missions: `5/5`
 - PCM16LE 16 kHz mono 20 ms framing: `VERIFIED SYNTHETIC`
 - AudioWorklet contract compiled: `PASS / NOT CONNECTED`
@@ -233,6 +233,8 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - Phase 3D Draft PR: `https://github.com/baobaoagi-cpu/plm/pull/5`
 - Stacked PR base/head relationships: `VERIFIED`
 - Initial GitHub Actions: `PASS` (two quality runs per PR)
+- Post-review GitHub Actions: `PASS` (two quality runs per PR)
+- CI browser assertion execution: `VERIFIED PASS` (22)
 - Initial local/remote SHA parity: `PASS`
 - Merge/deployment/Phase 3E: `NO`
-- Stop condition: `NEEDS_HUMAN_POST_PHASE_3D_PUBLISH_REVIEW`
+- Stop condition: `NEEDS_HUMAN_FINAL_MERGE_REVIEW`

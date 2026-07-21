@@ -34,9 +34,16 @@ observability before any real identity, transport, microphone or provider integr
 - Call-grant replay is `VERIFIED_SINGLE_PROCESS_OFFLINE_ONLY`; distributed and restart-safe replay
   protection remains `UNKNOWN`.
 
+## Post-review repair completed
+
+- PR #4 now qualifies RLS outer references, directly tests a known foreign principal ID and pins
+  PostgreSQL by digest; two new quality checks passed.
+- PR #5 now runs browser assertions in CI, rejects duplicate/regressed audio sequences and limits
+  the nonce replay claim to a shared single-process guard; two new quality checks passed.
+
 ## Pending human action
 
-- Human post-Phase 3D publish review. Both pull requests remain open and draft.
+- Human final stacked-PR merge review. Both pull requests remain open and draft; neither was merged.
 
 ## Explicitly not delivered
 
@@ -47,4 +54,4 @@ observability before any real identity, transport, microphone or provider integr
 
 ## Required stop
 
-`NEEDS_HUMAN_POST_PHASE_3D_PUBLISH_REVIEW`
+`NEEDS_HUMAN_FINAL_MERGE_REVIEW`
