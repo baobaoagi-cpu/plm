@@ -75,6 +75,17 @@ def test_all_tables_enable_and_force_rls() -> None:
     assert "app.current_tenant_id" in sql
 
 
+def test_rls_correlations_qualify_the_outer_target_relation() -> None:
+    sql = _sql()
+
+    for table in ("conversations", "student_memory", "prompt_log", "owner_evidence"):
+        assert f"p.id = {table}.principal_id" in sql
+        assert f"p.tenant_id = {table}.tenant_id" in sql
+
+    assert "p.id = principal_id" not in sql
+    assert "p.tenant_id = tenant_id" not in sql
+
+
 def test_foreign_keys_and_rls_filter_columns_are_indexed() -> None:
     sql = _sql()
 
