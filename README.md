@@ -6,7 +6,9 @@ WebSocket TTS 作為正式聲音輸出的可中斷即時語音系統。
 目前狀態：Task 001 至 Task 004 已完成驗收。PLM 現為謝文憲專用聖杯、Owner
 Calibration Sandbox 與未來 LINE OA／LIFF 對話系統的唯一 canonical repository。
 Phase 3B 已加入 staging-only 身份映射、synthetic data isolation proof、PostgreSQL migration
-contract 與四個 read-only admin contracts；沒有連接外部 DB、LINE、Mem0 或 production。
+contract 與四個 read-only admin contracts。Phase 3C 進一步完成離線環境契約、Protocol v1、
+Session Registry、獨立雙向音訊 queue、Generation Guard 競態證明與 provider-neutral adapters；
+沒有連接外部 DB、LINE、Mem0、供應商或 production。
 正式 STT、TTS、Pipecat Pipeline、LiveKit、Mem0 與 production 仍未獲准。
 
 ## 核心原則
@@ -94,8 +96,8 @@ MiniMaxTTSService。
 - Migration inventory：`docs/migration/xiewenxian-plm-migration-inventory.json`。
 - Migration report：`docs/migration/xiewenxian-plm-migration-report.md`。
 
-Repository Migration Review 已由 Phase 3B 人工決策承接；目前全域停止點為
-`NEEDS_HUMAN_PHASE_3B_REVIEW`。
+Repository Migration Review 已由 Phase 3B 人工決策承接；Phase 3C 經人工核准後只執行
+offline hardening。
 
 ## Phase 3B Staging Identity and Data-Isolation Proof
 
@@ -113,6 +115,21 @@ Repository Migration Review 已由 Phase 3B 人工決策承接；目前全域停
 `docs/phase3b-staging-isolation-results.md`。Phase 3B 完成後停止在
 `NEEDS_HUMAN_PHASE_3B_REVIEW`。
 
+## Phase 3C Offline Duplex Architecture Hardening
+
+- `.env.example` 與 machine-readable contract 一致，offline mode 預設拒絕所有外部連線。
+- Protocol v1 使用 strict typed schemas；未知版本、額外身份欄位與超限 frame fail closed。
+- Session Registry 保證舊 transport cleanup 不會刪除新的 reconnect lease。
+- 麥克風與播放 queue 完全獨立且有界；AI 輸出存在時仍能持續接收 synthetic mic frames。
+- 每個輸出 chunk 在 enqueue 與播放前均通過 Generation Guard；40-way race 與 100 次插話
+  測試均為舊音訊播放 0。
+- STT、LLM、TTS、identity 與 transport 只有 provider-neutral contract 和 deterministic fake；
+  沒有正式 MiniMax service 或 Pipecat Pipeline。
+
+規格與結果見 `docs/specs/phase3c-offline-duplex-hardening.md`、
+`docs/phase3c-offline-duplex-hardening-results.md`。完成後停止在
+`NEEDS_HUMAN_PHASE_3C_REVIEW`。
+
 ## 里程碑
 
 1. Task 001：專案骨架與 CI。
@@ -123,5 +140,7 @@ Repository Migration Review 已由 Phase 3B 人工決策承接；目前全域停
 6. Task 005 之後：須另經人工 milestone 核准；不得自動啟動。
 7. Repository Migration Repair：將錯置於 holygrail2 的謝文憲 Phase 2／3A 資產受控移入
    PLM；不等於 Task 005、LINE integration 或 production 授權。
+8. Phase 3C：離線鎖定環境、協定、lease、雙軌 queue、Generation Guard 與 provider adapter
+   接縫；不執行 PostgreSQL 或任何外部整合。
 
 完整需求見 `minimax-duplex-voice-spec-v1.0.md`。

@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-07-21T09:36:14+08:00",
+  "milestone": "Phase 3C — Offline Duplex Architecture Hardening",
+  "iteration": 13,
+  "evidence_scope": "OFFLINE_SYNTHETIC_ONLY",
+  "missions_completed": 4,
+  "validation": {
+    "ruff": "PASS",
+    "mypy_strict": "PASS_79_FILES",
+    "pytest": "PASS_232",
+    "typescript_strict": "PASS",
+    "architecture_boundary_tests": "PASS_3",
+    "npm_dependency_tree": "PASS",
+    "npm_audit": "PASS_INHERITED_UNCHANGED_LOCKFILE_FROM_PHASE_3B",
+    "npm_audit_online_rerun": "NOT_RUN_OFFLINE_BOUNDARY",
+    "git_diff_check": "PASS",
+    "high_confidence_secret_scan": "PASS_0_MATCHES",
+    "forbidden_runtime_scan": "PASS_0_MATCHES",
+    "dependency_lockfile_diff": "NONE"
+  },
+  "final_validation_elapsed_ms": 10492,
+  "duplex_proofs": {
+    "concurrent_enqueue_workers": 40,
+    "concurrent_interrupt_workers": 1,
+    "race_stale_playback": 0,
+    "sequential_interruptions": 100,
+    "sequential_stale_playback": 0,
+    "input_output_queues_independent": true,
+    "queue_bounds_enforced": true,
+    "pre_playback_generation_check": true
+  },
+  "external_effects": {
+    "provider_calls": 0,
+    "database_connections": 0,
+    "line_connections": 0,
+    "livekit_connections": 0,
+    "production_connections": 0,
+    "real_identity_records": 0,
+    "real_audio_records": 0,
+    "paid_api_cost_usd": 0.0
+  },
+  "forbidden_deliverables": {
+    "formal_minimax_tts_service": false,
+    "pipecat_pipeline": false,
+    "livekit_integration": false,
+    "release_persona": false,
+    "production_deployment": false,
+    "postgres_execution": false
+  },
+  "file_hashes": {
+    ".env.example": "ff462e9360f3dc704cdade8b329c3e7f9d732dc2d5290584ec9ff6d1454be4db",
+    "src/duplex_voice/config.py": "cb660263dfaa8ac0a18f8d64516895683e227db2ec72aac0b9ae26ebb96e1111",
+    "src/duplex_voice/api/protocol.py": "2a1d2ad4c50bada4806e752416062992f3a3189319bfba6b8d57377c96460421",
+    "src/duplex_voice/app/session.py": "e3bc8479fb67099145a7986bb5898a5b05f4dd4f3b645940838a189be1b1389e",
+    "src/duplex_voice/audio/queue.py": "12364e1998a9dd4fb766cf0e6f123c752e1fa70c897a81fcf645f5220f24c771",
+    "src/duplex_voice/audio/duplex_simulator.py": "ea102994c155cf5b1e5fad6694c6df9b9843d509cc0e77907516f8041a0b54c0",
+    "src/duplex_voice/providers/faults.py": "042071d9f051f7d224f44103ab9a8e390aeb416deef8b6fc8b79d596d232fa49",
+    "tests/unit/test_phase3c_architecture_boundaries.py": "57be9ab047d1bfddc9dbc19ab2a95b893420d0aaae33de43f372d6bb56c44960",
+    "docs/specs/phase3c-offline-duplex-hardening.md": "d0e44d3bcdfe361b8b854e9eb9936e9503abafe8abde63d7a4bf316d18b3898c"
+  },
+  "evidence_status": {
+    "offline_contracts": "VERIFIED",
+    "real_provider_behavior": "UNKNOWN",
+    "browser_aec": "UNKNOWN",
+    "real_network_latency": "UNKNOWN",
+    "staging_postgres_rls": "UNKNOWN"
+  },
+  "next_stop": "NEEDS_HUMAN_PHASE_3C_REVIEW"
+}

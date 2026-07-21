@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T23:24:28+08:00",
+  "updated_at": "2026-07-21T09:36:14+08:00",
   "project": "plm-xie-wenxian-owner-calibration",
   "canonical_repository": "https://github.com/baobaoagi-cpu/plm",
-  "current_milestone": "Phase 3B — Staging Identity and Data-Isolation Proof",
-  "current_iteration": 12,
-  "status": "NEEDS_HUMAN_PHASE_3B_REVIEW",
+  "current_milestone": "Phase 3C — Offline Duplex Architecture Hardening",
+  "current_iteration": 13,
+  "status": "LOCAL_ACCEPTANCE_COMPLETE_GITHUB_PENDING",
   "tasks": {
     "task_001": {"status": "COMPLETED"},
     "task_002": {"status": "COMPLETED"},
@@ -15,33 +15,32 @@
   },
   "phase_3b": {
     "status": "COMPLETED",
-    "branch": "codex/xiewenxian-phase-3b-staging-isolation",
-    "tenant": "xie_wenxian",
-    "environment": "staging",
-    "identity_mapping": "IMPLEMENTED_VERIFIED_ASSERTIONS_ONLY",
-    "raw_external_ids_persisted": false,
-    "synthetic_students": 2,
-    "conversation_isolation": "PASS",
-    "student_memory_isolation": "PASS",
-    "prompt_log_isolation": "PASS",
-    "owner_evidence_memory_separation": "PASS",
-    "persona_loader": "PASS_FAIL_CLOSED",
-    "admin_readonly_contracts": 4,
-    "postgres_migration_ast_parse": "PASS_2_FILES",
-    "external_db_contacted": false,
+    "review_transition": "PHASE_3C_EXPLICITLY_AUTHORIZED"
+  },
+  "phase_3c": {
+    "status": "LOCAL_ACCEPTANCE_COMPLETE_GITHUB_PENDING",
+    "branch": "codex/xiewenxian-phase-3c-offline-duplex",
+    "missions_completed": 4,
+    "external_connections": 0,
+    "paid_api_cost_usd": 0.0,
     "real_user_data_used": false,
-    "production_connections": 0,
+    "postgres_executed": false,
+    "formal_minimax_service_created": false,
+    "pipecat_pipeline_created": false,
+    "livekit_integrated": false,
+    "production_connected": false,
     "local_validation": {
       "ruff": "PASS",
-      "mypy_strict": "PASS_63_FILES",
-      "pytest": "PASS_167",
+      "mypy_strict": "PASS_79_FILES",
+      "pytest": "PASS_232",
       "typescript_strict": "PASS",
       "security_scans": "PASS",
-      "npm_audit": "PASS_0_VULNERABILITIES",
-      "github_actions": "PASS"
+      "npm_dependency_tree": "PASS",
+      "npm_audit": "PASS_INHERITED_UNCHANGED_LOCKFILE_FROM_PHASE_3B",
+      "npm_audit_online_rerun": "NOT_RUN_OFFLINE_BOUNDARY",
+      "github_actions": "PENDING"
     }
   },
-  "pull_request": "https://github.com/baobaoagi-cpu/plm/pull/2",
-  "next_allowed_action": "Human Phase 3B review only.",
-  "forbidden_next_action": "Do not connect external DB, real LINE users, Mem0, R2, production voice, release persona, Task 005, Pipecat pipeline or LiveKit."
+  "next_allowed_action": "Finish final validation, publish the Phase 3C branch, then request human review.",
+  "forbidden_next_action": "Do not execute PostgreSQL, connect providers, create MiniMaxTTSService, Pipecat Pipeline, LINE or LiveKit integration, use real data, or deploy production."
 }

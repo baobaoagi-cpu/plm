@@ -2,40 +2,37 @@
 
 ## Milestone
 
-`Phase 3B — Staging Identity and Data-Isolation Proof`
+`Phase 3C — Offline Duplex Architecture Hardening`
 
 ## Goal
 
-Prove with synthetic data that Xie Wenxian staging identities, conversations, student memory,
-prompt logs and owner evidence cannot cross tenant, principal or data-class boundaries.
+Lock the configuration, protocol, lease, audio queue, generation and provider-adapter boundaries
+before any real staging credential is used.
 
 ## Delivered locally
 
-- Verified LINE／Partner／synthetic assertion to hashed `effective_user_id` mapping.
-- Xie Wenxian-only staging tenant and principal kinds.
-- Synthetic-only conversation, student-memory, prompt-log and owner-evidence proof store.
-- Fail-closed candidate persona loader pinned to the governed register hash.
-- PostgreSQL 15+ up/down migration contracts with forced RLS and provider-role guards.
-- Four immutable GET-only admin contracts: `/`, `/data-map`, `/persona`, `/soul-foundry`.
-- Forty-one Phase 3B tests plus the full regression suite.
+- Machine-readable environment contract with offline fail-closed defaults.
+- Strict Protocol v1 client/server schemas and bounded parser.
+- Stale-safe per-principal Session Registry.
+- Independent bounded microphone and generation-scoped playback queues.
+- Offline duplex harness with interruption, hangup, backpressure and race proofs.
+- Provider-neutral STT, LLM, TTS, identity and transport contracts.
+- Reusable deterministic fakes and bounded provider error/timeout mapping.
 
-## Validation complete
+## Remaining validation
 
-- Secret, real-identity, forbidden-import, Tracy-contamination and Git-diff scans passed.
-- Durable evidence hashes and iteration record are committed.
-- Phase 3B branch and Draft PR #2 are published; GitHub Actions passed.
-
-## Pending human action
-
-- Human Phase 3B review.
+- Final full regression and security scans after durable-memory documentation.
+- Evidence hashes and iteration record.
+- Commit, push, Draft PR and GitHub Actions.
 
 ## Explicitly not delivered
 
-- External DB migration execution or persistence adapter.
-- Real LINE／Partner verification, real user identity, Mem0, R2 or audio.
-- Admin HTTP server or UI.
-- Release persona, production, Task 005, Pipecat pipeline or LiveKit.
+- Local or external PostgreSQL execution.
+- Formal MiniMaxTTSService or any provider connection.
+- Pipecat Pipeline, LINE activation, LIFF identity SDK or LiveKit integration.
+- Real identity, owner/student data, Mem0, R2, audio recording or production.
+- Release persona or owner-confirmed evidence.
 
 ## Required stop
 
-`NEEDS_HUMAN_PHASE_3B_REVIEW`
+`NEEDS_HUMAN_PHASE_3C_REVIEW`
