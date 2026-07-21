@@ -1,6 +1,6 @@
 # Phase 3C — Offline Duplex Architecture Hardening
 
-Status: `LOCAL_ACCEPTANCE_COMPLETE / GITHUB_ACTIONS_PENDING`
+Status: `COMPLETED / NEEDS_HUMAN_PHASE_3C_REVIEW`
 
 ## Authority and scope
 

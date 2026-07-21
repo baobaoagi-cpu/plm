@@ -46,3 +46,7 @@ database, real identity, real audio or production connection.
 - Formal MiniMax service/Pipecat Pipeline/LiveKit integrations: 0.
 
 Decision after publication: `NEEDS_HUMAN_PHASE_3C_REVIEW`.
+
+Draft PR: `https://github.com/baobaoagi-cpu/plm/pull/3`
+
+GitHub Actions: `PASS` (push and pull-request quality runs).

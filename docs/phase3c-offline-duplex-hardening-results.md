@@ -1,6 +1,6 @@
 # Phase 3C Offline Duplex Architecture Hardening Results
 
-Status: `LOCAL_ACCEPTANCE_COMPLETE / GITHUB_ACTIONS_PENDING`
+Status: `COMPLETED / NEEDS_HUMAN_PHASE_3C_REVIEW`
 
 ## Mission results
 
@@ -58,6 +58,7 @@ timing, provider cancellation, Pipecat orchestration or end-to-end audio quality
 - Real identities/audio/transcripts: `0`
 - Paid API cost: `USD 0.00`
 - Final local validation elapsed: `10,492 ms`
-- GitHub Actions: `PENDING`
+- GitHub Actions: `PASS` (push and pull-request quality runs)
+- Draft PR: `https://github.com/baobaoagi-cpu/plm/pull/3`
 
 Final counts and hashes are recorded in `.loop/evidence/phase3c-offline-duplex-i13.json`.

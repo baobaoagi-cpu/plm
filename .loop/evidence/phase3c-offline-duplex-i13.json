@@ -17,7 +17,8 @@
     "git_diff_check": "PASS",
     "high_confidence_secret_scan": "PASS_0_MATCHES",
     "forbidden_runtime_scan": "PASS_0_MATCHES",
-    "dependency_lockfile_diff": "NONE"
+    "dependency_lockfile_diff": "NONE",
+    "github_actions": "PASS_2_QUALITY_RUNS"
   },
   "final_validation_elapsed_ms": 10492,
   "duplex_proofs": {
@@ -57,7 +58,7 @@
     "src/duplex_voice/audio/duplex_simulator.py": "ea102994c155cf5b1e5fad6694c6df9b9843d509cc0e77907516f8041a0b54c0",
     "src/duplex_voice/providers/faults.py": "042071d9f051f7d224f44103ab9a8e390aeb416deef8b6fc8b79d596d232fa49",
     "tests/unit/test_phase3c_architecture_boundaries.py": "57be9ab047d1bfddc9dbc19ab2a95b893420d0aaae33de43f372d6bb56c44960",
-    "docs/specs/phase3c-offline-duplex-hardening.md": "d0e44d3bcdfe361b8b854e9eb9936e9503abafe8abde63d7a4bf316d18b3898c"
+    "docs/specs/phase3c-offline-duplex-hardening.md": "8216f435538ad3fd91d0d1b8b8ca7a4a403a8d76b3d346bbbbbec79f8e1ebce9"
   },
   "evidence_status": {
     "offline_contracts": "VERIFIED",
@@ -66,5 +67,6 @@
     "real_network_latency": "UNKNOWN",
     "staging_postgres_rls": "UNKNOWN"
   },
+  "draft_pull_request": "https://github.com/baobaoagi-cpu/plm/pull/3",
   "next_stop": "NEEDS_HUMAN_PHASE_3C_REVIEW"
 }

@@ -19,11 +19,15 @@ before any real staging credential is used.
 - Provider-neutral STT, LLM, TTS, identity and transport contracts.
 - Reusable deterministic fakes and bounded provider error/timeout mapping.
 
-## Remaining validation
+## Validation complete
 
-- Final full regression and security scans after durable-memory documentation.
-- Evidence hashes and iteration record.
-- Commit, push, Draft PR and GitHub Actions.
+- Final full regression, architecture-boundary, dependency-integrity and security scans passed.
+- Evidence hashes and iteration record are committed.
+- Phase 3C branch and Draft PR #3 are published; both GitHub Actions quality runs passed.
+
+## Pending human action
+
+- Human Phase 3C review.
 
 ## Explicitly not delivered
 

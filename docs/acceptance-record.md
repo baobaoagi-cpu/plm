@@ -131,7 +131,7 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 
 ## Phase 3C — Offline Duplex Architecture Hardening
 
-- Status: `LOCAL_ACCEPTANCE_COMPLETE / GITHUB_ACTIONS_PENDING`
+- Status: `COMPLETED / NEEDS_HUMAN_PHASE_3C_REVIEW`
 - Authorized offline missions completed: `4/4`
 - `.env.example` / machine-readable contract parity: `PASS`
 - Offline external integrations fail closed: `PASS`
@@ -158,6 +158,7 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - pytest: `PASS` (232)
 - TypeScript strict: `PASS`
 - Final local validation elapsed: `10,492 ms`
-- GitHub Actions: `PENDING`
+- GitHub Actions: `PASS` (push and pull-request quality runs)
+- Draft PR: `https://github.com/baobaoagi-cpu/plm/pull/3`
 - Formal MiniMaxTTSService / Pipecat Pipeline created: `NO`
 - Stop condition after publication: `NEEDS_HUMAN_PHASE_3C_REVIEW`
