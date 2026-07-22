@@ -267,6 +267,10 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 ## LIFF Staging Frontend Bootstrap
 
 - Status: `COMPLETED / NEEDS_HUMAN_LIFF_APP_CREATION`
+- Branch: `codex/liff-staging-bootstrap`
+- Initial published commit: `eb71c4f7321e209b6c84be23ed6c1a68e8fc4325`
+- Stacked Draft PR: `https://github.com/baobaoagi-cpu/plm/pull/7`
+- GitHub Actions initial publish: `PASS / run 29890609272`
 - Railway environment: `staging`
 - Separate frontend service: `plm-liff-staging-shell / 7164b6ce-f8fa-40ae-aa0b-9114639d834a`
 - Successful deployment: `d4c0d20e-d5b4-4136-9239-2d3b4a86c551`
