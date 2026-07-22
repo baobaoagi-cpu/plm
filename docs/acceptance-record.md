@@ -323,8 +323,11 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 
 ## LIFF Identity Merge Review Repair
 
-- Status: `LOCAL_VERIFIED / NEEDS_HUMAN_FINAL_MERGE_REVIEW`
+- Status: `PUBLISHED_VERIFIED / NEEDS_HUMAN_FINAL_MERGE_REVIEW`
 - Branch: `codex/liff-staging-identity-activation`
+- Functional repair commit: `6ee07e4f9afd2f6e1746854aec3db07bc4da1be2`
+- Draft PR: `https://github.com/baobaoagi-cpu/plm/pull/10`
+- GitHub Actions: `PASS / 2 QUALITY RUNS`
 - Merge performed: `NO`
 - Deployment or production connection: `NO`
 - Browser activation: separate `VITE_LIFF_IDENTITY_ENABLED` flag, default false

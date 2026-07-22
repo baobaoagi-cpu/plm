@@ -36,3 +36,11 @@ Authority: `APPROVED: LIFF Identity Merge Repair`
 - No microphone, WebSocket, voice provider, database or user data.
 
 Stop: `NEEDS_HUMAN_FINAL_MERGE_REVIEW`
+
+## Publication
+
+- Functional repair commit: `6ee07e4f9afd2f6e1746854aec3db07bc4da1be2`
+- Draft PR: `https://github.com/baobaoagi-cpu/plm/pull/10`
+- GitHub Actions: PASS, two quality runs
+- PR state: OPEN / DRAFT / MERGEABLE
+- Merge/deployment: NOT PERFORMED
