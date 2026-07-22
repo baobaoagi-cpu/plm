@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T12:15:00+08:00",
+  "updated_at": "2026-07-22T13:00:29+08:00",
   "project": "plm-xie-wenxian-owner-calibration",
   "canonical_repository": "https://github.com/baobaoagi-cpu/plm",
-  "current_milestone": "LIFF Staging Frontend Bootstrap",
-  "current_iteration": 18,
-  "status": "NEEDS_HUMAN_LIFF_APP_CREATION",
+  "current_milestone": "LIFF App Registration Verification and Public Configuration Contract",
+  "current_iteration": 19,
+  "status": "NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW",
   "tasks": {
     "task_001": {"status": "COMPLETED"},
     "task_002": {"status": "COMPLETED"},
@@ -93,6 +93,24 @@
     "secrets_added": 0,
     "production_changed": false
   },
-  "next_allowed_action": "Human creates a LIFF app in the dedicated LINE Login channel using the published staging endpoint; no secret or access token is required.",
-  "forbidden_next_action": "Do not add a LIFF ID, enable LINE identity, WebSocket, microphone, MiniMax, LiveKit, Mem0, R2 or database, start real calls, deploy production, or begin another phase without separate approval."
+  "liff_app_registration_verification": {
+    "status": "COMPLETED",
+    "branch": "codex/liff-registration-contract",
+    "liff_id_classification": "PUBLIC_CONFIG",
+    "liff_url": "https://liff.line.me/2010776532-YooRYUEg",
+    "endpoint_url": "https://plm-liff-staging-shell-staging.up.railway.app/",
+    "public_page": "VERIFIED_HTTP_200",
+    "redirect_behavior": "VERIFIED_CLIENT_SIDE_JAVASCRIPT_TO_EXPECTED_ENDPOINT",
+    "http_redirect_count": 0,
+    "line_identity_verified": false,
+    "openid_scope": "HUMAN_CONFIGURED_NOT_SCREENSHOT_VERIFIED",
+    "profile_scope": "UNKNOWN_NOT_SCREENSHOT_VERIFIED",
+    "chat_message_write_scope": "UNKNOWN_NOT_SCREENSHOT_VERIFIED",
+    "liff_id_injected_into_runtime": false,
+    "external_integrations_enabled": false,
+    "secrets_added": 0,
+    "production_changed": false
+  },
+  "next_allowed_action": "Command Center reviews the public LIFF registration evidence and decides whether to authorize a separate LIFF identity activation milestone.",
+  "forbidden_next_action": "Do not initialize the LIFF SDK, enable LINE identity or profile access, inject the LIFF ID into Railway/runtime configuration, enable microphone, WebSocket, MiniMax, LiveKit, Mem0, R2 or database, start real calls, deploy production, or begin another phase without separate approval."
 }

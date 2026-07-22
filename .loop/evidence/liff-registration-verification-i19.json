@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-07-22T13:00:29+08:00",
+  "mission": "LIFF App Registration Verification and Public Configuration Contract",
+  "branch": "codex/liff-registration-contract",
+  "network_checks": {
+    "authentication_performed": false,
+    "personal_data_requested": false,
+    "liff_public_url": {
+      "url": "https://liff.line.me/2010776532-YooRYUEg",
+      "http_status": 200,
+      "http_redirect_count": 0,
+      "og_title_matches": true,
+      "contains_expected_endpoint": true,
+      "client_side_redirect_target_matches": true,
+      "fallback_link_target_matches": true
+    },
+    "staging_endpoint": {
+      "url": "https://plm-liff-staging-shell-staging.up.railway.app/",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "cache_control": "no-store",
+      "csp_connect_src": "none",
+      "csp_media_src": "none",
+      "permissions_policy_microphone": "disabled"
+    },
+    "staging_health": {
+      "url": "https://plm-liff-staging-shell-staging.up.railway.app/healthz",
+      "http_status": 200,
+      "status": "ok",
+      "integrations": false
+    }
+  },
+  "interpretation": {
+    "public_registration": "VERIFIED",
+    "client_side_redirect_configuration": "VERIFIED",
+    "browser_navigation_execution": "NOT_EXECUTED",
+    "line_identity": "NOT_VERIFIED",
+    "scope_claims": "NOT_VERIFIED",
+    "openid_scope": "HUMAN_CONFIGURED_NOT_SCREENSHOT_VERIFIED",
+    "profile_scope": "UNKNOWN_NOT_SCREENSHOT_VERIFIED",
+    "chat_message_write_scope": "UNKNOWN_NOT_SCREENSHOT_VERIFIED",
+    "add_friend_option": "HUMAN_CONFIGURED_NOT_SCREENSHOT_VERIFIED",
+    "scan_qr_option": "HUMAN_CONFIGURED_NOT_SCREENSHOT_VERIFIED"
+  },
+  "safety": {
+    "credentials_recorded": 0,
+    "secrets_displayed": false,
+    "runtime_configuration_changed": false,
+    "railway_variables_changed": false,
+    "deployments_triggered": 0,
+    "external_integrations_enabled": 0,
+    "production_changed": false
+  },
+  "validation": {
+    "ruff": "PASS",
+    "mypy": "PASS_88_FILES",
+    "pytest": "PASS_282",
+    "typescript": "PASS",
+    "offline_browser_assertions": "PASS_22",
+    "staging_server_tests": "PASS_3",
+    "vite_build": "PASS",
+    "json_validation": "PASS_3_FILES",
+    "secret_scan": "PASS_0_HIGH_CONFIDENCE_FINDINGS_IN_8_MISSION_FILES"
+  },
+  "stop": "NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW"
+}
