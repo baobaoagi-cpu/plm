@@ -19,6 +19,14 @@
   Mem0, recordings, public/production use and release persona.
 - Resolution: owner consent checklist plus governance approval.
 
+## B-006 - External staging database identity
+
+- Status: `NOT_CONFIGURED / NOT_CONTACTED`
+- Phase 3B provides a PostgreSQL 15+ schema and migration contract only.
+- Blocks: applying migration, persistence integration, DB-backed RLS smoke and admin database reads.
+- Resolution: human supplies a dedicated staging DB identity, approved application roles, retention
+  policy and rollback window in a later milestone. Production credentials are never acceptable.
+
 ## Retained hard constraints
 
 - PLM is canonical; holygrail2 is provenance only.
@@ -26,3 +34,4 @@
 - MiniMax remains one WebSocket session per generation.
 - Generation Guard cannot be bypassed.
 - Raw V2 remains `REFERENCE_ONLY`; 46 candidates remain engineering interpretations.
+- Phase 3B accepts synthetic data only and cannot publish or create a release persona.

@@ -25,6 +25,12 @@
 - Backend-free、預設停用的謝文憲 LIFF call shell、mic permission、waveform 與 dial tone；未搬
   legacy audio/WebSocket hooks、persona assets 或第二套編排器。
 - Repository Migration inventory/report、V2 custody review、隔離／污染測試與 Web strict CI。
+- Phase 3B verified-identity mapper、SHA-256 effective user IDs、synthetic-only isolation store、
+  fail-closed candidate persona loader 與四個 immutable read-only admin contracts。
+- PostgreSQL 15+ `xiewenxian_staging` migration contract，包含 composite tenant/principal foreign
+  keys、forced RLS、indexed filters、provider-role guards、least privilege 與 staging-only rollback。
+- Dev-only PostgreSQL AST parser pinned in CI so both migration directions are syntax-checked on
+  every quality run.
 
 ### Security
 
@@ -37,7 +43,10 @@
 - Treat socket close only as an inferred cancellation layer and discard stale audio locally.
 - Keep Pipecat as the sole orchestrator; the legacy pipeline remains reference-only.
 - Task 003 and the public initial publish are complete.
-- Task 004 is complete. Task 005 and LINE OA integration remain unauthorized; the current stop is
-  `NEEDS_HUMAN_PLM_MIGRATION_REVIEW` after the separately authorized Repository Migration Repair.
+- Task 004 is complete. Task 005 and LINE OA integration remain unauthorized. Repository Migration
+  Repair was followed by a separately authorized Phase 3B staging proof; the current stop is
+  `NEEDS_HUMAN_PHASE_3B_REVIEW`.
 - `baobaoagi-cpu/plm` is the sole canonical repository for the Xie Wenxian system. The historical
   holygrail2 branch is provenance only and was not modified or deleted.
+- Phase 3B is staging proof only. No external database was contacted, no real identity/data was
+  used, and the required stop is `NEEDS_HUMAN_PHASE_3B_REVIEW`.

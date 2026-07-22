@@ -53,5 +53,14 @@ Allowlist 只從 `XIEWENXIAN_CALIBRATION_LINE_ALLOWLIST_JSON` 讀取，不進 Gi
 
 ## 刪除與保存
 
-3A 不收集對話或音訊。未來 3B／3C 必須先取得 consent version、保存天數、刪除政策與
-撤回方式；未完成前不得接資料儲存。
+3A 不收集對話或音訊。3B 只使用 synthetic digest proof；3C 或任何外部資料儲存前必須
+先取得 consent version、保存天數、刪除政策與撤回方式。
+
+## Phase 3B synthetic proof 補充
+
+Phase 3B 仍不收集真實對話、身份或音訊。Python proof store 只接受以 `synthetic:` 明確
+標示的 bounded content，且只保存 SHA-256 digest。外部 ID 只產生 SHA-256 指紋與穩定
+`effective_user_id`；raw ID 不進 store、admin snapshot 或 log。
+
+`migrations/phase3b/` 是尚未執行的 PostgreSQL staging contract，不代表資料保存已獲准。
+在 retention、consent、DB identity 與 rollback window 經人工確認前，不得套用到外部 DB。

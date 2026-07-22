@@ -58,8 +58,14 @@ xie_wenxian tenant / candidate persona binding
 程式證據：`src/duplex_voice/calibration/identity.py`。此模組不 import 任何既有 persona、LINE
 webhook、memory 或模型 runtime；3A 不會產生任何外部回覆。
 
-## 後續閘門
+## Phase 3B staging proof
 
-本文件是由錯置來源移植至 PLM 的 3A 隔離政策。只有 Migration Review 與後續人工批准，
-並完成專屬 LINE OA 與 consent checklist 後，才可另案開始 3B。
-3B 不會自動授權 3C 或 3D。
+Phase 3B 已由人工批准，新增 verified identity assertion → hashed `effective_user_id` 映射、
+synthetic-only proof store、候選人格 fail-closed loader、PostgreSQL schema contract 與四個
+read-only admin contracts。這些能力沒有連接真實 LINE、DB、Mem0、R2 或 provider。
+
+PostgreSQL migration 的 schema 固定為 `xiewenxian_staging`，所有資料表 forced RLS，並以
+tenant／principal／principal kind composite foreign key 防止 Owner Evidence 與 Student Memory
+混用。因尚未取得外部 staging DB identity，目前只有 AST parse 與 contract-test 證據。
+
+3B 不會自動授權 3C、3D、Task 005 或 production。
