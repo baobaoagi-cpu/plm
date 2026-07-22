@@ -41,6 +41,12 @@
   plus reusable synthetic fakes and bounded redacted timeout/error mapping.
 - Gate DB-1 reproducible PostgreSQL 15 harness with a network-disabled tmpfs container, synthetic
   RLS scenarios, provider-role checks, guarded rollback proof and guaranteed cleanup.
+- Phase 3D offline browser PCM framer, AudioWorklet contract, duplex lab and explicit call-state
+  machine with hard interruption/hangup cleanup.
+- Short-lived session/subject-bound call grants, bounded nonce replay defense, strict Protocol v1
+  ingress ordering and redacted bounded telemetry/latency contracts.
+- Deterministic resilience soak covering 10,000 frames, 1,000 reconnects, 10,000 events and 1,000
+  interrupted generations without provider or network access.
 
 ### Security
 
@@ -48,6 +54,12 @@
 - API keys, authorization headers, full Voice IDs, and synthesis text are excluded from evidence.
 - Phase 3B migration reruns now set the fixed staging tenant only with transaction-local scope, so
   an already-forced RLS policy cannot reject the idempotent tenant seed or leak context.
+- Gate DB-1 now qualifies outer RLS references explicitly, directly tests a known foreign
+  principal ID and pins its disposable PostgreSQL image by digest.
+- Browser playback rejects duplicate or regressed audio sequence numbers within a generation; CI
+  now executes the offline browser assertion suite.
+- Call-grant nonce replay protection is explicitly classified as
+  `VERIFIED_SINGLE_PROCESS_OFFLINE_ONLY`; distributed and restart-safe enforcement remains unknown.
 
 ### Decision
 
@@ -66,3 +78,8 @@
   LiveKit integration and stops at `NEEDS_HUMAN_PHASE_3C_REVIEW` after CI.
 - Gate DB-1 verifies local PostgreSQL enforcement only and stops at
   `NEEDS_HUMAN_GATE_DB1_REVIEW`; external staging and production remain disconnected.
+- Phase 3D proves only offline client/protocol mechanics. Real browser, LIFF, WebSocket, provider,
+  transport and production behavior remain unverified; stop at `NEEDS_HUMAN_PHASE_3D_REVIEW`.
+- Human Phase 3D review is approved. Gate DB-1 and Phase 3D are published as stacked Draft PRs #4
+  and #5 with initial GitHub Actions passing; neither is merged or deployed. The current stop is
+  `NEEDS_HUMAN_FINAL_MERGE_REVIEW` after the approved review repair and passing Actions.

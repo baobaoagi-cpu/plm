@@ -36,3 +36,6 @@ jobs:
       - name: Typecheck LIFF shell
         working-directory: web
         run: npm run typecheck
+      - name: Run offline client assertions
+        working-directory: web
+        run: npm run test:offline

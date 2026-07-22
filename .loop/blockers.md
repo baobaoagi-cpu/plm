@@ -4,7 +4,8 @@
 
 - Status: `RESOLVED_FOR_OFFLINE_PROTOCOL_CONTRACTS_ONLY`
 - Allowed: backend-free, call-disabled shell rewritten in PLM.
-- Also allowed: Phase 3C provider-free Protocol v1 and synthetic audio contracts.
+- Also allowed: Phase 3C provider-free Protocol v1 and synthetic audio contracts, plus Phase 3D
+  offline browser, grant, replay, telemetry and soak contracts.
 - Still blocked: LIFF SDK identity, real audio hooks, WebSocket server, backend/provider integration.
 
 ## B-004 - Task 005 milestone authority
@@ -38,6 +39,15 @@
 - Resolution: human supplies persona/environment-isolated staging identities and separately approves
   the corresponding integration milestone. Populating a secret does not activate an integration.
 
+## B-008 - Real browser and transport proof
+
+- Status: `NOT_AUTHORIZED / NOT_EXECUTED`
+- Phase 3D compiles an AudioWorklet and proves pure client/protocol logic only.
+- Blocks: `getUserMedia`, real device sample-rate/AEC tests, LIFF SDK, WebSocket transport, network
+  chaos and end-to-end duplex latency.
+- Resolution: dedicated staging identities, real-device test consent and a separately approved
+  integration milestone. Offline AEC observation must not be described as real AEC quality.
+
 ## Retained hard constraints
 
 - PLM is canonical; holygrail2 is provenance only.
@@ -46,3 +56,12 @@
 - Generation Guard cannot be bypassed.
 - Raw V2 remains `REFERENCE_ONLY`; 46 candidates remain engineering interpretations.
 - Phase 3B accepts synthetic data only and cannot publish or create a release persona.
+
+## B-009 - Distributed call-grant replay protection
+
+- Status: `VERIFIED_SINGLE_PROCESS_OFFLINE_ONLY / DISTRIBUTED_UNKNOWN`
+- The bounded in-memory nonce guard rejects replay only when validators share the same guard in one
+  Python process. It is not durable across worker processes, containers or restarts.
+- Blocks: any multi-worker or horizontally scaled real transport milestone.
+- Resolution: provide an atomic shared nonce store, or prove and enforce a single-instance runtime,
+  under a separately authorized milestone. This repair does not start Phase 3E.

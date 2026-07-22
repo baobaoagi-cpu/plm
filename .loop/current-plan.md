@@ -2,44 +2,56 @@
 
 ## Milestone
 
-`Gate DB-1 — Local PostgreSQL RLS Execution Proof`
+`Phase 3D — Offline Client and Protocol Resilience`
 
 ## Goal
 
-Execute the existing Phase 3B migration on a disposable real PostgreSQL 15 server and prove forced
-RLS, synthetic identity isolation, data-class separation, least-privilege roles and guarded
-rollback without any external database or production connection.
+Harden browser audio framing, client lifecycle, call grants, Protocol v1 ordering/replay and safe
+observability before any real identity, transport, microphone or provider integration.
 
-## Delivered locally
+## Delivered and published
 
-- Reproducible PowerShell runner using an official PostgreSQL 15 image.
-- Network-disabled container, no host port, tmpfs data and unconditional cleanup.
-- Three fail-closed provider roles and synthetic owner/student A/student B identities.
-- Fifteen executable RLS/data-class assertions and four migration/role/rollback checks.
-- Migration rerun defect repaired with transaction-local staging tenant context.
-- Static regression assertion plus machine-readable evidence and acceptance records.
+- PCM16LE 16 kHz mono 20 ms browser framer and unconnected AudioWorklet capture contract.
+- Independent offline microphone/playback queues with backpressure, hard clear and final generation
+  admission check.
+- Explicit client permission/connect/duplex/interrupt/reconnect/hangup state machine.
+- Short-lived HMAC call grant with audience/purpose/session/subject/nonce/time binding and rotation.
+- Protocol ingress gate for order, replay, session, audio timestamp and generation validation.
+- Bounded redacted lifecycle events and monotonic latency metrics.
+- Threat model, architecture-boundary tests and deterministic high-volume soak.
+- Gate DB-1 branch published as stacked Draft PR #4 against Phase 3C.
+- Phase 3D branch published as stacked Draft PR #5 against Gate DB-1.
+- Initial push and pull-request GitHub Actions: two quality runs per PR, all passed.
+- Initial published local and remote SHAs matched exactly.
 
 ## Verified
 
-- PostgreSQL 15.18 migration applied twice in one fresh database.
-- Student A/B conversations, memories and prompt logs remained isolated.
-- Owner Evidence and Student Memory rejected cross-class writes.
-- Missing context failed closed; forced RLS constrained the table owner.
-- Admin-readonly could read its selected scope and could not write.
-- Unguarded rollback was rejected without changes; guarded staging rollback removed the schema.
-- Disposable container and all synthetic rows were removed.
+- 10,000 ordered protocol frames; replay ID tail bounded at 64.
+- 1,000 reconnects; every connection used a fresh session-bound grant.
+- 10,000 telemetry events; retained tail bounded at 128.
+- 1,000 interrupted generations; zero stale playback and zero terminal records retained.
+- Ruff, mypy strict, 262 pytest tests, TypeScript strict and 22 browser assertions passed.
+- Call-grant replay is `VERIFIED_SINGLE_PROCESS_OFFLINE_ONLY`; distributed and restart-safe replay
+  protection remains `UNKNOWN`.
+
+## Post-review repair completed
+
+- PR #4 now qualifies RLS outer references, directly tests a known foreign principal ID and pins
+  PostgreSQL by digest; two new quality checks passed.
+- PR #5 now runs browser assertions in CI, rejects duplicate/regressed audio sequences and limits
+  the nonce replay claim to a shared single-process guard; two new quality checks passed.
 
 ## Pending human action
 
-- Human Gate DB-1 review.
+- Human final stacked-PR merge review. Both pull requests remain open and draft; neither was merged.
 
 ## Explicitly not delivered
 
-- External staging database, persistence adapter or connection-pool context lifecycle.
-- Real LINE/Partner identity, owner/student data, Mem0, R2 or admin UI.
-- Formal MiniMaxTTSService, Pipecat Pipeline, LINE activation or LiveKit integration.
-- Phase 3D, Task 005, release persona or production deployment.
+- Real `getUserMedia`, LIFF identity SDK, WebSocket client/server or device AEC validation.
+- Formal MiniMaxTTSService, Pipecat Pipeline, LiveKit transport or provider adapter.
+- Real signing key, external database, LINE OA, Mem0, R2, owner/student data or recordings.
+- Phase 3E, Task 005, release persona or production deployment.
 
 ## Required stop
 
-`NEEDS_HUMAN_GATE_DB1_REVIEW`
+`NEEDS_HUMAN_FINAL_MERGE_REVIEW`
