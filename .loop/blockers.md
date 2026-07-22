@@ -2,9 +2,10 @@
 
 ## B-003 - Legacy extraction authority
 
-- Status: `RESOLVED_FOR_REPOSITORY_MIGRATION_REPAIR_ONLY`
+- Status: `RESOLVED_FOR_OFFLINE_PROTOCOL_CONTRACTS_ONLY`
 - Allowed: backend-free, call-disabled shell rewritten in PLM.
-- Still blocked: LIFF SDK identity, audio hooks, WebSocket protocol, backend/provider integration.
+- Also allowed: Phase 3C provider-free Protocol v1 and synthetic audio contracts.
+- Still blocked: LIFF SDK identity, real audio hooks, WebSocket server, backend/provider integration.
 
 ## B-004 - Task 005 milestone authority
 
@@ -26,6 +27,14 @@
 - Blocks: applying migration, persistence integration, DB-backed RLS smoke and admin database reads.
 - Resolution: human supplies a dedicated staging DB identity, approved application roles, retention
   policy and rollback window in a later milestone. Production credentials are never acceptable.
+
+## B-007 - External staging provider identities
+
+- Status: `NOT_CONFIGURED / NOT_CONTACTED`
+- Phase 3C defines slots and adapter contracts only.
+- Blocks: real LINE verification, STT/LLM calls, formal MiniMax voice runtime and LiveKit transport.
+- Resolution: human supplies persona/environment-isolated staging identities and separately approves
+  the corresponding integration milestone. Populating a secret does not activate an integration.
 
 ## Retained hard constraints
 

@@ -128,3 +128,37 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - Pipecat／Generation Guard modified: `NO`
 - Release persona created: `NO`
 - Stop condition: `NEEDS_HUMAN_PHASE_3B_REVIEW`
+
+## Phase 3C — Offline Duplex Architecture Hardening
+
+- Status: `COMPLETED / NEEDS_HUMAN_PHASE_3C_REVIEW`
+- Authorized offline missions completed: `4/4`
+- `.env.example` / machine-readable contract parity: `PASS`
+- Offline external integrations fail closed: `PASS`
+- Production / disabled guard / connection pool / stale playback rejected: `PASS`
+- Strict client protocol frames: `PASS` (6)
+- Strict server protocol frames: `PASS` (9)
+- Oversized / unknown / extra identity fields rejected safely: `PASS`
+- Stale lease cleanup cannot remove reconnect replacement: `PASS`
+- Input/output queues independent and bounded: `PASS`
+- 40-way enqueue/interrupt race stale playback: `0`
+- 100 sequential interruption stale playback: `0`
+- Provider-neutral adapter contracts and deterministic fakes: `PASS`
+- Provider timeout and mid-stream fault termination: `PASS`
+- Architecture boundary tests: `PASS` (3)
+- npm dependency tree: `PASS`
+- npm audit: `PASS_INHERITED_UNCHANGED_LOCKFILE_FROM_PHASE_3B` (dependency files unchanged;
+  online rerun not allowed by offline milestone)
+- Local/external PostgreSQL execution: `0 / SEPARATE_GATE`
+- Provider/LINE/LiveKit/Mem0/R2/production connections: `0`
+- Real identity/audio/transcript use: `0`
+- Paid API cost: `USD 0.00`
+- Ruff: `PASS`
+- mypy strict: `PASS` (79 source files)
+- pytest: `PASS` (232)
+- TypeScript strict: `PASS`
+- Final local validation elapsed: `10,492 ms`
+- GitHub Actions: `PASS` (push and pull-request quality runs)
+- Draft PR: `https://github.com/baobaoagi-cpu/plm/pull/3`
+- Formal MiniMaxTTSService / Pipecat Pipeline created: `NO`
+- Stop condition after publication: `NEEDS_HUMAN_PHASE_3C_REVIEW`

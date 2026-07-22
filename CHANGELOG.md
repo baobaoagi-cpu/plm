@@ -31,6 +31,14 @@
   keys、forced RLS、indexed filters、provider-role guards、least privilege 與 staging-only rollback。
 - Dev-only PostgreSQL AST parser pinned in CI so both migration directions are syntax-checked on
   every quality run.
+- Phase 3C fail-closed environment contract with exact `.env.example` parity, secret/public value
+  classification, immutable one-session-per-generation and stale-discard policies.
+- Strict Protocol v1 client/server schemas, bounded redacted parser and stale-safe per-principal
+  transport lease registry.
+- Independent bounded input/output audio queues and an offline duplex harness with pre-playback
+  Generation Guard enforcement, backpressure, idempotent hangup and deterministic race proofs.
+- Provider-neutral STT, LLM, generation-scoped TTS, identity-verification and transport contracts,
+  plus reusable synthetic fakes and bounded redacted timeout/error mapping.
 
 ### Security
 
@@ -50,3 +58,5 @@
   holygrail2 branch is provenance only and was not modified or deleted.
 - Phase 3B is staging proof only. No external database was contacted, no real identity/data was
   used, and the required stop is `NEEDS_HUMAN_PHASE_3B_REVIEW`.
+- Phase 3C is offline hardening only. It creates no MiniMaxTTSService, Pipecat Pipeline, LINE or
+  LiveKit integration and stops at `NEEDS_HUMAN_PHASE_3C_REVIEW` after CI.
