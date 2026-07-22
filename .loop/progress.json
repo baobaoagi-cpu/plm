@@ -1,10 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T00:00:00+08:00",
-  "project": "minimax-duplex-voice",
-  "current_milestone": "Task 004 - Generation Guard",
-  "current_iteration": 10,
-  "status": "NEEDS_HUMAN_MILESTONE_APPROVAL",
+  "updated_at": "2026-07-19T23:30:00+08:00",
+  "project": "plm-xie-wenxian-owner-calibration",
+  "canonical_repository": "https://github.com/baobaoagi-cpu/plm",
+  "current_milestone": "Repository Migration Repair",
+  "current_iteration": 11,
+  "status": "NEEDS_HUMAN_PLM_MIGRATION_REVIEW",
   "tasks": {
     "task_001": {"status": "COMPLETED"},
     "task_002": {"status": "COMPLETED"},
@@ -12,49 +13,36 @@
     "task_004": {"status": "COMPLETED"},
     "task_005": {"status": "NOT_AUTHORIZED"}
   },
-  "legacy_audit": {
+  "repository_migration_repair": {
     "status": "COMPLETED",
-    "iterations_used": 3,
-    "reference_branch": "voice-call-package",
-    "reference_commit": "2ae148d46b5d018ae5999ee68f3db6da5cc5566f",
-    "reference_clean": true,
-    "inventory_files": 43,
-    "inventory_missing": 0,
-    "inventory_extra": 0,
-    "risk_count": 15,
-    "high_confidence_secret_hits": 0,
-    "env_values_recorded": false,
-    "provider_api_calls": 0,
-    "evidence": [
-      ".loop/evidence/legacy-package-inventory.json",
-      ".loop/evidence/legacy-package-risk-register.json"
-    ]
-  },
-  "integration_blueprint": {
-    "status": "DESIGN_COMPLETE_NOT_IMPLEMENTED",
-    "document": "docs/line-oa-voice-call-integration-blueprint.md",
-    "pipecat_sole_orchestrator": true,
+    "branch": "codex/xie-wenxian-plm-migration",
+    "historical_repository": "baobaoagi-cpu/holygrail2",
+    "historical_branch": "codex/xie-wenxian-soul-container-v0.1",
+    "historical_commit": "a1ad3825cf17935622c158795dee019be99bcaaa",
+    "inventory_entries": 31,
+    "phase_2_candidates": 46,
+    "owner_confirmation_items": 15,
+    "owner_quotes_nonempty": 0,
+    "raw_v2_status": "REFERENCE_ONLY_UNTRACKED",
+    "phase_3a_reimplemented_in_plm": true,
+    "liff_shell_call_enabled": false,
     "legacy_runtime_imported": false,
-    "task_004_completed": true
+    "production_connections": 0,
+    "local_validation": {
+      "ruff": "PASS",
+      "mypy_strict": "PASS_55_FILES",
+      "pytest": "PASS_126",
+      "typescript_strict": "PASS",
+      "npm_audit": "PASS_0_VULNERABILITIES",
+      "secret_scan": "PASS_0_HIGH_CONFIDENCE_MATCHES",
+      "forbidden_import_scan": "PASS_0_PRODUCTION_MATCHES",
+      "tracy_contamination_scan": "PASS_0_PRODUCTION_MATCHES",
+      "git_diff_check": "PASS",
+      "github_actions": "PASS"
+    }
   },
-  "initial_publish": {
-    "status": "COMPLETED",
-    "repository": "https://github.com/baobaoagi-cpu/plm",
-    "branch": "main",
-    "security_scan": "PASS",
-    "ruff": "PASS",
-    "mypy_strict": "PASS_41_FILES",
-    "pytest": "PASS_47"
-  },
-  "task_004_acceptance": {
-    "status": "COMPLETED",
-    "build_iterations": 3,
-    "source_files_checked": 51,
-    "tests_passed": 107,
-    "paid_provider_calls": 0,
-    "forbidden_runtime_imports": 0,
-    "evidence": ".loop/evidence/task004-generation-guard-i10.md"
-  },
-  "next_allowed_action": "Human review and explicit milestone approval for Task 005 or another bounded action.",
-  "forbidden_next_action": "Do not begin Task 005, LINE OA integration, a formal TTS service, Pipecat pipeline, LiveKit transport, or paid provider probes."
+  "plm_update": "COMPLETED",
+  "pull_request": "https://github.com/baobaoagi-cpu/plm/pull/1",
+  "next_allowed_action": "Human PLM migration review only.",
+  "forbidden_next_action": "Do not begin Task 005, LINE OA deployment, owner account delivery, STT, formal TTS, Pipecat pipeline, LiveKit, Mem0, public voice, production or Persona Release."
 }

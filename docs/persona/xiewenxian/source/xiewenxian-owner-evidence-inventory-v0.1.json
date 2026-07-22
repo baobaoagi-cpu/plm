@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.2",
+  "mission": "Owner Evidence Discovery and PLM Migration Repair",
+  "persona_slug": "xiewenxian",
+  "canonical_repository": "baobaoagi-cpu/plm",
+  "historical_source_repository": "baobaoagi-cpu/holygrail2",
+  "historical_source_branch": "codex/xie-wenxian-soul-container-v0.1",
+  "historical_source_commit": "a1ad3825cf17935622c158795dee019be99bcaaa",
+  "migration_date": "2026-07-19",
+  "status": "phase_2_candidates_migrated_owner_confirmation_required",
+  "owner_evidence_items": [],
+  "owner_evidence_count": 0,
+  "approved_engineering_sources": [
+    {
+      "source_id": "xww-core-topic-prompt-v2",
+      "title": "謝文憲 AI 分身｜靈魂級核心主題提示詞 V2",
+      "classification": "PROJECT_OWNER_APPROVED_ENGINEERING_INTERPRETATION",
+      "owner_confirmed": false,
+      "source_sha256": "5585cdde72525432729fc1ce2b15411ecf1e60d7df7b5fb19d785d0a620a817f",
+      "source_bytes": 27291,
+      "raw_source_git_status": "REFERENCE_ONLY_UNTRACKED",
+      "source_registration": "docs/persona/xiewenxian/source/xiewenxian-v2-source-registration-v0.1.md"
+    }
+  ],
+  "approved_engineering_source_count": 1,
+  "missing_authorization": [
+    "owner confirmation for each candidate claim",
+    "approved name, vocatives, likeness and voice scope",
+    "permission and retention policy for calibration conversations and recordings",
+    "formal persona release approval",
+    "production, public LINE OA and public voice-service approval"
+  ],
+  "missing_evidence": [
+    "verbatim owner statements with source references",
+    "public-source URL, page or timestamp mappings",
+    "owner calibration decisions and golden cases",
+    "voice authorization record"
+  ],
+  "excluded": [
+    "all Tracy persona, memory, identity, voice and calibration assets",
+    "legacy TypeScript voice-pipeline and MiniMax connection pool",
+    "raw V2 mother document until separate publication approval",
+    "production databases, Mem0, LINE OA, object storage, secrets and deployments"
+  ],
+  "phase_2_outputs": [
+    "docs/persona/xiewenxian/source/xiewenxian-v2-candidate-register-v0.1.json",
+    "docs/persona/xiewenxian/source/xiewenxian-owner-confirmation-queue-v0.1.json",
+    "docs/persona/xiewenxian/source/xiewenxian-v2-traceability-conflict-gap-report-v0.1.md"
+  ],
+  "candidates_created": 46,
+  "candidate_status": "PROJECT_OWNER_APPROVED_ENGINEERING_INTERPRETATION",
+  "owner_quotes_nonempty": 0,
+  "release_persona_files_created": 0,
+  "production_connections": 0
+}

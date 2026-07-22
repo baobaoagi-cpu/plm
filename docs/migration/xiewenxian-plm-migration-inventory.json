@@ -1,0 +1,522 @@
+{
+  "schema_version": "1.0",
+  "canonical_repository": "baobaoagi-cpu/plm",
+  "migration_branch": "codex/xie-wenxian-plm-migration",
+  "historical_source": {
+    "repository": "baobaoagi-cpu/holygrail2",
+    "branch": "codex/xie-wenxian-soul-container-v0.1",
+    "commit": "a1ad3825cf17935622c158795dee019be99bcaaa"
+  },
+  "legacy_reference": {
+    "repository": "baobaoagi-cpu/Mindomind",
+    "branch": "voice-call-package",
+    "commit": "2ae148d46b5d018ae5999ee68f3db6da5cc5566f"
+  },
+  "classifications": [
+    "MIGRATE_AS_IS",
+    "MIGRATE_WITH_ADAPTATION",
+    "REIMPLEMENT_IN_PLM",
+    "REFERENCE_ONLY",
+    "DO_NOT_MIGRATE",
+    "UNKNOWN"
+  ],
+  "entries": [
+    {
+      "source_path": ".github/workflows/owner-calibration-3a-ci.yml",
+      "source_sha256": "c5f8795d46c46388e1d71a2291d4b81d12f5f5565e29e5cdeca94c592b885b9d",
+      "classification": "DO_NOT_MIGRATE",
+      "target_path": ".github/workflows/ci.yml",
+      "rewrite_required": true,
+      "dependencies": [
+        "existing PLM CI"
+      ],
+      "tenant_isolation": "CI only",
+      "test_requirements": [
+        "PLM full CI"
+      ],
+      "sensitive_data": "none_detected",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "backend/personas/xiewenxian/README.md",
+      "source_sha256": "a548aa59410274dab6f46eef2bafa9b1d8a1d557589153029238178eda31e606",
+      "classification": "REFERENCE_ONLY",
+      "target_path": "docs/migration/xiewenxian-plm-migration-inventory.json",
+      "rewrite_required": false,
+      "dependencies": [],
+      "tenant_isolation": "not_runtime",
+      "test_requirements": [
+        "source_sha256_recorded"
+      ],
+      "sensitive_data": "none_detected",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "backend/src/tracy/owner_calibration.py",
+      "source_sha256": "2cf3987da5ff8b9d4f36fb6b14b3eebe5c11ac61ef69f647da4845502424bdda",
+      "classification": "REIMPLEMENT_IN_PLM",
+      "target_path": "src/duplex_voice/calibration/identity.py",
+      "rewrite_required": true,
+      "dependencies": [
+        "PLM Python package"
+      ],
+      "tenant_isolation": "xie_wenxian namespaces and dedicated secret slots",
+      "test_requirements": [
+        "strict mypy",
+        "allowlist",
+        "kill switch",
+        "namespace disjointness"
+      ],
+      "sensitive_data": "no values; environment slot names only",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "backend/tests/test_owner_calibration_identity.py",
+      "source_sha256": "1de8cd10386fb6c43a4fe3977dc64ec18f4ca98ef9652677836eee207640b5a7",
+      "classification": "REIMPLEMENT_IN_PLM",
+      "target_path": "tests/unit/test_calibration_identity.py",
+      "rewrite_required": true,
+      "dependencies": [
+        "PLM calibration module"
+      ],
+      "tenant_isolation": "synthetic non-persona comparison fixture",
+      "test_requirements": [
+        "pytest"
+      ],
+      "sensitive_data": "synthetic IDs only",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "docs/xiewenxian-owner-calibration-architecture.md",
+      "source_sha256": "676288b7f884fa7072e82136298c9452fb321b587eb37e9918adf76ba8e419bb",
+      "classification": "MIGRATE_WITH_ADAPTATION",
+      "target_path": "docs/persona/xiewenxian/calibration/owner-calibration-architecture.md",
+      "rewrite_required": true,
+      "dependencies": [
+        "PLM paths",
+        "Generation Guard boundary"
+      ],
+      "tenant_isolation": "documented",
+      "test_requirements": [
+        "path and forbidden-import checks"
+      ],
+      "sensitive_data": "none_detected",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "docs/xiewenxian-data-isolation-policy.md",
+      "source_sha256": "af80aa3d09949ef478df7412ff16fb6f1492b4142bde6dbcf2ba16dd71a62353",
+      "classification": "MIGRATE_WITH_ADAPTATION",
+      "target_path": "docs/persona/xiewenxian/calibration/data-isolation-policy.md",
+      "rewrite_required": true,
+      "dependencies": [
+        "PLM naming"
+      ],
+      "tenant_isolation": "documented",
+      "test_requirements": [
+        "namespace assertions"
+      ],
+      "sensitive_data": "secret slot names only",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "docs/xiewenxian-owner-calibration-runbook.md",
+      "source_sha256": "a8a49da9bcab41bf2821f15f016777d841d07ca9352201b026c2969cbd641445",
+      "classification": "MIGRATE_WITH_ADAPTATION",
+      "target_path": "docs/persona/xiewenxian/calibration/owner-calibration-runbook.md",
+      "rewrite_required": true,
+      "dependencies": [
+        "PLM validation commands"
+      ],
+      "tenant_isolation": "fail-closed operations",
+      "test_requirements": [
+        "commands reproduced in CI"
+      ],
+      "sensitive_data": "no secret values",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "docs/xiewenxian-owner-consent-checklist.md",
+      "source_sha256": "5542375d100f3cdb542b4df0ad38c1864a2b8ae496fbc2ca49817f6a091401a2",
+      "classification": "MIGRATE_WITH_ADAPTATION",
+      "target_path": "docs/persona/xiewenxian/calibration/owner-consent-checklist.md",
+      "rewrite_required": true,
+      "dependencies": [
+        "future owner decisions"
+      ],
+      "tenant_isolation": "owner-only consent record",
+      "test_requirements": [
+        "status remains incomplete"
+      ],
+      "sensitive_data": "placeholders only",
+      "owner_confirmation_required": true
+    },
+    {
+      "source_path": "docs/persona-source/xiewenxian-owner-confirmation-queue-v0.1.json",
+      "source_sha256": "efadb88808198e9d445d968323b481b903e9c782f92a4646d26ada24d0e2fabb",
+      "classification": "MIGRATE_AS_IS",
+      "target_path": "docs/persona/xiewenxian/source/xiewenxian-owner-confirmation-queue-v0.1.json",
+      "rewrite_required": false,
+      "dependencies": [
+        "candidate IDs"
+      ],
+      "tenant_isolation": "xiewenxian persona only",
+      "test_requirements": [
+        "15 items",
+        "zero decisions"
+      ],
+      "sensitive_data": "no owner answers",
+      "owner_confirmation_required": true
+    },
+    {
+      "source_path": "docs/persona-source/xiewenxian-owner-evidence-discovery-v0.1.md",
+      "source_sha256": "6b5c1619e3a19cd168078130a7677d8743502b9c815e2141d5da4c0dcea05950",
+      "classification": "MIGRATE_WITH_ADAPTATION",
+      "target_path": "docs/persona/xiewenxian/source/xiewenxian-owner-evidence-discovery-v0.1.md",
+      "rewrite_required": true,
+      "dependencies": [
+        "PLM target paths"
+      ],
+      "tenant_isolation": "governance only",
+      "test_requirements": [
+        "no release persona path"
+      ],
+      "sensitive_data": "none_detected",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "docs/persona-source/xiewenxian-owner-evidence-inventory-v0.1.json",
+      "source_sha256": "41867c41ab65a3c89cda276e30446cc214da02cf40f6219df49748d2b69764ac",
+      "classification": "MIGRATE_WITH_ADAPTATION",
+      "target_path": "docs/persona/xiewenxian/source/xiewenxian-owner-evidence-inventory-v0.1.json",
+      "rewrite_required": true,
+      "dependencies": [
+        "canonical repository decision"
+      ],
+      "tenant_isolation": "xiewenxian evidence only",
+      "test_requirements": [
+        "owner evidence count zero"
+      ],
+      "sensitive_data": "source metadata only",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "docs/persona-source/xiewenxian-v2-candidate-register-v0.1.json",
+      "source_sha256": "565ea160992c06c8de24e814be4b8316eda668ef2b99dec8521c6c7f2415773e",
+      "classification": "MIGRATE_AS_IS",
+      "target_path": "docs/persona/xiewenxian/source/xiewenxian-v2-candidate-register-v0.1.json",
+      "rewrite_required": false,
+      "dependencies": [
+        "raw V2 hash"
+      ],
+      "tenant_isolation": "xiewenxian candidate namespace",
+      "test_requirements": [
+        "46 candidates",
+        "owner_quote empty",
+        "runtime and production false"
+      ],
+      "sensitive_data": "engineering interpretations; no credentials",
+      "owner_confirmation_required": true
+    },
+    {
+      "source_path": "docs/persona-source/xiewenxian-v2-source-registration-v0.1.md",
+      "source_sha256": "b35a035b921aa906f7927818be87ac669592d5029ed0a128ccf634fdc268aca9",
+      "classification": "MIGRATE_WITH_ADAPTATION",
+      "target_path": "docs/persona/xiewenxian/source/xiewenxian-v2-source-registration-v0.1.md",
+      "rewrite_required": true,
+      "dependencies": [
+        "PLM custody decision"
+      ],
+      "tenant_isolation": "source metadata only",
+      "test_requirements": [
+        "raw hash and byte count"
+      ],
+      "sensitive_data": "local absolute path removed",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "docs/persona-source/xiewenxian-v2-traceability-conflict-gap-report-v0.1.md",
+      "source_sha256": "f0d61557ab6157872e4b7c54941d51a41e1a4dcc2e8036ee243620aa34734041",
+      "classification": "MIGRATE_AS_IS",
+      "target_path": "docs/persona/xiewenxian/source/xiewenxian-v2-traceability-conflict-gap-report-v0.1.md",
+      "rewrite_required": false,
+      "dependencies": [
+        "candidate register"
+      ],
+      "tenant_isolation": "governance only",
+      "test_requirements": [
+        "conflict and gap report present"
+      ],
+      "sensitive_data": "no credentials",
+      "owner_confirmation_required": true
+    },
+    {
+      "source_path": "docs/handoffs/2026-07-19-xie-wenxian-holygrail-framework-v0.1.md",
+      "source_sha256": "4b17ad3624dff8726971dae991c8d65b1b3a1826a45ba7d3dbeb39b6464c172e",
+      "classification": "REFERENCE_ONLY",
+      "target_path": "docs/migration/xiewenxian-plm-migration-inventory.json",
+      "rewrite_required": false,
+      "dependencies": [],
+      "tenant_isolation": "not_runtime",
+      "test_requirements": [
+        "source_sha256_recorded"
+      ],
+      "sensitive_data": "none_detected",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "docs/handoffs/2026-07-19-xie-wenxian-nanny-agent-handoff-v1.0.md",
+      "source_sha256": "862a1dce719830be741c91761e5d7a0c26755033d70a75cd26fa5f96fe7a2b33",
+      "classification": "REFERENCE_ONLY",
+      "target_path": "docs/migration/xiewenxian-plm-migration-inventory.json",
+      "rewrite_required": false,
+      "dependencies": [],
+      "tenant_isolation": "not_runtime",
+      "test_requirements": [
+        "source_sha256_recorded"
+      ],
+      "sensitive_data": "none_detected",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "docs/runtime/owner-calibration-mode-prompt-redaction-v0.1.md",
+      "source_sha256": "6603eeeecd6f1ff2ac24bf52e83497c5e7816b18fdd4d92db4104749568f61a7",
+      "classification": "REFERENCE_ONLY",
+      "target_path": "docs/migration/xiewenxian-plm-migration-inventory.json",
+      "rewrite_required": false,
+      "dependencies": [
+        "holygrail prompt runtime"
+      ],
+      "tenant_isolation": "not imported",
+      "test_requirements": [
+        "forbidden import scan"
+      ],
+      "sensitive_data": "none_detected",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "docs/sessions/2026-07-05-owner-calibration-persona-candidates.md",
+      "source_sha256": "cc26a3ba2c70e5cb85f2c3d060846ede7bcb53b7113f7c1657cdde6e73bec09b",
+      "classification": "REFERENCE_ONLY",
+      "target_path": "docs/migration/xiewenxian-plm-migration-inventory.json",
+      "rewrite_required": false,
+      "dependencies": [],
+      "tenant_isolation": "not_runtime",
+      "test_requirements": [
+        "source_sha256_recorded"
+      ],
+      "sensitive_data": "none_detected",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "docs/sessions/2026-07-19-xie-wenxian-holygrail-framework.md",
+      "source_sha256": "4d74a85852f84eb4c39c8acbaabccbe13dd2a9555ee31da54004d962b4a5ab82",
+      "classification": "REFERENCE_ONLY",
+      "target_path": "docs/migration/xiewenxian-plm-migration-inventory.json",
+      "rewrite_required": false,
+      "dependencies": [],
+      "tenant_isolation": "not_runtime",
+      "test_requirements": [
+        "source_sha256_recorded"
+      ],
+      "sensitive_data": "none_detected",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "docs/sessions/2026-07-19-xie-wenxian-owner-calibration-3a.md",
+      "source_sha256": "a3c4fe60bf50d13b1de1f482d41bc0ea4c6d3d17e23bf82ba289246121200336",
+      "classification": "REFERENCE_ONLY",
+      "target_path": ".loop/runs/iteration-011-xiewenxian-plm-migration.md",
+      "rewrite_required": false,
+      "dependencies": [],
+      "tenant_isolation": "not_runtime",
+      "test_requirements": [
+        "source_sha256_recorded"
+      ],
+      "sensitive_data": "none_detected",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "docs/sessions/2026-07-19-xie-wenxian-owner-evidence-discovery.md",
+      "source_sha256": "795e8394034d6aadd848290be217e56658d9ff01bbd3741a458d1d236d13593b",
+      "classification": "REFERENCE_ONLY",
+      "target_path": "docs/migration/xiewenxian-plm-migration-inventory.json",
+      "rewrite_required": false,
+      "dependencies": [],
+      "tenant_isolation": "not_runtime",
+      "test_requirements": [
+        "source_sha256_recorded"
+      ],
+      "sensitive_data": "none_detected",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "docs/sessions/2026-07-19-xie-wenxian-v2-candidate-classification.md",
+      "source_sha256": "c6349a1b0026d54d90c1b0ac390f8c958d50b6220f093b511822a05de8f54d72",
+      "classification": "REFERENCE_ONLY",
+      "target_path": "docs/migration/xiewenxian-plm-migration-inventory.json",
+      "rewrite_required": false,
+      "dependencies": [],
+      "tenant_isolation": "not_runtime",
+      "test_requirements": [
+        "source_sha256_recorded"
+      ],
+      "sensitive_data": "none_detected",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "local:謝文憲 AI 分身｜靈魂級核心主題提示詞 V2.md",
+      "source_sha256": "5585cdde72525432729fc1ce2b15411ecf1e60d7df7b5fb19d785d0a620a817f",
+      "classification": "REFERENCE_ONLY",
+      "target_path": "docs/persona/xiewenxian/source/xiewenxian-v2-source-registration-v0.1.md",
+      "rewrite_required": false,
+      "dependencies": [],
+      "tenant_isolation": "local custody; raw source ignored by Git",
+      "test_requirements": [
+        "hash",
+        "byte count",
+        "secret scan",
+        "git-ignore"
+      ],
+      "sensitive_data": "no high-confidence secret; unverified personal and persona claims",
+      "owner_confirmation_required": true
+    },
+    {
+      "source_path": "legacy:frontend/src/components/CallScreen.tsx",
+      "source_sha256": "f08291ee658aa1b7012217867f54d86f7c9e60bce794df51189b80031717c76e",
+      "classification": "REIMPLEMENT_IN_PLM",
+      "target_path": "web/src/xiewenxian-calibration/CalibrationCallShell.tsx",
+      "rewrite_required": true,
+      "dependencies": [
+        "React only"
+      ],
+      "tenant_isolation": "sandbox notice and disabled call feature",
+      "test_requirements": [
+        "TypeScript strict",
+        "forbidden import scan"
+      ],
+      "sensitive_data": "legacy persona UI and assets excluded",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "legacy:frontend/src/components/BreathingOrb.tsx",
+      "source_sha256": "28e571a64cbf1a24753aa43a50c37ed6380e51ece2bc0d4d5ec25e5d62b23ff5",
+      "classification": "REFERENCE_ONLY",
+      "target_path": "docs/migration/xiewenxian-plm-migration-inventory.json",
+      "rewrite_required": false,
+      "dependencies": [
+        "legacy persona visual design"
+      ],
+      "tenant_isolation": "not imported",
+      "test_requirements": [
+        "absence check"
+      ],
+      "sensitive_data": "persona-branded comments and visual provenance",
+      "owner_confirmation_required": true
+    },
+    {
+      "source_path": "legacy:frontend/src/components/Waveform.tsx",
+      "source_sha256": "cfe26cb81fc6f86223c88471ea8b9bb3c59210fd04b9eb6851076de633661ac7",
+      "classification": "REIMPLEMENT_IN_PLM",
+      "target_path": "web/src/xiewenxian-calibration/Waveform.tsx",
+      "rewrite_required": true,
+      "dependencies": [
+        "React only"
+      ],
+      "tenant_isolation": "presentation only",
+      "test_requirements": [
+        "TypeScript strict"
+      ],
+      "sensitive_data": "legacy branding removed",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "legacy:frontend/src/components/MicPermission.tsx",
+      "source_sha256": "2d7be8415ff40967d9b199a09cbf7c545becee6719777011635cb61f9fdcccad",
+      "classification": "REIMPLEMENT_IN_PLM",
+      "target_path": "web/src/xiewenxian-calibration/MicPermission.tsx",
+      "rewrite_required": true,
+      "dependencies": [
+        "React only"
+      ],
+      "tenant_isolation": "no identity or asset input",
+      "test_requirements": [
+        "TypeScript strict",
+        "user gesture boundary"
+      ],
+      "sensitive_data": "avatar and persona branding removed",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "legacy:frontend/src/components/DialTone.tsx",
+      "source_sha256": "fbe565aaaa5072d23b3a0174a5d07d3f70d0b4eed2792a89aa09282691f59fe1",
+      "classification": "REIMPLEMENT_IN_PLM",
+      "target_path": "web/src/xiewenxian-calibration/DialTone.tsx",
+      "rewrite_required": true,
+      "dependencies": [
+        "Web Audio API"
+      ],
+      "tenant_isolation": "presentation only",
+      "test_requirements": [
+        "TypeScript strict",
+        "cleanup review"
+      ],
+      "sensitive_data": "legacy brain-start narrative removed",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "legacy:frontend/src/lib/liff.ts",
+      "source_sha256": "d9ded8d0d6aa0dd3f3ef961c3ffb2bb9bdd4558a629d4976c59ccee0247ef06c",
+      "classification": "REFERENCE_ONLY",
+      "target_path": "docs/line-oa-voice-call-integration-blueprint.md",
+      "rewrite_required": false,
+      "dependencies": [
+        "future official LINE token verification"
+      ],
+      "tenant_isolation": "not imported",
+      "test_requirements": [
+        "future authenticated identity contract"
+      ],
+      "sensitive_data": "client profile trust pattern rejected",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "legacy:frontend/src/hooks/useAudio.ts",
+      "source_sha256": "70ede632dbcb24c609f75823b0b2a9c4e1b8699648a641dd99c9911b7012c736",
+      "classification": "DO_NOT_MIGRATE",
+      "target_path": "docs/legacy-voice-call-audit.md",
+      "rewrite_required": false,
+      "dependencies": [
+        "legacy mixed audio state"
+      ],
+      "tenant_isolation": "not imported",
+      "test_requirements": [
+        "forbidden import scan"
+      ],
+      "sensitive_data": "no values copied",
+      "owner_confirmation_required": false
+    },
+    {
+      "source_path": "legacy:frontend/src/hooks/useWebSocket.ts",
+      "source_sha256": "1b0e389864bc04a1c493c3ed158433512fe1a116fe9f64c5691cfc50881083fd",
+      "classification": "DO_NOT_MIGRATE",
+      "target_path": "docs/legacy-voice-call-audit.md",
+      "rewrite_required": false,
+      "dependencies": [
+        "legacy unversioned protocol"
+      ],
+      "tenant_isolation": "not imported",
+      "test_requirements": [
+        "forbidden import scan"
+      ],
+      "sensitive_data": "caller-controlled identity design rejected",
+      "owner_confirmation_required": false
+    }
+  ],
+  "transient_exclusions": [
+    "__pycache__",
+    "*.pyc",
+    "holygrail2 virtual environments and caches"
+  ],
+  "status": "COMPLETED_AWAITING_HUMAN_REVIEW"
+}

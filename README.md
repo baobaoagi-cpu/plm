@@ -3,8 +3,10 @@
 以 Pipecat 作為唯一對話編排核心、LiveKit 作為 WebRTC 媒體層，並以 MiniMax
 WebSocket TTS 作為正式聲音輸出的可中斷即時語音系統。
 
-目前狀態：Task 001 至 Task 004 已完成驗收。Task 004 提供供應商無關的 Generation
-Guard Core；Legacy LINE OA 打電話功能包仍只作為唯讀參考，正式整合尚未獲准。
+目前狀態：Task 001 至 Task 004 已完成驗收。PLM 現為謝文憲專用聖杯、Owner
+Calibration Sandbox 與未來 LINE OA／LIFF 對話系統的唯一 canonical repository。
+Repository Migration Repair 已完成本地驗證，等待人工 migration review；正式 LINE、
+STT、TTS、Pipecat Pipeline、LiveKit、Mem0 與 production 仍未獲准。
 
 ## 核心原則
 
@@ -79,6 +81,20 @@ generation 使用獨立 WebSocket session，LiveKit 僅保留為後續 WebRTC tr
 上述內容是設計與審批依據，不代表已實作正式 LIFF、Pipecat Pipeline、LiveKit 或
 MiniMaxTTSService。
 
+## 謝文憲 Owner Calibration Sandbox
+
+- Phase 2：46 項候選與 15 項 Owner Confirmation Queue 已移入
+  `docs/persona/xiewenxian/source/`。
+- 候選均維持 `PROJECT_OWNER_APPROVED_ENGINEERING_INTERPRETATION`，不是本人確認或正式人格。
+- Phase 3A identity isolation 位於 `src/duplex_voice/calibration/`，預設停用且 kill switch
+  開啟；所有 secret、LINE、Voice、memory 與 storage slots 都是謝文憲專屬命名。
+- `web/src/xiewenxian-calibration/` 只有 backend-free、call-disabled 的 LIFF 視覺外殼，
+  不含 legacy `useAudio`、`useWebSocket`、VoicePipeline 或 MiniMax pool。
+- Migration inventory：`docs/migration/xiewenxian-plm-migration-inventory.json`。
+- Migration report：`docs/migration/xiewenxian-plm-migration-report.md`。
+
+目前停止點：`NEEDS_HUMAN_PLM_MIGRATION_REVIEW`。
+
 ## 里程碑
 
 1. Task 001：專案骨架與 CI。
@@ -87,5 +103,7 @@ MiniMaxTTSService。
 4. Legacy audit：LINE OA 功能包唯讀盤點與分階段整合藍圖。
 5. Task 004：Generation lifecycle、取消登記、晚到資料硬閘門、cleanup 與安全事件。
 6. Task 005 之後：須另經人工 milestone 核准；不得自動啟動。
+7. Repository Migration Repair：將錯置於 holygrail2 的謝文憲 Phase 2／3A 資產受控移入
+   PLM；不等於 Task 005、LINE integration 或 production 授權。
 
 完整需求見 `minimax-duplex-voice-spec-v1.0.md`。

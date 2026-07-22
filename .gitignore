@@ -12,6 +12,9 @@ htmlcov/
 .env.*
 !.env.example
 *.wav
+
+# Owner-approved engineering source: keep local custody and commit only governed derivatives.
+謝文憲 AI 分身｜靈魂級核心主題提示詞 V2.md
 *.pcm
 *.mp3
 *.flac
@@ -31,3 +34,4 @@ dist/
 build/
 *.egg-info/
 node_modules/
+.npm-cache/
