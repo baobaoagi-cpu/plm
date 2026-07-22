@@ -65,3 +65,14 @@
 - Blocks: any multi-worker or horizontally scaled real transport milestone.
 - Resolution: provide an atomic shared nonce store, or prove and enforce a single-instance runtime,
   under a separately authorized milestone. This repair does not start Phase 3E.
+
+## B-010 - Railway GitHub source authorization
+
+- Status: `BLOCKED_REPO_SOURCE_UNAUTHORIZED`
+- Railway account authentication, staging environment creation, CLI upload deployment and public
+  health verification all succeeded.
+- Attaching `baobaoagi-cpu/plm` as the staging service GitHub source returned `Unauthorized` and was
+  not retried or bypassed.
+- Blocks: the claim that a GitHub branch push automatically deploys to Railway staging.
+- Resolution: a human grants the Railway GitHub integration access to `baobaoagi-cpu/plm` and
+  connects `plm-staging-readiness` to `codex/railway-staging-readiness`.

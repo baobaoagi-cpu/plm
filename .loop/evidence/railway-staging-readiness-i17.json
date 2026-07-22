@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-07-22T10:00:00+08:00",
+  "status": "PARTIAL",
+  "branch": "codex/railway-staging-readiness",
+  "commit": "ebdfcbb7efd97759abc1bd31ffe03aa20d43b4e8",
+  "pull_request": "https://github.com/baobaoagi-cpu/plm/pull/6",
+  "github_actions": "PASS_2_QUALITY_RUNS",
+  "local_validation": {
+    "ruff": "PASS",
+    "mypy_strict": "PASS_87_FILES",
+    "pytest": "PASS_278",
+    "typescript_strict": "PASS",
+    "offline_browser_assertions": "PASS_22",
+    "local_health_http_status": 200,
+    "high_confidence_secret_findings": 0
+  },
+  "railway": {
+    "project_id": "f1472061-6d0b-478b-979f-eb52f37b1264",
+    "environment_id": "ba28d01d-df40-4734-9cd3-ac1dbbe3a8ee",
+    "environment_name": "staging",
+    "service_id": "6a3d2127-28cb-43f6-a950-58f5c1de2617",
+    "service_name": "plm-staging-readiness",
+    "deployment_id": "cd298968-004a-45e6-a09a-fb5aae645950",
+    "deployment_status": "SUCCESS",
+    "deployment_source": "CLI_UPLOAD_FROM_EXACT_COMMITTED_BRANCH",
+    "public_health_url": "https://plm-staging-readiness-staging.up.railway.app/healthz",
+    "public_health_http_status": 200,
+    "production_ready": false,
+    "external_integrations_enabled": false,
+    "production_deployment_changed": false,
+    "github_source_autodeploy": "BLOCKED_REPO_SOURCE_UNAUTHORIZED"
+  },
+  "external_provider_calls": 0,
+  "real_user_data_used": false,
+  "formal_voice_runtime_started": false,
+  "stop_condition": "NEEDS_HUMAN_RAILWAY_GITHUB_SOURCE_AUTH"
+}

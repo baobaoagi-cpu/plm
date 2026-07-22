@@ -238,3 +238,28 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - Initial local/remote SHA parity: `PASS`
 - Merge/deployment/Phase 3E: `NO`
 - Stop condition: `NEEDS_HUMAN_FINAL_MERGE_REVIEW`
+
+## Railway Staging Deployment Readiness
+
+- Status: `PARTIAL / NEEDS_HUMAN_RAILWAY_GITHUB_SOURCE_AUTH`
+- Branch: `codex/railway-staging-readiness`
+- Published commit: `ebdfcbb7efd97759abc1bd31ffe03aa20d43b4e8`
+- Draft PR: `https://github.com/baobaoagi-cpu/plm/pull/6`
+- GitHub Actions: `PASS_2_QUALITY_RUNS`
+- Railway environment: `staging / ba28d01d-df40-4734-9cd3-ac1dbbe3a8ee`
+- Railway service: `plm-staging-readiness / 6a3d2127-28cb-43f6-a950-58f5c1de2617`
+- Railway deployment: `cd298968-004a-45e6-a09a-fb5aae645950 / SUCCESS`
+- Public health endpoint: `VERIFIED_HTTP_200`
+- Build, start, healthcheck and public networking: `VERIFIED_CLI_UPLOAD`
+- GitHub source autodeploy: `BLOCKED_REPO_SOURCE_UNAUTHORIZED / NOT_VERIFIED`
+- Ruff: `PASS`
+- mypy strict: `PASS_87_FILES`
+- pytest: `PASS_278`
+- TypeScript strict: `PASS`
+- Browser offline assertions: `PASS_22`
+- High-confidence secret findings: `0`
+- Provider/LINE/LiveKit/database/Mem0 connections: `0`
+- Formal voice runtime or pipeline started: `NO`
+- Production deployment changed: `NO`
+- Required next action: grant Railway GitHub integration access to `baobaoagi-cpu/plm`, attach the
+  staging service to `codex/railway-staging-readiness`, and verify a GitHub-triggered deployment.
