@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T15:25:00+08:00",
+  "updated_at": "2026-07-22T10:00:00+08:00",
   "project": "plm-xie-wenxian-owner-calibration",
   "canonical_repository": "https://github.com/baobaoagi-cpu/plm",
-  "current_milestone": "Phase 3D — Offline Client and Protocol Resilience",
-  "current_iteration": 16,
-  "status": "NEEDS_HUMAN_FINAL_MERGE_REVIEW",
+  "current_milestone": "Railway Staging Deployment Readiness",
+  "current_iteration": 17,
+  "status": "NEEDS_HUMAN_RAILWAY_GITHUB_SOURCE_AUTH",
   "tasks": {
     "task_001": {"status": "COMPLETED"},
     "task_002": {"status": "COMPLETED"},
@@ -58,6 +58,22 @@
       "npm_dependency_tree": "PASS"
     }
   },
-  "next_allowed_action": "Human final stacked-PR merge review only; no merge has been performed.",
+  "railway_staging_readiness": {
+    "status": "PARTIAL",
+    "branch": "codex/railway-staging-readiness",
+    "published_commit": "ebdfcbb7efd97759abc1bd31ffe03aa20d43b4e8",
+    "pull_request": "https://github.com/baobaoagi-cpu/plm/pull/6",
+    "github_actions": "PASS_2_QUALITY_RUNS",
+    "railway_environment_id": "ba28d01d-df40-4734-9cd3-ac1dbbe3a8ee",
+    "railway_service_id": "6a3d2127-28cb-43f6-a950-58f5c1de2617",
+    "railway_deployment_id": "cd298968-004a-45e6-a09a-fb5aae645950",
+    "deployment_status": "SUCCESS",
+    "public_health": "VERIFIED_HTTP_200",
+    "deployment_source": "CLI_UPLOAD_FROM_EXACT_COMMITTED_BRANCH",
+    "github_autodeploy": "BLOCKED_REPO_SOURCE_UNAUTHORIZED",
+    "production_changed": false,
+    "external_integrations_enabled": false
+  },
+  "next_allowed_action": "Grant Railway GitHub integration access to baobaoagi-cpu/plm, attach the staging service to codex/railway-staging-readiness, then verify a GitHub-triggered deployment.",
   "forbidden_next_action": "Do not start Phase 3E or Task 005, connect LINE, LIFF identity, WebSocket, microphone, provider, LiveKit, Mem0, R2 or external database, use real data, create a formal runtime, or deploy production."
 }
