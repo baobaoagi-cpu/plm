@@ -4,6 +4,10 @@
 
 ### Added
 
+- Public, machine-readable LIFF staging registration contract and redacted anonymous network
+  evidence. The LIFF ID, LIFF URL and endpoint are classified as public configuration while LINE
+  identity, scopes and all runtime integrations remain unverified or disabled.
+
 - Backend-free, call-disabled LIFF staging entrypoint, fail-closed static server, restrictive
   browser security headers, dedicated Railway staging service and verified public HTTPS endpoint.
 
@@ -68,6 +72,9 @@
 
 ### Decision
 
+- Public LIFF registration is verified only through anonymous HTTP and static redirect evidence.
+  It does not prove LINE identity or scopes, does not inject the LIFF ID into Railway/runtime
+  configuration, and stops at `NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW`.
 - Use one WebSocket session per generation.
 - Treat socket close only as an inferred cancellation layer and discard stale audio locally.
 - Keep Pipecat as the sole orchestrator; the legacy pipeline remains reference-only.

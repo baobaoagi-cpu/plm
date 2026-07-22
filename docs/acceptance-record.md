@@ -290,3 +290,33 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - Vite production build: `PASS`
 - npm audit: `PASS_0_VULNERABILITIES`
 - Stop condition: `NEEDS_HUMAN_LIFF_APP_CREATION`
+
+## LIFF App Registration Verification and Public Configuration Contract
+
+- Status: `COMPLETED / NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW`
+- LIFF ID and LIFF URL classification: `PUBLIC_CONFIG`
+- Public LIFF URL: `VERIFIED_HTTP_200`
+- Public app name and LIFF ID: `VERIFIED_FROM_PUBLIC_HTML`
+- Redirect behavior: `VERIFIED_CLIENT_SIDE_JAVASCRIPT_TO_EXPECTED_STAGING_ENDPOINT`
+- HTTP redirect count: `0`; no 3xx redirect claim
+- Fallback link: `VERIFIED_EXPECTED_STAGING_ENDPOINT`
+- Staging endpoint and health: `VERIFIED_HTTP_200 / INTEGRATIONS_FALSE`
+- Real-user authentication or personal-data request: `NO`
+- LINE identity verification: `NOT_EXECUTED / NOT_VERIFIED`
+- openid: `HUMAN_CONFIGURED_NOT_SCREENSHOT_VERIFIED`
+- profile/chat scopes: `UNKNOWN_NOT_SCREENSHOT_VERIFIED`
+- LIFF SDK, identity, profile, microphone, WebSocket, MiniMax, LiveKit, database, Mem0 and calls:
+  `DISABLED`
+- LIFF ID injected into Railway/runtime configuration: `NO`
+- Channel Secret, Channel Access Token or credential added: `NO`
+- Production changed or deployment triggered: `NO`
+- Ruff: `PASS`
+- mypy strict: `PASS` (88 source files)
+- pytest: `PASS` (282 tests)
+- TypeScript strict: `PASS`
+- Offline browser assertions: `PASS` (22)
+- Staging server tests: `PASS` (3)
+- Vite production build: `PASS`
+- JSON validation: `PASS` (3 files)
+- Mission-file high-confidence secret findings: `0 / 8 FILES`
+- Stop condition: `NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW`

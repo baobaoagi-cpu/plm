@@ -79,9 +79,12 @@
 
 ## B-011 - LIFF app creation and identity activation
 
-- Status: `SHELL_DEPLOYED / NEEDS_HUMAN_LIFF_APP_CREATION`
-- The backend-free, call-disabled staging shell is publicly reachable over HTTPS.
-- Blocks: a LIFF ID, LIFF SDK initialization, LINE identity verification, microphone permission,
-  WebSocket transport and any real call.
-- Resolution: a human creates the LIFF app in the dedicated LINE Login channel using the documented
-  endpoint. Activating identity or any integration remains a separate milestone.
+- Status: `PUBLIC_REGISTRATION_VERIFIED / NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW`
+- The public LIFF page returns HTTP 200 and its client-side redirect target and fallback link match
+  the backend-free, call-disabled staging endpoint. The LIFF ID and URL are public configuration.
+- openid is `HUMAN_CONFIGURED_NOT_SCREENSHOT_VERIFIED`; profile and chat scopes remain
+  `UNKNOWN_NOT_SCREENSHOT_VERIFIED`. Public URL access is not LINE identity proof.
+- Blocks: LIFF SDK initialization, LINE identity verification, profile access, microphone
+  permission, WebSocket transport and any real call.
+- Resolution: Command Center reviews the registration evidence and separately authorizes an
+  identity activation milestone. No credential or runtime configuration change is implied.
