@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T12:15:00+08:00",
+  "updated_at": "2026-07-22T13:10:00+08:00",
   "project": "plm-xie-wenxian-owner-calibration",
   "canonical_repository": "https://github.com/baobaoagi-cpu/plm",
-  "current_milestone": "LIFF Staging Frontend Bootstrap",
-  "current_iteration": 18,
-  "status": "NEEDS_HUMAN_LIFF_APP_CREATION",
+  "current_milestone": "Three-Thread Coordination and Worktree Isolation Baseline",
+  "current_iteration": 19,
+  "status": "NEEDS_HUMAN_THREE_THREAD_BASELINE_REVIEW",
   "tasks": {
     "task_001": {"status": "COMPLETED"},
     "task_002": {"status": "COMPLETED"},
@@ -93,6 +93,22 @@
     "secrets_added": 0,
     "production_changed": false
   },
-  "next_allowed_action": "Human creates a LIFF app in the dedicated LINE Login channel using the published staging endpoint; no secret or access token is required.",
-  "forbidden_next_action": "Do not add a LIFF ID, enable LINE identity, WebSocket, microphone, MiniMax, LiveKit, Mem0, R2 or database, start real calls, deploy production, or begin another phase without separate approval."
+  "three_thread_coordination_baseline": {
+    "status": "COMPLETED_LOCALLY",
+    "coordination_branch": "codex/three-thread-coordination-baseline",
+    "command_center_thread_id": "019f78f0-bc9c-7350-b200-ff925593c19a",
+    "thread_a_id": "019f8813-f8dc-7001-97a8-4768806aed86",
+    "thread_a_branch": "codex/liff-staging-bootstrap",
+    "thread_a_isolation": "VERIFIED_CANONICAL_CHECKOUT",
+    "thread_b_id": "019f8820-5dee-7a41-b6f2-676926d07a89",
+    "thread_b_branch": "codex/xiewenxian-persona-lab",
+    "thread_b_isolation": "VERIFIED_CODEX_WORKTREE",
+    "automatic_shared_conversation_memory": false,
+    "sync_mode": "EXPLICIT_THREAD_MESSAGES_AND_VERSIONED_GIT_RECORDS",
+    "user_owned_untracked_assets_restored": true,
+    "production_changed": false,
+    "external_integrations_enabled": false
+  },
+  "next_allowed_action": "Human reviews the three-thread baseline, then separately authorizes either LIFF app creation follow-up or Thread B's Meeting Record Source Registration mission.",
+  "forbidden_next_action": "Do not let A and B share a writable checkout, add the raw source assets to Git, create a release persona, enable LINE identity, WebSocket, microphone, MiniMax, LiveKit, Mem0, R2 or database, start real calls, or deploy production."
 }

@@ -85,3 +85,12 @@
   WebSocket transport and any real call.
 - Resolution: a human creates the LIFF app in the dedicated LINE Login channel using the documented
   endpoint. Activating identity or any integration remains a separate milestone.
+
+## B-012 - Cross-thread writable-checkout collision
+
+- Status: `RESOLVED_BY_WORKTREE_ISOLATION`
+- Thread A retains `C:\Users\waiti\PLM`; Thread B uses a dedicated Codex worktree and persona
+  branch; Command Center uses a separate coordination worktree.
+- Conversation memory remains intentionally isolated. Explicit messages and versioned Git records
+  are required for synchronization.
+- Any overlapping path ownership or branch transfer requires a new Command Center decision.

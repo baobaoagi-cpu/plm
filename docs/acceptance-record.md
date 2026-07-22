@@ -290,3 +290,19 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - Vite production build: `PASS`
 - npm audit: `PASS_0_VULNERABILITIES`
 - Stop condition: `NEEDS_HUMAN_LIFF_APP_CREATION`
+
+## Three-Thread Coordination and Worktree Isolation Baseline
+
+- Status: `COMPLETED_LOCALLY / NEEDS_HUMAN_THREE_THREAD_BASELINE_REVIEW`
+- Command Center branch: `codex/three-thread-coordination-baseline`
+- Thread A checkout/branch: `C:\Users\waiti\PLM / codex/liff-staging-bootstrap`
+- Thread B worktree/branch: `C:\Users\waiti\.codex\worktrees\0408\PLM / codex/xiewenxian-persona-lab`
+- Separate working directories: `VERIFIED`
+- Shared Git object database only: `EXPECTED`
+- Automatic shared conversation memory: `NO`
+- Explicit Codex thread messaging: `AVAILABLE / VERIFIED`
+- Versioned coordination envelopes: `CREATED`
+- Untracked user assets returned to original paths: `VERIFIED_SHA256_PARITY`
+- Runtime, LINE, voice, provider, database or production change: `NO`
+- Release persona created: `NO`
+- Stop condition: `NEEDS_HUMAN_THREE_THREAD_BASELINE_REVIEW`

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "role": "COMMAND_CENTER",
+  "thread_id": "019f78f0-bc9c-7350-b200-ff925593c19a",
+  "authority": [
+    "MISSION_DISPATCH",
+    "CROSS_THREAD_HANDOFF",
+    "MILESTONE_REVIEW",
+    "FINAL_ACCEPTANCE_RECOMMENDATION"
+  ],
+  "coordination_branch": "codex/three-thread-coordination-baseline",
+  "sync_mode": "EXPLICIT_THREAD_MESSAGES_AND_VERSIONED_GIT_RECORDS",
+  "automatic_shared_conversation_memory": false,
+  "production_authorized": false,
+  "next_stop": "NEEDS_HUMAN_THREE_THREAD_BASELINE_REVIEW"
+}
