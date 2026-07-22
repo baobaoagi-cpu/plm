@@ -11,10 +11,11 @@ jobs:
   quality:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v6
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6
         with:
           enable-cache: true
+          version: 0.11.31
       - name: Install Python 3.12
         run: uv python install 3.12
       - name: Sync dependencies
@@ -25,14 +26,20 @@ jobs:
         run: uv run mypy
       - name: Unit tests
         run: uv run pytest tests/unit
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
-          node-version: 22
+          node-version: 22.23.1
           cache: npm
           cache-dependency-path: web/package-lock.json
       - name: Install LIFF shell dependencies
         working-directory: web
         run: npm ci --ignore-scripts
+      - name: Lint LIFF identity boundaries
+        working-directory: web
+        run: npm run lint
+      - name: Audit LIFF dependencies
+        working-directory: web
+        run: npm run audit
       - name: Typecheck LIFF shell
         working-directory: web
         run: npm run typecheck
@@ -41,6 +48,9 @@ jobs:
         run: npm run test:offline
       - name: Build LIFF staging shell
         working-directory: web
+        env:
+          VITE_LIFF_IDENTITY_ENABLED: "false"
+          VITE_LIFF_ID: 1234567890-SyntheticCI
         run: npm run build
       - name: Test LIFF staging server boundaries
         working-directory: web

@@ -1,6 +1,6 @@
 # Holy Grail 3.0 Configuration Contract
 
-Status: `OFFLINE_CONTRACT_ONLY`
+Status: `OFFLINE_CONTRACT_WITH_LIFF_IDENTITY_BOUNDARY`
 
 This contract is for the Xie Wenxian owner-calibration sandbox. It creates no provider, LINE,
 database, LiveKit or production connection. Empty slots in `.env.example` are intentional.
@@ -15,6 +15,13 @@ database, LiveKit or production connection. Empty slots in `.env.example` are in
 - Generation Guard cannot be disabled and stale generations are always discarded.
 - Audio dumps are forbidden in this phase.
 - Secrets and sensitive allowlists are server-only; no secret may use a `VITE_` prefix.
+- Browser LIFF identity is disabled unless `VITE_LIFF_IDENTITY_ENABLED=true`; possession of a
+  public LIFF ID alone never activates the SDK.
+- Server LIFF identity is disabled unless `LIFF_IDENTITY_ENABLED=true`, `APP_ENV=staging`, sandbox
+  mode is on, calibration is enabled, the kill switch is deliberately open, and the public IDs plus
+  environment-only allowlist are configured.
+- The LIFF ID, LIFF URL, LINE Login Channel ID and official issuer are public configuration. They
+  are not credentials.
 
 ## Value classes
 
@@ -22,8 +29,8 @@ database, LiveKit or production connection. Empty slots in `.env.example` are in
 |---|---|---|
 | Secret | API keys, channel secret, access token, Voice ID, signing keys, database URLs | Approved Secret Manager or process environment only |
 | Sensitive config | LINE allowlist | Approved Secret Manager or process environment only |
-| Server config | model names, channel ID, provider names, transport URL | Server environment |
-| Public config | LIFF ID, public WebSocket URL | May be injected into the browser build |
+| Server config | enable flags, model names, provider names, transport URL | Server environment |
+| Public config | LIFF ID, LIFF URL, LINE Login Channel ID, issuer, public WebSocket URL | May be injected into the browser build or server environment |
 
 The machine-readable classification is `ENVIRONMENT_CONTRACT` in
 `src/duplex_voice/config.py`. Diagnostic snapshots contain only safe flags and format settings;
@@ -34,3 +41,19 @@ they never include configured values from secret slots.
 Populating a slot is not permission to use it. A later human milestone must switch from
 `offline_hardening` to `staging_integration` and independently authorize each integration flag.
 Production remains outside this contract.
+
+## LIFF staging identity slots
+
+| Variable | Class | Current repository value | Apply only after review |
+|---|---|---|---|
+| `VITE_LIFF_ID` | `PUBLIC_CONFIG` | empty | Public LIFF ID for the browser build |
+| `VITE_LIFF_IDENTITY_ENABLED` | `PUBLIC_CONFIG` | `false` | Explicit browser build activation flag |
+| `XIEWENXIAN_CALIBRATION_LIFF_ID` | `PUBLIC_CONFIG` | empty | Same public LIFF ID for server binding |
+| `XIEWENXIAN_CALIBRATION_LINE_CHANNEL_ID` | `PUBLIC_CONFIG` | empty | Expected audience for LINE verification |
+| `XIEWENXIAN_CALIBRATION_LINE_ISSUER` | `PUBLIC_CONFIG` | `https://access.line.me` | Official expected issuer |
+| `LIFF_IDENTITY_ENABLED` | `SERVER_CONFIG` | `false` | Explicit identity-only activation flag |
+
+The Channel Secret and Channel Access Token are not required by the ID-token verification contract
+and remain empty. Public LIFF/Channel values have been staged in Railway without deployment; no
+secret, activation flag or external connection was added. A separate human gate is still required
+for a real-login staging activation.

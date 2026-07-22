@@ -7,7 +7,6 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const INTEGRATION_FLAGS = [
   "DATABASE_ENABLED",
   "EXTERNAL_PROVIDERS_ENABLED",
-  "LIFF_IDENTITY_ENABLED",
   "LIVEKIT_ENABLED",
   "MICROPHONE_ENABLED",
   "MINIMAX_ENABLED",
@@ -45,7 +44,7 @@ function safeAssetPath(distDirectory, requestPath) {
 function securityHeaders(contentType) {
   return {
     "cache-control": "no-store",
-    "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none'; img-src 'self' data:; media-src 'none'; frame-ancestors https://access.line.me https://line.me https://liff.line.me",
+    "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://api.line.me; img-src 'self' data:; media-src 'none'; frame-ancestors https://access.line.me https://line.me https://liff.line.me",
     "content-type": contentType,
     "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=()",
     "referrer-policy": "no-referrer",

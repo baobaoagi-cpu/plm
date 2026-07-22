@@ -36,9 +36,9 @@ class EnvironmentVariableContract:
 _INTEGRATION_CONTRACT = (
     EnvironmentVariableContract(
         "XIEWENXIAN_CALIBRATION_LINE_CHANNEL_ID",
-        ValueClass.SERVER_CONFIG,
+        ValueClass.PUBLIC_CONFIG,
         "identity_gateway",
-        "line_integration_enabled",
+        "liff_identity_enabled",
     ),
     EnvironmentVariableContract(
         "XIEWENXIAN_CALIBRATION_LINE_CHANNEL_SECRET",
@@ -56,13 +56,19 @@ _INTEGRATION_CONTRACT = (
         "XIEWENXIAN_CALIBRATION_LIFF_ID",
         ValueClass.PUBLIC_CONFIG,
         "identity_gateway",
-        "line_integration_enabled",
+        "liff_identity_enabled",
+    ),
+    EnvironmentVariableContract(
+        "XIEWENXIAN_CALIBRATION_LINE_ISSUER",
+        ValueClass.PUBLIC_CONFIG,
+        "identity_gateway",
+        "liff_identity_enabled",
     ),
     EnvironmentVariableContract(
         "XIEWENXIAN_CALIBRATION_LINE_ALLOWLIST_JSON",
         ValueClass.SENSITIVE_CONFIG,
         "identity_gateway",
-        "line_integration_enabled",
+        "liff_identity_enabled",
     ),
     EnvironmentVariableContract(
         "MINIMAX_API_KEY", ValueClass.SECRET, "voice_runtime", "providers_enabled"
@@ -128,7 +134,13 @@ _INTEGRATION_CONTRACT = (
         "livekit_enabled",
     ),
     EnvironmentVariableContract(
-        "VITE_LIFF_ID", ValueClass.PUBLIC_CONFIG, "browser", "line_integration_enabled"
+        "VITE_LIFF_ID", ValueClass.PUBLIC_CONFIG, "browser", "liff_identity_enabled"
+    ),
+    EnvironmentVariableContract(
+        "VITE_LIFF_IDENTITY_ENABLED",
+        ValueClass.PUBLIC_CONFIG,
+        "browser",
+        "liff_identity_enabled",
     ),
     EnvironmentVariableContract(
         "VITE_WS_URL", ValueClass.PUBLIC_CONFIG, "browser", "line_integration_enabled"
@@ -144,6 +156,7 @@ _SERVER_SETTING_NAMES = (
     "ADMIN_DATABASE_ENABLED",
     "ADMIN_HTTP_ENABLED",
     "LIVEKIT_ENABLED",
+    "LIFF_IDENTITY_ENABLED",
     "XIEWENXIAN_CALIBRATION_ENABLED",
     "XIEWENXIAN_CALIBRATION_KILL_SWITCH",
     "XIEWENXIAN_CALIBRATION_SANDBOX_MODE",
@@ -238,6 +251,7 @@ class RuntimeConfiguration:
     log_level: str
     providers_enabled: bool
     line_integration_enabled: bool
+    liff_identity_enabled: bool
     database_enabled: bool
     admin_database_enabled: bool
     admin_http_enabled: bool
@@ -253,6 +267,7 @@ class RuntimeConfiguration:
             "log_level": self.log_level,
             "providers_enabled": self.providers_enabled,
             "line_integration_enabled": self.line_integration_enabled,
+            "liff_identity_enabled": self.liff_identity_enabled,
             "database_enabled": self.database_enabled,
             "admin_database_enabled": self.admin_database_enabled,
             "admin_http_enabled": self.admin_http_enabled,
@@ -331,6 +346,9 @@ def load_runtime_configuration(
         environment, "EXTERNAL_PROVIDERS_ENABLED", default=False
     )
     line_enabled = _read_bool(environment, "LINE_INTEGRATION_ENABLED", default=False)
+    liff_identity_enabled = _read_bool(
+        environment, "LIFF_IDENTITY_ENABLED", default=False
+    )
     database_enabled = _read_bool(environment, "DATABASE_ENABLED", default=False)
     admin_database_enabled = _read_bool(
         environment, "ADMIN_DATABASE_ENABLED", default=False
@@ -347,6 +365,7 @@ def load_runtime_configuration(
     integration_flags = {
         "EXTERNAL_PROVIDERS_ENABLED": providers_enabled,
         "LINE_INTEGRATION_ENABLED": line_enabled,
+        "LIFF_IDENTITY_ENABLED": liff_identity_enabled,
         "DATABASE_ENABLED": database_enabled,
         "ADMIN_DATABASE_ENABLED": admin_database_enabled,
         "ADMIN_HTTP_ENABLED": admin_http_enabled,
@@ -456,6 +475,23 @@ def load_runtime_configuration(
                 "XIEWENXIAN_CALL_GRANT_SIGNING_KEY",
             ),
         )
+    if liff_identity_enabled:
+        if app_env != "staging":
+            raise ConfigurationError("LIFF identity requires APP_ENV=staging")
+        if not _read_bool(
+            environment, "XIEWENXIAN_CALIBRATION_ENABLED", default=False
+        ):
+            raise ConfigurationError("LIFF identity requires calibration to be enabled")
+        if kill_switch:
+            raise ConfigurationError("LIFF identity requires an open calibration kill switch")
+        _require_nonempty(
+            environment,
+            (
+                "XIEWENXIAN_CALIBRATION_LINE_CHANNEL_ID",
+                "XIEWENXIAN_CALIBRATION_LIFF_ID",
+                "XIEWENXIAN_CALIBRATION_LINE_ALLOWLIST_JSON",
+            ),
+        )
     if database_enabled:
         _require_nonempty(environment, ("XIEWENXIAN_STAGING_DATABASE_URL",))
     if admin_database_enabled:
@@ -480,6 +516,7 @@ def load_runtime_configuration(
         log_level=log_level,
         providers_enabled=providers_enabled,
         line_integration_enabled=line_enabled,
+        liff_identity_enabled=liff_identity_enabled,
         database_enabled=database_enabled,
         admin_database_enabled=admin_database_enabled,
         admin_http_enabled=admin_http_enabled,

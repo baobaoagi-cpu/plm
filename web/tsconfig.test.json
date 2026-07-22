@@ -8,6 +8,7 @@
     "rootDir": "."
   },
   "include": [
+    "src/xiewenxian-calibration/liff/**/*.ts",
     "src/xiewenxian-calibration/offline/**/*.ts",
     "tests/**/*.ts"
   ]

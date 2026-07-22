@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import json
 from collections.abc import Mapping
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import StrEnum
 from os import environ
 
@@ -139,7 +139,7 @@ class AccessDecision:
 
 @dataclass(frozen=True, slots=True)
 class OwnerCalibrationPolicy:
-    roles_by_line_user_id: Mapping[str, CalibrationRole]
+    roles_by_line_user_id: Mapping[str, CalibrationRole] = field(repr=False)
     enabled: bool = False
     kill_switch: bool = True
     sandbox_mode: bool = True

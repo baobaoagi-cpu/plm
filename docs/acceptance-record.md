@@ -320,3 +320,72 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - JSON validation: `PASS` (3 files)
 - Mission-file high-confidence secret findings: `0 / 8 FILES`
 - Stop condition: `NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW`
+
+## LIFF Identity Merge Review Repair
+
+- Status: `PUBLISHED_VERIFIED / NEEDS_HUMAN_FINAL_MERGE_REVIEW`
+- Branch: `codex/liff-staging-identity-activation`
+- Functional repair commit: `6ee07e4f9afd2f6e1746854aec3db07bc4da1be2`
+- Draft PR: `https://github.com/baobaoagi-cpu/plm/pull/10`
+- GitHub Actions: `PASS / 2 QUALITY RUNS`
+- Merge performed: `NO`
+- Deployment or production connection: `NO`
+- Browser activation: separate `VITE_LIFF_IDENTITY_ENABLED` flag, default false
+- Public LIFF ID alone loads SDK: `NO / TESTED`
+- LIFF SDK surface: pluggable core + `isLoggedIn` + `getIDToken`
+- Server activation: staging + calibration enabled + kill switch open + public bindings + allowlist
+- Non-allowlisted subject: `DENIED / TESTED`
+- Role source: existing `OwnerCalibrationPolicy`, not verifier input
+- Provider binding: `LINE REQUIRED / TESTED`
+- Channel audience binding: exact configured Channel ID required / tested
+- Arbitrary transport exception cause: detached / traceback-redaction tested
+- CSP connect allowlist: self + `https://api.line.me`; microphone/media remain denied
+- Real LINE verification route/login: `NOT_IMPLEMENTED / NOT_EXECUTED`
+- Ruff: `PASS`
+- mypy strict: `PASS` (90 source files)
+- pytest: `PASS` (305 tests)
+- Frontend lint/typecheck: `PASS`
+- Offline browser assertions: `PASS` (22 protocol + 41 LIFF identity)
+- Staging server tests: `PASS` (3)
+- Vite synthetic fail-closed build: `PASS`
+- npm audit: `PASS / 0 vulnerabilities`
+- High-confidence secret findings: `0`
+- Tracy/legacy orchestrator findings: `0`
+- Required stop: `NEEDS_HUMAN_FINAL_MERGE_REVIEW`
+
+## LIFF Staging Identity Activation — Offline Implementation
+
+- Status: `COMPLETED_OFFLINE_ONLY / NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW`
+- Base: `codex/liff-registration-contract`
+- LIFF settings: `HUMAN_SCREENSHOT_VERIFIED`
+- Screenshot committed: `NO`
+- LIFF ID, LIFF URL, Channel ID and issuer classification: `PUBLIC_CONFIG`
+- Official LIFF SDK: `@line/liff 2.29.1 / LOCKED`
+- Browser API surface: `init / isLoggedIn / getIDToken ONLY`
+- Requested Console scope: `openid ONLY`
+- Profile, email, friendship, chat, QR and share-target APIs: `ABSENT / FORBIDDEN`
+- Missing/malformed public config: `FAIL_CLOSED / SDK NOT LOADED`
+- Identity failure media gating: `CALL/MICROPHONE/WEBSOCKET/AI FALSE`
+- Server verify contract: `LINE LOGIN V2.1 VERIFY ID TOKEN ENDPOINT`
+- Trusted response validation: `iss / aud / exp / sub`
+- Client-decoded token trusted: `NO`
+- Phase 3B identity mapper reused: `YES`
+- Tenant/persona mismatch: `REJECTED`
+- Raw token/subject in repr, events or response: `0`
+- Raw subject persisted: `NO`
+- Real LINE login/network call: `0`
+- Railway/runtime variables changed: `NO`
+- Deployment, DB, Mem0, microphone, WebSocket, MiniMax, LiveKit and calls: `0`
+- Ruff: `PASS`
+- mypy strict: `PASS` (90 files)
+- pytest: `PASS` (297 tests)
+- Frontend identity lint: `PASS` (2 files)
+- TypeScript strict: `PASS`
+- Offline assertions: `PASS` (22 existing + 24 identity)
+- Staging server tests: `PASS` (3)
+- Vite build: `PASS`
+- npm locked install: `PASS`; audit: `0 vulnerabilities`
+- JSON validation: `PASS` (6 files)
+- Mission-file high-confidence secret findings: `0 / 27 FILES`
+- Forbidden runtime/client capability matches: `0 / 0`
+- Stop condition: `NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW`

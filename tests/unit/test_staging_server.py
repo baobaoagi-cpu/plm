@@ -78,6 +78,7 @@ def test_settings_bind_railway_port_and_keep_integrations_disabled() -> None:
     assert settings.port == 9123
     assert settings.runtime.providers_enabled is False
     assert settings.runtime.line_integration_enabled is False
+    assert settings.runtime.liff_identity_enabled is False
     assert settings.runtime.database_enabled is False
     assert settings.runtime.livekit_enabled is False
     assert settings.runtime.sandbox_mode is True
@@ -91,6 +92,7 @@ def test_settings_bind_railway_port_and_keep_integrations_disabled() -> None:
         {"RAILWAY_ENVIRONMENT_NAME": "production"},
         {"EXTERNAL_PROVIDERS_ENABLED": "true"},
         {"LINE_INTEGRATION_ENABLED": "true"},
+        {"LIFF_IDENTITY_ENABLED": "true"},
         {"DATABASE_ENABLED": "true"},
         {"LIVEKIT_ENABLED": "true"},
         {"XIEWENXIAN_CALIBRATION_KILL_SWITCH": "false"},

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "contract_id": "xiewenxian-liff-staging-public-registration-v1",
-  "status": "PUBLIC_REGISTRATION_ONLY",
+  "status": "MERGE_REPAIR_VERIFIED_OFFLINE_ONLY",
   "registration": {
     "line_login_channel_name": "憲哥 Digital Twin",
     "liff_app_name": "憲哥 Digital Twin Staging",
@@ -10,11 +10,11 @@
     "endpoint_url": "https://plm-liff-staging-shell-staging.up.railway.app/",
     "size": {
       "value": "Full",
-      "evidence": "HUMAN_REPORTED"
+      "evidence": "HUMAN_SCREENSHOT_VERIFIED"
     },
     "share_target_picker": {
       "value": false,
-      "evidence": "HUMAN_REPORTED"
+      "evidence": "HUMAN_SCREENSHOT_VERIFIED"
     }
   },
   "value_classification": {
@@ -34,13 +34,18 @@
     "real_user_authentication": "NOT_EXECUTED"
   },
   "registration_settings": {
-    "openid_scope": "HUMAN_CONFIGURED_NOT_SCREENSHOT_VERIFIED",
-    "profile_scope": "UNKNOWN_NOT_SCREENSHOT_VERIFIED",
-    "chat_message_write_scope": "UNKNOWN_NOT_SCREENSHOT_VERIFIED",
-    "add_friend_option": "HUMAN_CONFIGURED_NOT_SCREENSHOT_VERIFIED",
-    "scan_qr_option": "HUMAN_CONFIGURED_NOT_SCREENSHOT_VERIFIED"
+    "openid_scope": "HUMAN_SCREENSHOT_VERIFIED_ENABLED",
+    "profile_scope": "HUMAN_SCREENSHOT_VERIFIED_DISABLED",
+    "chat_message_write_scope": "HUMAN_SCREENSHOT_VERIFIED_DISABLED",
+    "add_friend_option": "HUMAN_SCREENSHOT_VERIFIED_OFF",
+    "scan_qr_option": "HUMAN_SCREENSHOT_VERIFIED_OFF",
+    "module_mode": "HUMAN_SCREENSHOT_VERIFIED_OFF",
+    "share_target_picker": "HUMAN_SCREENSHOT_VERIFIED_OFF"
   },
   "integration_states": {
+    "liff_sdk_adapter_implemented": true,
+    "server_verification_boundary_implemented": true,
+    "offline_verification_complete": true,
     "liff_sdk_initialized": false,
     "line_identity_enabled": false,
     "profile_access_enabled": false,
@@ -54,9 +59,10 @@
     "production_changed": false
   },
   "activation_boundary": {
-    "railway_liff_id_injected": false,
+    "human_screenshot_committed": false,
+    "railway_liff_id_injected": "STAGED_NO_DEPLOY",
     "runtime_configuration_activated": false,
     "credentials_added": false,
-    "required_next_review": "NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW"
+    "required_next_review": "NEEDS_HUMAN_FINAL_MERGE_REVIEW"
   }
 }

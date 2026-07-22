@@ -26,19 +26,40 @@ def test_liff_registration_does_not_activate_integrations() -> None:
     boundary = contract["activation_boundary"]
     assert isinstance(states, dict)
     assert isinstance(boundary, dict)
-    assert all(value is False for value in states.values())
-    assert boundary["railway_liff_id_injected"] is False
+    assert states["liff_sdk_adapter_implemented"] is True
+    assert states["server_verification_boundary_implemented"] is True
+    assert states["offline_verification_complete"] is True
+    runtime_states = {
+        name: value
+        for name, value in states.items()
+        if name
+        not in {
+            "liff_sdk_adapter_implemented",
+            "server_verification_boundary_implemented",
+            "offline_verification_complete",
+        }
+    }
+    assert all(value is False for value in runtime_states.values())
+    assert boundary["railway_liff_id_injected"] == "STAGED_NO_DEPLOY"
     assert boundary["runtime_configuration_activated"] is False
     assert boundary["credentials_added"] is False
 
 
-def test_unverified_liff_settings_are_not_promoted_to_verified() -> None:
+def test_human_verified_settings_do_not_promote_line_identity() -> None:
     contract = _load_contract()
     settings = contract["registration_settings"]
     verification = contract["verification"]
     assert isinstance(settings, dict)
     assert isinstance(verification, dict)
-    assert all(value != "VERIFIED" for value in settings.values())
+    assert settings == {
+        "openid_scope": "HUMAN_SCREENSHOT_VERIFIED_ENABLED",
+        "profile_scope": "HUMAN_SCREENSHOT_VERIFIED_DISABLED",
+        "chat_message_write_scope": "HUMAN_SCREENSHOT_VERIFIED_DISABLED",
+        "add_friend_option": "HUMAN_SCREENSHOT_VERIFIED_OFF",
+        "scan_qr_option": "HUMAN_SCREENSHOT_VERIFIED_OFF",
+        "module_mode": "HUMAN_SCREENSHOT_VERIFIED_OFF",
+        "share_target_picker": "HUMAN_SCREENSHOT_VERIFIED_OFF",
+    }
     assert verification["line_identity"] == "NOT_VERIFIED"
     assert verification["real_user_authentication"] == "NOT_EXECUTED"
 
