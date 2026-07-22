@@ -1,0 +1,11 @@
+[build]
+builder = "RAILPACK"
+buildCommand = "npm run build"
+
+# Used only by the separate Railway frontend service whose root directory is /web.
+[environments.staging.deploy]
+startCommand = "npm run start:staging"
+healthcheckPath = "/healthz"
+healthcheckTimeout = 60
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3

@@ -4,6 +4,9 @@
 
 ### Added
 
+- Backend-free, call-disabled LIFF staging entrypoint, fail-closed static server, restrictive
+  browser security headers, dedicated Railway staging service and verified public HTTPS endpoint.
+
 - Railway config-as-code and a fail-closed, dependency-free staging health shell that binds the
   assigned port while refusing production and all external integrations.
 - Python 3.12/uv project skeleton with Ruff, mypy strict, pytest, CI, Docker, and deployment stubs.

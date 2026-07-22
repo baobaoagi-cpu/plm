@@ -1,0 +1,35 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, "Noto Sans TC", system-ui, sans-serif;
+  background: #101412;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+button {
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  margin: 8px;
+  padding: 12px 20px;
+}
+button:disabled { cursor: not-allowed; opacity: 0.55; }
+.staging-frame { min-height: 100vh; position: relative; }
+.staging-banner,
+.staging-safety {
+  background: #f5c451;
+  color: #241b00;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 10px 16px;
+  text-align: center;
+}
+.staging-safety {
+  background: #17231d;
+  bottom: 0;
+  color: #bdd5c8;
+  font-weight: 500;
+  position: fixed;
+  width: 100%;
+}
