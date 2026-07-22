@@ -39,3 +39,9 @@ jobs:
       - name: Run offline client assertions
         working-directory: web
         run: npm run test:offline
+      - name: Build LIFF staging shell
+        working-directory: web
+        run: npm run build
+      - name: Test LIFF staging server boundaries
+        working-directory: web
+        run: npm run test:staging

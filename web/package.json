@@ -4,6 +4,9 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "build": "vite build",
+    "start:staging": "node scripts/staging-server.mjs",
+    "test:staging": "node --test scripts/staging-server.test.mjs",
     "typecheck": "tsc --noEmit",
     "test:offline": "tsc -p tsconfig.test.json && node .phase3d-test/tests/offlineClient.test.js"
   },
@@ -14,6 +17,7 @@
   "devDependencies": {
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "vite": "8.1.5"
   }
 }

@@ -2,41 +2,33 @@
 
 ## Milestone
 
-`Railway Staging Deployment Readiness`
+`LIFF Staging Frontend Bootstrap`
 
 ## Goal
 
-Prove the GitHub-to-Railway staging delivery path with a health-only, fail-closed service before any
-formal runtime or external integration is authorized.
+Publish the existing backend-free, call-disabled owner-calibration shell at a separate Railway
+staging HTTPS endpoint so a human can create the LIFF app without enabling any integration.
 
-## Delivered and published
+## Delivered
 
-- Railway config-as-code scoped only to the `staging` environment.
-- Dependency-free HTTP shell on Railway's assigned port.
-- `GET /healthz` with no secrets, identity, provider or user data.
-- Hard refusal outside staging or when an external integration, disabled sandbox or disabled kill
-  switch is detected.
-- Branch `codex/railway-staging-readiness`, commit `ebdfcbb7efd97759abc1bd31ffe03aa20d43b4e8`
-  and Draft PR #6.
-- Two passing GitHub Actions quality runs.
-- Empty Railway `staging` environment created without copying production.
-- Railway deployment `cd298968-004a-45e6-a09a-fb5aae645950` succeeded from the exact committed
-  branch via CLI upload.
-- Public `/healthz` returned HTTP 200 and confirmed external integrations disabled.
+- Static Vite entrypoint using the existing owner-calibration shell.
+- Separate Railway service `plm-liff-staging-shell` in `staging`.
+- Public endpoint `https://plm-liff-staging-shell-staging.up.railway.app/` returned HTTPS 200.
+- Call disabled; microphone and all network integrations blocked by code, flags, CSP and
+  Permissions-Policy.
+- No LINE Secret, access token, LIFF ID or provider credential added.
 
-## Pending human action
+## Required human action
 
-- Grant the Railway GitHub integration access to `baobaoagi-cpu/plm`.
-- Connect service `plm-staging-readiness` to branch `codex/railway-staging-readiness`.
-- Return to Codex so a GitHub-triggered deployment can be observed and verified.
+- In the LINE Login channel, create a LIFF app using the public endpoint.
+- Do not send a Channel Secret or Channel Access Token; neither is required for this shell.
 
 ## Explicitly not delivered
 
-- GitHub autodeploy proof; the repository attachment returned `Unauthorized`.
-- Production deployment or production start command.
-- LINE, MiniMax, LiveKit, database, Mem0 or real-user integration.
-- Formal MiniMaxTTSService, Pipecat Pipeline or voice runtime.
+- LIFF SDK or LINE identity.
+- Microphone, WebSocket, MiniMax, LiveKit, database, Mem0 or real-user integration.
+- Production deployment, formal voice runtime, or working calls.
 
 ## Required stop
 
-`NEEDS_HUMAN_RAILWAY_GITHUB_SOURCE_AUTH`
+`NEEDS_HUMAN_LIFF_APP_CREATION`

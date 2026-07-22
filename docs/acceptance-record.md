@@ -263,3 +263,30 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - Production deployment changed: `NO`
 - Required next action: grant Railway GitHub integration access to `baobaoagi-cpu/plm`, attach the
   staging service to `codex/railway-staging-readiness`, and verify a GitHub-triggered deployment.
+
+## LIFF Staging Frontend Bootstrap
+
+- Status: `COMPLETED / NEEDS_HUMAN_LIFF_APP_CREATION`
+- Branch: `codex/liff-staging-bootstrap`
+- Initial published commit: `eb71c4f7321e209b6c84be23ed6c1a68e8fc4325`
+- Stacked Draft PR: `https://github.com/baobaoagi-cpu/plm/pull/7`
+- GitHub Actions initial publish: `PASS / run 29890609272`
+- Railway environment: `staging`
+- Separate frontend service: `plm-liff-staging-shell / 7164b6ce-f8fa-40ae-aa0b-9114639d834a`
+- Successful deployment: `d4c0d20e-d5b4-4136-9239-2d3b4a86c551`
+- LIFF Endpoint URL: `https://plm-liff-staging-shell-staging.up.railway.app/`
+- Public site and health endpoint: `VERIFIED_HTTPS_200`
+- Backend-free and call-disabled: `VERIFIED`
+- Microphone, WebSocket, LINE identity, MiniMax, LiveKit and database: `DISABLED`
+- Browser policy: `microphone=() / connect-src 'none' / media-src 'none'`
+- LINE Secret, access token, LIFF ID or provider credential added: `NO`
+- Production changed: `NO`
+- Ruff: `PASS`
+- mypy strict: `PASS_87_FILES`
+- pytest: `PASS_278`
+- TypeScript strict: `PASS`
+- Offline browser assertions: `PASS_22`
+- Staging server tests: `PASS_3`
+- Vite production build: `PASS`
+- npm audit: `PASS_0_VULNERABILITIES`
+- Stop condition: `NEEDS_HUMAN_LIFF_APP_CREATION`

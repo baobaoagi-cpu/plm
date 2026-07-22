@@ -76,3 +76,12 @@
 - Blocks: the claim that a GitHub branch push automatically deploys to Railway staging.
 - Resolution: a human grants the Railway GitHub integration access to `baobaoagi-cpu/plm` and
   connects `plm-staging-readiness` to `codex/railway-staging-readiness`.
+
+## B-011 - LIFF app creation and identity activation
+
+- Status: `SHELL_DEPLOYED / NEEDS_HUMAN_LIFF_APP_CREATION`
+- The backend-free, call-disabled staging shell is publicly reachable over HTTPS.
+- Blocks: a LIFF ID, LIFF SDK initialization, LINE identity verification, microphone permission,
+  WebSocket transport and any real call.
+- Resolution: a human creates the LIFF app in the dedicated LINE Login channel using the documented
+  endpoint. Activating identity or any integration remains a separate milestone.

@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T10:00:00+08:00",
+  "updated_at": "2026-07-22T12:15:00+08:00",
   "project": "plm-xie-wenxian-owner-calibration",
   "canonical_repository": "https://github.com/baobaoagi-cpu/plm",
-  "current_milestone": "Railway Staging Deployment Readiness",
-  "current_iteration": 17,
-  "status": "NEEDS_HUMAN_RAILWAY_GITHUB_SOURCE_AUTH",
+  "current_milestone": "LIFF Staging Frontend Bootstrap",
+  "current_iteration": 18,
+  "status": "NEEDS_HUMAN_LIFF_APP_CREATION",
   "tasks": {
     "task_001": {"status": "COMPLETED"},
     "task_002": {"status": "COMPLETED"},
@@ -74,6 +74,25 @@
     "production_changed": false,
     "external_integrations_enabled": false
   },
-  "next_allowed_action": "Grant Railway GitHub integration access to baobaoagi-cpu/plm, attach the staging service to codex/railway-staging-readiness, then verify a GitHub-triggered deployment.",
-  "forbidden_next_action": "Do not start Phase 3E or Task 005, connect LINE, LIFF identity, WebSocket, microphone, provider, LiveKit, Mem0, R2 or external database, use real data, create a formal runtime, or deploy production."
+  "liff_staging_frontend_bootstrap": {
+    "status": "COMPLETED",
+    "branch": "codex/liff-staging-bootstrap",
+    "initial_published_commit": "eb71c4f7321e209b6c84be23ed6c1a68e8fc4325",
+    "pull_request": "https://github.com/baobaoagi-cpu/plm/pull/7",
+    "github_actions_initial_publish": "PASS_RUN_29890609272",
+    "railway_environment_id": "ba28d01d-df40-4734-9cd3-ac1dbbe3a8ee",
+    "railway_service_id": "7164b6ce-f8fa-40ae-aa0b-9114639d834a",
+    "railway_deployment_id": "d4c0d20e-d5b4-4136-9239-2d3b4a86c551",
+    "public_endpoint": "https://plm-liff-staging-shell-staging.up.railway.app/",
+    "public_https": "VERIFIED_200",
+    "call_enabled": false,
+    "line_identity_enabled": false,
+    "microphone_enabled": false,
+    "websocket_enabled": false,
+    "external_integrations_enabled": false,
+    "secrets_added": 0,
+    "production_changed": false
+  },
+  "next_allowed_action": "Human creates a LIFF app in the dedicated LINE Login channel using the published staging endpoint; no secret or access token is required.",
+  "forbidden_next_action": "Do not add a LIFF ID, enable LINE identity, WebSocket, microphone, MiniMax, LiveKit, Mem0, R2 or database, start real calls, deploy production, or begin another phase without separate approval."
 }
