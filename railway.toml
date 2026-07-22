@@ -1,0 +1,11 @@
+[build]
+builder = "RAILPACK"
+
+# Intentionally scoped to the persistent Railway environment named "staging".
+# Production receives no start command from this repository.
+[environments.staging.deploy]
+startCommand = "uv run python -m duplex_voice.staging_server"
+healthcheckPath = "/healthz"
+healthcheckTimeout = 60
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3

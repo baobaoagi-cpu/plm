@@ -4,6 +4,8 @@
 
 ### Added
 
+- Railway config-as-code and a fail-closed, dependency-free staging health shell that binds the
+  assigned port while refusing production and all external integrations.
 - Python 3.12/uv project skeleton with Ruff, mypy strict, pytest, CI, Docker, and deployment stubs.
 - Independent MiniMax WebSocket spike with redacted timelines, timing metrics, streamed audio capture,
   Standard, close-after-first-audio, and session-reuse modes.
@@ -80,6 +82,8 @@
   `NEEDS_HUMAN_GATE_DB1_REVIEW`; external staging and production remain disconnected.
 - Phase 3D proves only offline client/protocol mechanics. Real browser, LIFF, WebSocket, provider,
   transport and production behavior remain unverified; stop at `NEEDS_HUMAN_PHASE_3D_REVIEW`.
+- Railway deployment readiness is limited to a health-only staging shell. It adds no formal voice
+  runtime or external integration and must stop at `NEEDS_HUMAN_STAGING_DEPLOYMENT_REVIEW`.
 - Human Phase 3D review is approved. Gate DB-1 and Phase 3D are published as stacked Draft PRs #4
   and #5 with initial GitHub Actions passing; neither is merged or deployed. The current stop is
   `NEEDS_HUMAN_FINAL_MERGE_REVIEW` after the approved review repair and passing Actions.
