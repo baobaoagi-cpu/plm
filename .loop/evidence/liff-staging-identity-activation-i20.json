@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-07-22T13:26:58+08:00",
+  "mission": "LIFF Staging Identity Activation — implementation and offline verification only",
+  "branch": "codex/liff-staging-identity-activation",
+  "human_settings_evidence": {
+    "source": "HUMAN_SCREENSHOT_VERIFIED",
+    "screenshot_committed": false,
+    "app_name": "HUMAN_SCREENSHOT_VERIFIED",
+    "liff_id": "HUMAN_SCREENSHOT_VERIFIED_PUBLIC_CONFIG",
+    "endpoint": "HUMAN_SCREENSHOT_VERIFIED_PUBLIC_CONFIG",
+    "size_full": "HUMAN_SCREENSHOT_VERIFIED",
+    "openid_enabled": "HUMAN_SCREENSHOT_VERIFIED",
+    "profile_disabled": "HUMAN_SCREENSHOT_VERIFIED",
+    "chat_message_write_disabled": "HUMAN_SCREENSHOT_VERIFIED",
+    "add_friend_off": "HUMAN_SCREENSHOT_VERIFIED",
+    "scan_qr_off": "HUMAN_SCREENSHOT_VERIFIED",
+    "module_mode_off": "HUMAN_SCREENSHOT_VERIFIED",
+    "share_target_picker_off": "HUMAN_SCREENSHOT_VERIFIED"
+  },
+  "implementation": {
+    "official_liff_sdk_version": "2.29.1",
+    "browser_scope_contract": ["openid"],
+    "client_decoded_token_trusted": false,
+    "official_verify_endpoint_contract": "https://api.line.me/oauth2/v2.1/verify",
+    "verified_claims": ["iss", "aud", "exp", "sub"],
+    "phase3b_identity_mapping_reused": true,
+    "raw_subject_returned": false,
+    "raw_subject_persisted": false,
+    "real_line_network_calls": 0,
+    "real_user_logins": 0
+  },
+  "integration_states": {
+    "railway_variables_changed": false,
+    "deployment_triggered": false,
+    "production_changed": false,
+    "database_connected": false,
+    "mem0_connected": false,
+    "microphone_enabled": false,
+    "websocket_enabled": false,
+    "minimax_enabled": false,
+    "livekit_enabled": false,
+    "real_calls_enabled": false
+  },
+  "validation": {
+    "ruff": "PASS",
+    "mypy_strict": "PASS_90_FILES",
+    "pytest": "PASS_297",
+    "frontend_lint": "PASS_2_IDENTITY_FILES",
+    "frontend_typecheck": "PASS",
+    "frontend_tests": "PASS_22_EXISTING_PLUS_24_IDENTITY_ASSERTIONS",
+    "staging_server_tests": "PASS_3",
+    "frontend_build": "PASS",
+    "npm_ci": "PASS_109_PACKAGES",
+    "npm_audit": "PASS_0_VULNERABILITIES",
+    "json_validation": "PASS_6_FILES",
+    "secret_scan": "PASS_0_HIGH_CONFIDENCE_FINDINGS_IN_27_MISSION_FILES",
+    "forbidden_import_scan": "PASS_0_RUNTIME_MATCHES",
+    "forbidden_client_api_scan": "PASS_0_MATCHES",
+    "architecture_boundary_tests": "PASS"
+  },
+  "stop": "NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW"
+}

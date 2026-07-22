@@ -33,6 +33,9 @@ jobs:
       - name: Install LIFF shell dependencies
         working-directory: web
         run: npm ci --ignore-scripts
+      - name: Lint LIFF identity boundaries
+        working-directory: web
+        run: npm run lint
       - name: Typecheck LIFF shell
         working-directory: web
         run: npm run typecheck

@@ -79,12 +79,14 @@
 
 ## B-011 - LIFF app creation and identity activation
 
-- Status: `PUBLIC_REGISTRATION_VERIFIED / NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW`
+- Status: `IDENTITY_BOUNDARY_IMPLEMENTED_OFFLINE / NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW`
 - The public LIFF page returns HTTP 200 and its client-side redirect target and fallback link match
   the backend-free, call-disabled staging endpoint. The LIFF ID and URL are public configuration.
-- openid is `HUMAN_CONFIGURED_NOT_SCREENSHOT_VERIFIED`; profile and chat scopes remain
-  `UNKNOWN_NOT_SCREENSHOT_VERIFIED`. Public URL access is not LINE identity proof.
-- Blocks: LIFF SDK initialization, LINE identity verification, profile access, microphone
-  permission, WebSocket transport and any real call.
-- Resolution: Command Center reviews the registration evidence and separately authorizes an
-  identity activation milestone. No credential or runtime configuration change is implied.
+- All supplied Console settings are `HUMAN_SCREENSHOT_VERIFIED`: openid only; profile/chat off;
+  Add friend, Scan QR, Module mode and share target picker off. The screenshot is not committed.
+- Official SDK and server verification seams are implemented and tested only with fakes. The public
+  Channel ID, real LINE verification transport, deployment and consented real login remain absent.
+- Blocks: Railway/runtime configuration, real LIFF initialization, real identity verification,
+  profile access, microphone permission, WebSocket transport and any real call.
+- Resolution: Command Center reviews the offline implementation and separately authorizes a
+  deployment/real-login staging gate. No credential is required or implied by this Mission.

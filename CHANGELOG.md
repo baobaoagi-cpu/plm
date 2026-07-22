@@ -4,6 +4,12 @@
 
 ### Added
 
+- Offline-only LIFF identity activation seams: official npm SDK adapter with missing-config gating,
+  openid-only token handoff, LINE v2.1 verify request/response contract, safe issuer/audience/expiry/
+  subject validation, and direct reuse of the Phase 3B tenant-bound identity mapper.
+- LIFF identity security lint, backend failure/redaction tests, frontend failure-gating tests,
+  screenshot-evidence mapping, threat model and future human application checklist.
+
 - Public, machine-readable LIFF staging registration contract and redacted anonymous network
   evidence. The LIFF ID, LIFF URL and endpoint are classified as public configuration while LINE
   identity, scopes and all runtime integrations remain unverified or disabled.
@@ -59,6 +65,9 @@
 
 ### Security
 
+- LINE ID tokens and raw subjects are redacted from repr/events/responses and never persisted;
+  client-decoded claims are rejected as a trust source, and identity failure cannot enable calls,
+  microphone, WebSocket or AI capabilities.
 - All credentials are environment-only; `.env` and audio artifacts are ignored by Git.
 - API keys, authorization headers, full Voice IDs, and synthesis text are excluded from evidence.
 - Phase 3B migration reruns now set the fixed staging tenant only with transaction-local scope, so
@@ -72,6 +81,9 @@
 
 ### Decision
 
+- LIFF Console settings are human-screenshot verified as openid-only with profile, chat message,
+  Add friend, QR, Module mode and share target picker disabled. Implementation remains offline-only;
+  Railway, real login and LINE transport are unchanged and require a separate gate.
 - Public LIFF registration is verified only through anonymous HTTP and static redirect evidence.
   It does not prove LINE identity or scopes, does not inject the LIFF ID into Railway/runtime
   configuration, and stops at `NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW`.

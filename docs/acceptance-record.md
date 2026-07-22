@@ -320,3 +320,40 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - JSON validation: `PASS` (3 files)
 - Mission-file high-confidence secret findings: `0 / 8 FILES`
 - Stop condition: `NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW`
+
+## LIFF Staging Identity Activation — Offline Implementation
+
+- Status: `COMPLETED_OFFLINE_ONLY / NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW`
+- Base: `codex/liff-registration-contract`
+- LIFF settings: `HUMAN_SCREENSHOT_VERIFIED`
+- Screenshot committed: `NO`
+- LIFF ID, LIFF URL, Channel ID and issuer classification: `PUBLIC_CONFIG`
+- Official LIFF SDK: `@line/liff 2.29.1 / LOCKED`
+- Browser API surface: `init / isLoggedIn / getIDToken ONLY`
+- Requested Console scope: `openid ONLY`
+- Profile, email, friendship, chat, QR and share-target APIs: `ABSENT / FORBIDDEN`
+- Missing/malformed public config: `FAIL_CLOSED / SDK NOT LOADED`
+- Identity failure media gating: `CALL/MICROPHONE/WEBSOCKET/AI FALSE`
+- Server verify contract: `LINE LOGIN V2.1 VERIFY ID TOKEN ENDPOINT`
+- Trusted response validation: `iss / aud / exp / sub`
+- Client-decoded token trusted: `NO`
+- Phase 3B identity mapper reused: `YES`
+- Tenant/persona mismatch: `REJECTED`
+- Raw token/subject in repr, events or response: `0`
+- Raw subject persisted: `NO`
+- Real LINE login/network call: `0`
+- Railway/runtime variables changed: `NO`
+- Deployment, DB, Mem0, microphone, WebSocket, MiniMax, LiveKit and calls: `0`
+- Ruff: `PASS`
+- mypy strict: `PASS` (90 files)
+- pytest: `PASS` (297 tests)
+- Frontend identity lint: `PASS` (2 files)
+- TypeScript strict: `PASS`
+- Offline assertions: `PASS` (22 existing + 24 identity)
+- Staging server tests: `PASS` (3)
+- Vite build: `PASS`
+- npm locked install: `PASS`; audit: `0 vulnerabilities`
+- JSON validation: `PASS` (6 files)
+- Mission-file high-confidence secret findings: `0 / 27 FILES`
+- Forbidden runtime/client capability matches: `0 / 0`
+- Stop condition: `NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW`

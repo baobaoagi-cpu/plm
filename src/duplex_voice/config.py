@@ -36,9 +36,9 @@ class EnvironmentVariableContract:
 _INTEGRATION_CONTRACT = (
     EnvironmentVariableContract(
         "XIEWENXIAN_CALIBRATION_LINE_CHANNEL_ID",
-        ValueClass.SERVER_CONFIG,
+        ValueClass.PUBLIC_CONFIG,
         "identity_gateway",
-        "line_integration_enabled",
+        "liff_identity_enabled",
     ),
     EnvironmentVariableContract(
         "XIEWENXIAN_CALIBRATION_LINE_CHANNEL_SECRET",
@@ -56,7 +56,13 @@ _INTEGRATION_CONTRACT = (
         "XIEWENXIAN_CALIBRATION_LIFF_ID",
         ValueClass.PUBLIC_CONFIG,
         "identity_gateway",
-        "line_integration_enabled",
+        "liff_identity_enabled",
+    ),
+    EnvironmentVariableContract(
+        "XIEWENXIAN_CALIBRATION_LINE_ISSUER",
+        ValueClass.PUBLIC_CONFIG,
+        "identity_gateway",
+        "liff_identity_enabled",
     ),
     EnvironmentVariableContract(
         "XIEWENXIAN_CALIBRATION_LINE_ALLOWLIST_JSON",
@@ -144,6 +150,7 @@ _SERVER_SETTING_NAMES = (
     "ADMIN_DATABASE_ENABLED",
     "ADMIN_HTTP_ENABLED",
     "LIVEKIT_ENABLED",
+    "LIFF_IDENTITY_ENABLED",
     "XIEWENXIAN_CALIBRATION_ENABLED",
     "XIEWENXIAN_CALIBRATION_KILL_SWITCH",
     "XIEWENXIAN_CALIBRATION_SANDBOX_MODE",

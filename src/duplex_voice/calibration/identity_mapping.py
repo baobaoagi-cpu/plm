@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import hashlib
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import StrEnum
 
 from duplex_voice.calibration.identity import XIEWENXIAN_NAMESPACES
@@ -37,7 +37,7 @@ class PrincipalKind(StrEnum):
 @dataclass(frozen=True, slots=True)
 class VerifiedIdentityAssertion:
     source_system: SourceSystem
-    external_user_id: str
+    external_user_id: str = field(repr=False)
     principal_kind: PrincipalKind
     verified: bool
 
