@@ -54,6 +54,7 @@ def test_offline_configuration_rejects_boundary_weakening(
     [
         "EXTERNAL_PROVIDERS_ENABLED",
         "LINE_INTEGRATION_ENABLED",
+        "LIFF_IDENTITY_ENABLED",
         "DATABASE_ENABLED",
         "ADMIN_DATABASE_ENABLED",
         "ADMIN_HTTP_ENABLED",
@@ -103,6 +104,32 @@ def test_staging_provider_contract_can_validate_without_contacting_provider() ->
     assert "synthetic" not in rendered
     assert "synthetic-voice" not in rendered
     assert "synthetic-minimax-key" not in rendered
+
+
+def test_staging_liff_identity_requires_explicit_policy_and_public_bindings() -> None:
+    with pytest.raises(ConfigurationError):
+        load_runtime_configuration(
+            {"APP_ENV": "staging", "LIFF_IDENTITY_ENABLED": "true"},
+            mode=RuntimeMode.STAGING_INTEGRATION,
+        )
+
+    config = load_runtime_configuration(
+        {
+            "APP_ENV": "staging",
+            "LIFF_IDENTITY_ENABLED": "true",
+            "XIEWENXIAN_CALIBRATION_ENABLED": "true",
+            "XIEWENXIAN_CALIBRATION_KILL_SWITCH": "false",
+            "XIEWENXIAN_CALIBRATION_LINE_CHANNEL_ID": "1234567890",
+            "XIEWENXIAN_CALIBRATION_LIFF_ID": "1234567890-SyntheticCI",
+            "XIEWENXIAN_CALIBRATION_LINE_ALLOWLIST_JSON": (
+                '{"U0123456789abcdef0123456789abcdef":"TECHNICAL_TESTER"}'
+            ),
+        },
+        mode=RuntimeMode.STAGING_INTEGRATION,
+    )
+
+    assert config.liff_identity_enabled is True
+    assert config.line_integration_enabled is False
 
 
 def test_secret_contract_never_exposes_a_secret_to_browser() -> None:

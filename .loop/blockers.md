@@ -79,14 +79,17 @@
 
 ## B-011 - LIFF app creation and identity activation
 
-- Status: `IDENTITY_BOUNDARY_IMPLEMENTED_OFFLINE / NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW`
+- Status: `MERGE_REVIEW_REPAIR_VERIFIED_LOCAL / REAL_LOGIN_ROUTE_NOT_AUTHORIZED`
 - The public LIFF page returns HTTP 200 and its client-side redirect target and fallback link match
   the backend-free, call-disabled staging endpoint. The LIFF ID and URL are public configuration.
 - All supplied Console settings are `HUMAN_SCREENSHOT_VERIFIED`: openid only; profile/chat off;
   Add friend, Scan QR, Module mode and share target picker off. The screenshot is not committed.
-- Official SDK and server verification seams are implemented and tested only with fakes. The public
-  Channel ID, real LINE verification transport, deployment and consented real login remain absent.
+- Official pluggable SDK and server verification seams are implemented and tested only with fakes.
+  Browser activation now requires a separate flag; server admission enforces the existing
+  allowlist/kill switch/role policy plus provider and Channel binding. Public configuration was
+  staged without deployment. A real HTTP verification route, deployment and consented login remain
+  absent.
 - Blocks: Railway/runtime configuration, real LIFF initialization, real identity verification,
   profile access, microphone permission, WebSocket transport and any real call.
-- Resolution: Command Center reviews the offline implementation and separately authorizes a
-  deployment/real-login staging gate. No credential is required or implied by this Mission.
+- Resolution: Human reviews the repaired Draft PR and stacked merge order. Deployment/real-login
+  remains a separate gate; no credential or production access is required or implied here.

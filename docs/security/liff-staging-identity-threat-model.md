@@ -15,13 +15,18 @@ Status: `OFFLINE_VERIFIED / REAL_LOGIN_NOT_EXECUTED`
 | Profile or email overcollection | `name`, `picture` and `email` claims are rejected; forbidden client APIs are linted | claim/lint tests |
 | Identity failure unlocks media | Frontend capabilities remain false for call, microphone, WebSocket and AI | offline frontend tests |
 | Missing build config loads SDK | SDK loader is not invoked without valid public LIFF config | offline frontend tests |
+| Public LIFF ID silently activates identity | Separate browser activation flag defaults false and is required before SDK loading | disabled-with-ID test |
+| Non-allowlisted LINE user enters sandbox | Existing owner-calibration allowlist and role policy run after provider verification | allowlist/role tests |
+| Cross-provider or cross-Channel assertion confusion | Boundary requires LINE source and the exact configured provider audience | confusion tests |
+| Transport error traceback leaks token | Arbitrary upstream exception causes are detached before crossing the boundary | traceback-redaction test |
 
 ## Residual unknowns
 
 - Real LIFF browser initialization, ID-token delivery and user-consent UX are not executed.
-- The public LINE Login Channel ID has not been supplied to runtime configuration.
+- Public LIFF/Channel configuration has been staged without deployment; it is not activation.
 - No backend HTTP route or LINE network transport is connected.
-- Railway CSP/network changes required by a future deployment have not been evaluated or applied.
+- CSP is narrowed to self plus the LINE API required for LIFF initialization. No browser-to-server
+  verification route has been approved or deployed.
 - No DB, Mem0, LINE subject persistence, profile, webhook or voice runtime exists.
 
 These unknowns require a separately authorized real-login staging gate. They cannot be inferred from

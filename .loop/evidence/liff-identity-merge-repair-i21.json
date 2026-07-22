@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "iteration": 21,
+  "recorded_at": "2026-07-22T23:21:51+08:00",
+  "branch": "codex/liff-staging-identity-activation",
+  "status": "LOCAL_VERIFIED",
+  "merge_performed": false,
+  "deployment_performed": false,
+  "production_connected": false,
+  "real_line_login_count": 0,
+  "external_provider_calls": 0,
+  "controls": {
+    "explicit_browser_activation_flag": true,
+    "public_liff_id_is_not_activation": true,
+    "pluggable_liff_sdk": true,
+    "allowlist_and_role_policy": true,
+    "kill_switch_enforced": true,
+    "provider_binding": "line",
+    "channel_audience_binding": true,
+    "transport_traceback_redacted": true,
+    "microphone_enabled": false,
+    "voice_runtime_enabled": false
+  },
+  "validation": {
+    "ruff": "PASS",
+    "mypy_strict": "PASS_90_FILES",
+    "pytest": "PASS_305",
+    "frontend_lint": "PASS",
+    "frontend_typecheck": "PASS",
+    "offline_protocol_assertions": "PASS_22",
+    "offline_liff_identity_assertions": "PASS_41",
+    "vite_build": "PASS_SYNTHETIC_FAIL_CLOSED",
+    "staging_server_tests": "PASS_3",
+    "npm_audit": "PASS_0_VULNERABILITIES",
+    "high_confidence_secret_findings": 0,
+    "forbidden_architecture_findings": 0
+  },
+  "stop": "NEEDS_HUMAN_FINAL_MERGE_REVIEW"
+}

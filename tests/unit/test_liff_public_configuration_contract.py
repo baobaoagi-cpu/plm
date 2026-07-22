@@ -40,7 +40,7 @@ def test_liff_registration_does_not_activate_integrations() -> None:
         }
     }
     assert all(value is False for value in runtime_states.values())
-    assert boundary["railway_liff_id_injected"] is False
+    assert boundary["railway_liff_id_injected"] == "STAGED_NO_DEPLOY"
     assert boundary["runtime_configuration_activated"] is False
     assert boundary["credentials_added"] is False
 

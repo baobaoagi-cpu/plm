@@ -15,7 +15,7 @@ test("refuses production", () => {
 
 test("refuses every enabled integration", () => {
   for (const name of [
-    "DATABASE_ENABLED", "EXTERNAL_PROVIDERS_ENABLED", "LIFF_IDENTITY_ENABLED",
+    "DATABASE_ENABLED", "EXTERNAL_PROVIDERS_ENABLED",
     "LIVEKIT_ENABLED", "MICROPHONE_ENABLED", "MINIMAX_ENABLED", "WEBSOCKET_ENABLED",
   ]) {
     assert.throws(() => assertSafeStagingEnvironment({ [name]: "true" }), new RegExp(name));
@@ -39,7 +39,10 @@ test("serves shell and safe health response", async (context) => {
     status: "ok", mode: "liff-staging-shell", integrations: false,
   });
   assert.match(health.headers.get("permissions-policy") ?? "", /microphone=\(\)/);
-  assert.match(health.headers.get("content-security-policy") ?? "", /connect-src 'none'/);
+  assert.match(
+    health.headers.get("content-security-policy") ?? "",
+    /connect-src 'self' https:\/\/api\.line\.me/,
+  );
 
   const index = await fetch(`http://127.0.0.1:${address.port}/`);
   assert.equal(index.status, 200);

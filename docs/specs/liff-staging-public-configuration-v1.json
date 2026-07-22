@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "contract_id": "xiewenxian-liff-staging-public-registration-v1",
-  "status": "HUMAN_SETTINGS_VERIFIED_IDENTITY_IMPLEMENTATION_OFFLINE_ONLY",
+  "status": "MERGE_REPAIR_VERIFIED_OFFLINE_ONLY",
   "registration": {
     "line_login_channel_name": "憲哥 Digital Twin",
     "liff_app_name": "憲哥 Digital Twin Staging",
@@ -60,9 +60,9 @@
   },
   "activation_boundary": {
     "human_screenshot_committed": false,
-    "railway_liff_id_injected": false,
+    "railway_liff_id_injected": "STAGED_NO_DEPLOY",
     "runtime_configuration_activated": false,
     "credentials_added": false,
-    "required_next_review": "NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW"
+    "required_next_review": "NEEDS_HUMAN_FINAL_MERGE_REVIEW"
   }
 }

@@ -18,7 +18,24 @@ async function main() {
 
   let sdkLoaded = false;
   let verifierCalled = false;
+  const disabled = await activateLiffIdentity(
+    "false",
+    LIFF_ID,
+    async () => {
+      sdkLoaded = true;
+      throw new Error("must not load");
+    },
+    async () => {
+      verifierCalled = true;
+      return { verified: true, code: "verified" };
+    },
+  );
+  assert.equal(disabled.status, "disabled");
+  assert.equal(sdkLoaded, false);
+  assert.equal(verifierCalled, false);
+
   const missing = await activateLiffIdentity(
+    "true",
     undefined,
     async () => {
       sdkLoaded = true;
@@ -33,7 +50,7 @@ async function main() {
   assert.equal(sdkLoaded, false);
   assert.equal(verifierCalled, false);
 
-  const invalid = await activateLiffIdentity("invalid", async () => {
+  const invalid = await activateLiffIdentity("true", "invalid", async () => {
     throw new Error("must not load");
   }, async () => ({ verified: true, code: "verified" }));
   assert.equal(invalid.status, "configuration_invalid");
@@ -48,6 +65,7 @@ async function main() {
   };
   let receivedToken = "";
   const verified = await activateLiffIdentity(
+    "true",
     LIFF_ID,
     async () => sdk,
     async (token) => {
@@ -70,6 +88,7 @@ async function main() {
   assert.equal("idToken" in verified, false);
 
   const loggedOut = await activateLiffIdentity(
+    "true",
     LIFF_ID,
     async () => ({ ...sdk, isLoggedIn: () => false }),
     async () => {
@@ -79,6 +98,7 @@ async function main() {
   assert.equal(loggedOut.status, "not_authenticated");
 
   const rejected = await activateLiffIdentity(
+    "true",
     LIFF_ID,
     async () => sdk,
     async () => ({ verified: false, code: "wrong_audience" }),
@@ -87,7 +107,35 @@ async function main() {
   assert.equal(rejected.code, "wrong_audience");
   assert.equal(Object.values(rejected.capabilities).some(Boolean), false);
 
+  for (const malformedToken of [null, "short", "a.b", "a.b.c.d"]) {
+    let malformedVerifierCalled = false;
+    const malformed = await activateLiffIdentity(
+      "TRUE",
+      LIFF_ID,
+      async () => ({ ...sdk, getIDToken: () => malformedToken }),
+      async () => {
+        malformedVerifierCalled = true;
+        return { verified: true, code: "verified" };
+      },
+    );
+    assert.equal(malformed.status, "failed");
+    assert.equal(malformed.code, "id_token_unavailable");
+    assert.equal(malformedVerifierCalled, false);
+  }
+
+  const verifierFailure = await activateLiffIdentity(
+    "true",
+    LIFF_ID,
+    async () => sdk,
+    async () => {
+      throw new Error(SYNTHETIC_TOKEN);
+    },
+  );
+  assert.equal(verifierFailure.code, "identity_activation_failed");
+  assert.equal(JSON.stringify(verifierFailure).includes(SYNTHETIC_TOKEN), false);
+
   const sdkFailure = await activateLiffIdentity(
+    "true",
     LIFF_ID,
     async () => {
       throw new Error(SYNTHETIC_TOKEN);
@@ -97,7 +145,7 @@ async function main() {
   assert.equal(sdkFailure.code, "identity_activation_failed");
   assert.equal(JSON.stringify(sdkFailure).includes(SYNTHETIC_TOKEN), false);
 
-  console.log("LIFF_IDENTITY_TESTS_PASS assertions=24");
+  console.log("LIFF_IDENTITY_TESTS_PASS assertions=41");
 }
 
 void main();

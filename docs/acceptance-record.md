@@ -321,6 +321,35 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - Mission-file high-confidence secret findings: `0 / 8 FILES`
 - Stop condition: `NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW`
 
+## LIFF Identity Merge Review Repair
+
+- Status: `LOCAL_VERIFIED / NEEDS_HUMAN_FINAL_MERGE_REVIEW`
+- Branch: `codex/liff-staging-identity-activation`
+- Merge performed: `NO`
+- Deployment or production connection: `NO`
+- Browser activation: separate `VITE_LIFF_IDENTITY_ENABLED` flag, default false
+- Public LIFF ID alone loads SDK: `NO / TESTED`
+- LIFF SDK surface: pluggable core + `isLoggedIn` + `getIDToken`
+- Server activation: staging + calibration enabled + kill switch open + public bindings + allowlist
+- Non-allowlisted subject: `DENIED / TESTED`
+- Role source: existing `OwnerCalibrationPolicy`, not verifier input
+- Provider binding: `LINE REQUIRED / TESTED`
+- Channel audience binding: exact configured Channel ID required / tested
+- Arbitrary transport exception cause: detached / traceback-redaction tested
+- CSP connect allowlist: self + `https://api.line.me`; microphone/media remain denied
+- Real LINE verification route/login: `NOT_IMPLEMENTED / NOT_EXECUTED`
+- Ruff: `PASS`
+- mypy strict: `PASS` (90 source files)
+- pytest: `PASS` (305 tests)
+- Frontend lint/typecheck: `PASS`
+- Offline browser assertions: `PASS` (22 protocol + 41 LIFF identity)
+- Staging server tests: `PASS` (3)
+- Vite synthetic fail-closed build: `PASS`
+- npm audit: `PASS / 0 vulnerabilities`
+- High-confidence secret findings: `0`
+- Tracy/legacy orchestrator findings: `0`
+- Required stop: `NEEDS_HUMAN_FINAL_MERGE_REVIEW`
+
 ## LIFF Staging Identity Activation — Offline Implementation
 
 - Status: `COMPLETED_OFFLINE_ONLY / NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW`

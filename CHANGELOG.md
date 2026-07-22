@@ -65,6 +65,10 @@
 
 ### Security
 
+- LIFF merge review repair separates the public LIFF ID from the browser activation flag, installs
+  only the approved pluggable SDK surface, binds verified assertions to LINE and the configured
+  Channel, enforces the existing calibration allowlist/kill switch/role policy, redacts upstream
+  traceback causes, and narrows CSP network access to self plus the LINE API.
 - LINE ID tokens and raw subjects are redacted from repr/events/responses and never persisted;
   client-decoded claims are rejected as a trust source, and identity failure cannot enable calls,
   microphone, WebSocket or AI capabilities.

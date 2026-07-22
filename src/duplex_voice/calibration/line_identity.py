@@ -14,7 +14,13 @@ from collections.abc import Callable, Mapping
 from dataclasses import dataclass, field
 from typing import Protocol
 
-from duplex_voice.calibration.identity import XIEWENXIAN_NAMESPACES
+from duplex_voice.calibration.identity import (
+    XIEWENXIAN_NAMESPACES,
+    CalibrationPermission,
+    CalibrationRole,
+    OwnerCalibrationPolicy,
+    load_owner_calibration_policy,
+)
 from duplex_voice.calibration.identity_mapping import (
     IdentityMappingError,
     PrincipalIdentity,
@@ -48,10 +54,10 @@ class LineIdentitySettings:
 
     channel_id: str
     liff_id: str
+    policy: OwnerCalibrationPolicy = field(repr=False)
     issuer: str = LINE_ID_TOKEN_ISSUER
     tenant_id: str = XIEWENXIAN_NAMESPACES.tenant_id
     persona_id: str = XIEWENXIAN_NAMESPACES.persona_id
-    principal_kind: PrincipalKind = PrincipalKind.TECHNICAL_TESTER
     timeout_s: float = 2.0
 
     def __post_init__(self) -> None:
@@ -65,6 +71,14 @@ class LineIdentitySettings:
             raise LineIdentityVerificationError("tenant_mismatch")
         if self.persona_id != XIEWENXIAN_NAMESPACES.persona_id:
             raise LineIdentityVerificationError("persona_mismatch")
+        if self.policy.namespaces != XIEWENXIAN_NAMESPACES:
+            raise LineIdentityVerificationError("policy_namespace_mismatch")
+        if not self.policy.enabled:
+            raise LineIdentityVerificationError("calibration_disabled")
+        if self.policy.kill_switch:
+            raise LineIdentityVerificationError("kill_switch_active")
+        if not self.policy.sandbox_mode:
+            raise LineIdentityVerificationError("sandbox_required")
         if not 0 < self.timeout_s <= 10:
             raise LineIdentityVerificationError("invalid_timeout_config")
 
@@ -84,12 +98,18 @@ def load_line_identity_settings(environment: Mapping[str, str]) -> LineIdentityS
     if not channel_id or not liff_id:
         raise LineIdentityVerificationError("identity_public_config_missing")
 
+    try:
+        policy = load_owner_calibration_policy(environment)
+    except ValueError:
+        raise LineIdentityVerificationError("invalid_calibration_policy") from None
+
     return LineIdentitySettings(
         channel_id=channel_id,
         liff_id=liff_id,
         issuer=environment.get(
             "XIEWENXIAN_CALIBRATION_LINE_ISSUER", LINE_ID_TOKEN_ISSUER
         ).strip(),
+        policy=policy,
     )
 
 
@@ -153,12 +173,12 @@ class LineIdTokenVerifier(IdentityVerifier):
                 self._transport.verify_id_token(request),
                 timeout=self._settings.timeout_s,
             )
-        except TimeoutError as exc:
+        except TimeoutError:
             self._emit("line_identity_rejected", "verification_timeout")
-            raise LineIdentityVerificationError("verification_timeout") from exc
-        except Exception as exc:
+            raise LineIdentityVerificationError("verification_timeout") from None
+        except Exception:
             self._emit("line_identity_rejected", "verification_upstream_error")
-            raise LineIdentityVerificationError("verification_upstream_error") from exc
+            raise LineIdentityVerificationError("verification_upstream_error") from None
 
         try:
             assertion = self._validate_response(response)
@@ -193,8 +213,9 @@ class LineIdTokenVerifier(IdentityVerifier):
             return VerifiedIdentityAssertion(
                 source_system=SourceSystem.LINE,
                 external_user_id=subject,
-                principal_kind=self._settings.principal_kind,
+                principal_kind=PrincipalKind.TECHNICAL_TESTER,
                 verified=True,
+                provider_audience=self._settings.channel_id,
             )
         except IdentityMappingError as exc:
             raise LineIdentityVerificationError("invalid_subject") from exc
@@ -234,8 +255,26 @@ class LineIdentityBoundary:
     async def activate(self, raw_id_token: str) -> LineIdentityOutcome:
         try:
             assertion = await self._verifier.verify(OpaqueCredential(raw_id_token))
+            if assertion.source_system is not SourceSystem.LINE:
+                raise LineIdentityVerificationError("wrong_identity_provider")
+            if assertion.provider_audience != self._settings.channel_id:
+                raise LineIdentityVerificationError("wrong_audience_binding")
+            decision = self._settings.policy.authorize(
+                assertion.external_user_id,
+                CalibrationPermission.INTERACT,
+            )
+            if not decision.allowed:
+                raise LineIdentityVerificationError(decision.reason)
+            principal_kind = _principal_kind_for_role(decision.role)
+            authorized_assertion = VerifiedIdentityAssertion(
+                source_system=assertion.source_system,
+                external_user_id=assertion.external_user_id,
+                principal_kind=principal_kind,
+                verified=assertion.verified,
+                provider_audience=assertion.provider_audience,
+            )
             principal = map_verified_identity(
-                assertion,
+                authorized_assertion,
                 tenant_id=self._settings.tenant_id,
             )
         except LineIdentityVerificationError as exc:
@@ -243,6 +282,18 @@ class LineIdentityBoundary:
         except (IdentityMappingError, ValueError):
             return LineIdentityOutcome(False, "identity_rejected")
         return LineIdentityOutcome(True, "verified", principal)
+
+
+def _principal_kind_for_role(role: CalibrationRole) -> PrincipalKind:
+    mapping = {
+        CalibrationRole.OWNER: PrincipalKind.OWNER,
+        CalibrationRole.GOVERNOR: PrincipalKind.GOVERNOR,
+        CalibrationRole.TECHNICAL_TESTER: PrincipalKind.TECHNICAL_TESTER,
+    }
+    try:
+        return mapping[role]
+    except KeyError:
+        raise LineIdentityVerificationError("line_user_not_allowlisted") from None
 
 
 __all__ = [

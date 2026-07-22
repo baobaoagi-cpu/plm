@@ -14,10 +14,15 @@ function StagingShell() {
 
   useEffect(() => {
     let active = true;
-    void activateLiffIdentity(import.meta.env.VITE_LIFF_ID, loadOfficialLiffSdk, async () => ({
-      verified: false,
-      code: "server_verification_boundary_unavailable",
-    })).then((result) => {
+    void activateLiffIdentity(
+      import.meta.env.VITE_LIFF_IDENTITY_ENABLED,
+      import.meta.env.VITE_LIFF_ID,
+      loadOfficialLiffSdk,
+      async () => ({
+        verified: false,
+        code: "server_verification_boundary_unavailable",
+      }),
+    ).then((result) => {
       if (active) {
         setIdentityStatus(result.status);
       }
@@ -35,7 +40,7 @@ function StagingShell() {
       <CalibrationCallShell
         callEnabled={false}
         connecting={false}
-        microphoneGranted={true}
+        microphoneGranted={false}
         onAllowMicrophone={() => undefined}
         onClose={() => window.history.back()}
         onStartCall={() => undefined}

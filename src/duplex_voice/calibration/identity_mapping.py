@@ -40,6 +40,7 @@ class VerifiedIdentityAssertion:
     external_user_id: str = field(repr=False)
     principal_kind: PrincipalKind
     verified: bool
+    provider_audience: str | None = field(default=None, repr=False)
 
     def __post_init__(self) -> None:
         if not _SAFE_EXTERNAL_ID.fullmatch(self.external_user_id):

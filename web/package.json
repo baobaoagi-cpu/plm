@@ -3,16 +3,21 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "packageManager": "npm@11.9.0",
+  "engines": {
+    "node": ">=22.12.0 <23"
+  },
   "scripts": {
     "build": "vite build",
     "lint": "node scripts/lint-identity-boundaries.mjs",
+    "audit": "npm audit --audit-level=high",
     "start:staging": "node scripts/staging-server.mjs",
     "test:staging": "node --test scripts/staging-server.test.mjs",
     "typecheck": "tsc --noEmit",
     "test:offline": "tsc -p tsconfig.test.json && node .phase3d-test/tests/offlineClient.test.js && node .phase3d-test/tests/liffIdentity.test.js"
   },
   "dependencies": {
-    "@line/liff": "^2.29.1",
+    "@line/liff": "2.29.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

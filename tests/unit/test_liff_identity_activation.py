@@ -2,13 +2,23 @@ from __future__ import annotations
 
 import asyncio
 import json
+import traceback
 from collections.abc import Mapping
 from dataclasses import dataclass
 
 import pytest
 
-from duplex_voice.calibration.identity import XIEWENXIAN_NAMESPACES
-from duplex_voice.calibration.identity_verifier import OpaqueCredential
+from duplex_voice.calibration.identity import (
+    XIEWENXIAN_NAMESPACES,
+    CalibrationRole,
+    OwnerCalibrationPolicy,
+)
+from duplex_voice.calibration.identity_mapping import (
+    PrincipalKind,
+    SourceSystem,
+    VerifiedIdentityAssertion,
+)
+from duplex_voice.calibration.identity_verifier import IdentityVerifier, OpaqueCredential
 from duplex_voice.calibration.line_identity import (
     LINE_ID_TOKEN_ISSUER,
     LINE_ID_TOKEN_VERIFY_ENDPOINT,
@@ -51,6 +61,11 @@ def _settings(**overrides: object) -> LineIdentitySettings:
     values: dict[str, object] = {
         "channel_id": CHANNEL_ID,
         "liff_id": LIFF_ID,
+        "policy": OwnerCalibrationPolicy(
+            roles_by_line_user_id={SYNTHETIC_SUBJECT: CalibrationRole.TECHNICAL_TESTER},
+            enabled=True,
+            kill_switch=False,
+        ),
         "timeout_s": 0.05,
     }
     values.update(overrides)
@@ -162,6 +177,26 @@ async def test_upstream_timeout_and_error_are_redacted() -> None:
     assert upstream_error.code == "verification_upstream_error"
     assert SYNTHETIC_TOKEN not in json.dumps(upstream_error.safe_response())
 
+    try:
+        await _verifier(FakeLineTransport(error=RuntimeError(SYNTHETIC_TOKEN))).verify(
+            OpaqueCredential(SYNTHETIC_TOKEN)
+        )
+    except LineIdentityVerificationError as exc:
+        rendered = "".join(traceback.format_exception(exc))
+    else:
+        pytest.fail("expected redacted verification error")
+    assert SYNTHETIC_TOKEN not in rendered
+
+    try:
+        await _verifier(FakeLineTransport(error=TimeoutError(SYNTHETIC_TOKEN))).verify(
+            OpaqueCredential(SYNTHETIC_TOKEN)
+        )
+    except LineIdentityVerificationError as exc:
+        rendered_timeout = "".join(traceback.format_exception(exc))
+    else:
+        pytest.fail("expected redacted timeout error")
+    assert SYNTHETIC_TOKEN not in rendered_timeout
+
 
 def test_tenant_and_persona_mismatch_fail_during_configuration() -> None:
     with pytest.raises(LineIdentityVerificationError, match="tenant_mismatch"):
@@ -187,11 +222,19 @@ def test_identity_configuration_is_staging_only_and_fail_closed() -> None:
     base = {
         "APP_ENV": "staging",
         "LIFF_IDENTITY_ENABLED": "true",
+        "XIEWENXIAN_CALIBRATION_ENABLED": "true",
+        "XIEWENXIAN_CALIBRATION_KILL_SWITCH": "false",
         "XIEWENXIAN_CALIBRATION_SANDBOX_MODE": "true",
+        "XIEWENXIAN_CALIBRATION_LINE_ALLOWLIST_JSON": json.dumps(
+            {SYNTHETIC_SUBJECT: "TECHNICAL_TESTER"}
+        ),
         "XIEWENXIAN_CALIBRATION_LINE_CHANNEL_ID": CHANNEL_ID,
         "XIEWENXIAN_CALIBRATION_LIFF_ID": LIFF_ID,
     }
-    assert load_line_identity_settings(base).liff_id == LIFF_ID
+    settings = load_line_identity_settings(base)
+    assert settings.liff_id == LIFF_ID
+    assert SYNTHETIC_SUBJECT not in repr(settings)
+    assert SYNTHETIC_SUBJECT not in repr(settings.policy)
 
     for missing in (
         "LIFF_IDENTITY_ENABLED",
@@ -205,3 +248,103 @@ def test_identity_configuration_is_staging_only_and_fail_closed() -> None:
 
     with pytest.raises(LineIdentityVerificationError, match="staging_environment_required"):
         load_line_identity_settings({**base, "APP_ENV": "production"})
+
+    with pytest.raises(LineIdentityVerificationError, match="calibration_disabled"):
+        load_line_identity_settings({**base, "XIEWENXIAN_CALIBRATION_ENABLED": "false"})
+    with pytest.raises(LineIdentityVerificationError, match="kill_switch_active"):
+        load_line_identity_settings(
+            {**base, "XIEWENXIAN_CALIBRATION_KILL_SWITCH": "true"}
+        )
+
+
+@pytest.mark.asyncio
+async def test_non_allowlisted_line_subject_is_denied() -> None:
+    settings = _settings(
+        policy=OwnerCalibrationPolicy(
+            roles_by_line_user_id={},
+            enabled=True,
+            kill_switch=False,
+        )
+    )
+    boundary = LineIdentityBoundary(
+        settings=settings,
+        verifier=LineIdTokenVerifier(
+            settings=settings,
+            transport=FakeLineTransport(_valid_response()),
+            monotonic_time=lambda: NOW,
+        ),
+    )
+
+    outcome = await boundary.activate(SYNTHETIC_TOKEN)
+
+    assert outcome.verified is False
+    assert outcome.code == "line_user_not_allowlisted"
+
+
+@pytest.mark.asyncio
+async def test_allowlisted_role_is_resolved_by_policy_not_verifier_default() -> None:
+    settings = _settings(
+        policy=OwnerCalibrationPolicy(
+            roles_by_line_user_id={SYNTHETIC_SUBJECT: CalibrationRole.OWNER},
+            enabled=True,
+            kill_switch=False,
+        )
+    )
+    boundary = LineIdentityBoundary(
+        settings=settings,
+        verifier=LineIdTokenVerifier(
+            settings=settings,
+            transport=FakeLineTransport(_valid_response()),
+            monotonic_time=lambda: NOW,
+        ),
+    )
+
+    outcome = await boundary.activate(SYNTHETIC_TOKEN)
+
+    assert outcome.verified is True
+    assert outcome.principal is not None
+    assert outcome.principal.principal_kind is PrincipalKind.OWNER
+
+
+@dataclass
+class FixedAssertionVerifier(IdentityVerifier):
+    assertion: VerifiedIdentityAssertion
+
+    async def verify(self, credential: OpaqueCredential) -> VerifiedIdentityAssertion:
+        return self.assertion
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize(
+    ("source_system", "audience", "code"),
+    [
+        (SourceSystem.SYNTHETIC, CHANNEL_ID, "wrong_identity_provider"),
+        (SourceSystem.LINE, "9999999999", "wrong_audience_binding"),
+        (SourceSystem.LINE, None, "wrong_audience_binding"),
+    ],
+)
+async def test_boundary_rejects_provider_or_channel_confusion(
+    source_system: SourceSystem,
+    audience: str | None,
+    code: str,
+) -> None:
+    assertion = VerifiedIdentityAssertion(
+        source_system=source_system,
+        external_user_id=(
+            "synthetic-provider-confusion"
+            if source_system is SourceSystem.SYNTHETIC
+            else SYNTHETIC_SUBJECT
+        ),
+        principal_kind=PrincipalKind.OWNER,
+        verified=True,
+        provider_audience=audience,
+    )
+    boundary = LineIdentityBoundary(
+        settings=_settings(),
+        verifier=FixedAssertionVerifier(assertion),
+    )
+
+    outcome = await boundary.activate(SYNTHETIC_TOKEN)
+
+    assert outcome.verified is False
+    assert outcome.code == code

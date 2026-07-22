@@ -2,12 +2,12 @@
 
 ## Milestone
 
-`LIFF Staging Identity Activation — implementation and offline verification only`
+`LIFF Identity Merge Review Repair`
 
 ## Goal
 
-Implement an openid-only LIFF client seam and a fail-closed server verification boundary that reuses
-the Phase 3B tenant-bound identity mapper, using offline fixtures only.
+Repair the expert-review blockers in Draft PR #10 while preserving its offline-only boundary and
+without merging, deploying or connecting production.
 
 ## Delivered
 
@@ -17,13 +17,19 @@ the Phase 3B tenant-bound identity mapper, using offline fixtures only.
 - Server verifier contract uses LINE's official verify endpoint and validates issuer, audience,
   expiry and subject before the existing Phase 3B effective-user mapping.
 - Raw token/subject are excluded from repr, events, responses and persistence.
+- Public LIFF ID possession no longer activates the SDK; an explicit browser flag is required.
+- The pluggable SDK exposes only core initialization, login-state observation and opaque ID-token
+  retrieval.
+- Existing allowlist, kill switch and role policy are enforced after official provider validation.
+- Provider and Channel audience confusion is rejected before Phase 3B mapping.
+- Arbitrary upstream exception causes are detached before safe errors cross the boundary.
+- CSP permits the LINE API required by LIFF initialization while retaining microphone/media denial.
 - Railway, production, DB, Mem0, microphone, WebSocket and voice services remain unchanged/off.
 
 ## Required human action
 
-- Review the offline identity implementation and decide whether to authorize a separate deployment
-  and consented real-login staging gate.
-- Supply the public LINE Login Channel ID only under that later gate.
+- Review the repaired Draft PR, its CI evidence and stacked merge order.
+- A separate authorization is still required for deployment and consented real-login staging.
 
 ## Explicitly not delivered
 
@@ -35,4 +41,4 @@ the Phase 3B tenant-bound identity mapper, using offline fixtures only.
 
 ## Required stop
 
-`NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW`
+`NEEDS_HUMAN_FINAL_MERGE_REVIEW`

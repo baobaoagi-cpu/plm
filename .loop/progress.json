@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T13:26:58+08:00",
+  "updated_at": "2026-07-22T23:21:51+08:00",
   "project": "plm-xie-wenxian-owner-calibration",
   "canonical_repository": "https://github.com/baobaoagi-cpu/plm",
-  "current_milestone": "LIFF Staging Identity Activation — implementation and offline verification only",
-  "current_iteration": 20,
-  "status": "NEEDS_HUMAN_LIFF_IDENTITY_ACTIVATION_REVIEW",
+  "current_milestone": "LIFF Identity Merge Review Repair",
+  "current_iteration": 21,
+  "status": "NEEDS_HUMAN_FINAL_MERGE_REVIEW",
   "tasks": {
     "task_001": {"status": "COMPLETED"},
     "task_002": {"status": "COMPLETED"},
@@ -123,7 +123,7 @@
     "raw_token_or_subject_persisted": false,
     "real_line_logins": 0,
     "external_connections": 0,
-    "liff_id_injected_into_railway": false,
+    "liff_id_injected_into_railway": "STAGED_NO_DEPLOY",
     "microphone_enabled": false,
     "websocket_enabled": false,
     "voice_runtime_enabled": false,
@@ -132,17 +132,23 @@
     "local_validation": {
       "ruff": "PASS",
       "mypy_strict": "PASS_90_FILES",
-      "pytest": "PASS_297",
+      "pytest": "PASS_305",
       "frontend_lint": "PASS",
       "frontend_typecheck": "PASS",
-      "frontend_offline_assertions": "PASS_46",
+      "frontend_offline_assertions": "PASS_63",
       "staging_server_tests": "PASS_3",
       "vite_build": "PASS",
       "npm_audit": "PASS_0_VULNERABILITIES",
       "secret_findings": 0,
-      "forbidden_runtime_matches": 0
+      "forbidden_runtime_matches": 0,
+      "merge_review_repair": "LOCAL_VERIFIED",
+      "browser_activation_requires_explicit_flag": true,
+      "allowlist_and_role_policy_enforced": true,
+      "provider_and_channel_binding_enforced": true,
+      "transport_traceback_redacted": true,
+      "csp_line_api_allowlisted": true
     }
   },
-  "next_allowed_action": "Command Center reviews the offline LIFF identity implementation and decides whether to authorize a separate deployment and consented real-login staging gate.",
-  "forbidden_next_action": "Do not change Railway or LIFF Console, deploy, perform a real LINE login, connect the LINE verification transport, access profile/email/chat/QR/share, enable microphone, WebSocket, MiniMax, LiveKit, Mem0, R2 or database, start calls, deploy production, or begin another phase without separate approval."
+  "next_allowed_action": "Human performs final stacked-merge review after the repaired Draft PR and GitHub Actions are verified.",
+  "forbidden_next_action": "Do not merge, deploy, change Railway or LIFF Console, perform a real LINE login, connect the LINE verification transport, access profile/email/chat/QR/share, enable microphone, WebSocket, MiniMax, LiveKit, Mem0, R2 or database, start calls, deploy production, or begin another phase without separate approval."
 }

@@ -14,6 +14,7 @@ export interface MinimalLiffSdk {
 }
 
 export type IdentityStatus =
+  | "disabled"
   | "configuration_missing"
   | "configuration_invalid"
   | "initializing"
@@ -65,15 +66,26 @@ export function loadLiffPublicConfig(rawLiffId: string | undefined): LiffPublicC
 }
 
 export async function loadOfficialLiffSdk(): Promise<MinimalLiffSdk> {
-  const module = await import("@line/liff");
-  return module.default;
+  const [{ default: liff }, { default: IsLoggedIn }, { default: GetIdToken }] =
+    await Promise.all([
+      import("@line/liff/core"),
+      import("@line/liff/is-logged-in"),
+      import("@line/liff/get-id-token"),
+    ]);
+  liff.use(new IsLoggedIn());
+  liff.use(new GetIdToken());
+  return liff;
 }
 
 export async function activateLiffIdentity(
+  rawEnabled: string | undefined,
   rawLiffId: string | undefined,
   loadSdk: LiffSdkLoader,
   verifyIdToken: VerifyIdToken,
 ): Promise<IdentityActivationResult> {
+  if (rawEnabled?.trim().toLowerCase() !== "true") {
+    return result("disabled", "identity_disabled");
+  }
   let config: LiffPublicConfig | null;
   try {
     config = loadLiffPublicConfig(rawLiffId);
