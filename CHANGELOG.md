@@ -4,6 +4,9 @@
 
 ### Added
 
+- Three-thread Command Center / Engineering Runtime / Persona Lab operating model, isolated
+  worktrees, path ownership and machine-readable status envelopes.
+
 - Backend-free, call-disabled LIFF staging entrypoint, fail-closed static server, restrictive
   browser security headers, dedicated Railway staging service and verified public HTTPS endpoint.
 

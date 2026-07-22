@@ -2,33 +2,33 @@
 
 ## Milestone
 
-`LIFF Staging Frontend Bootstrap`
+`Three-Thread Coordination and Worktree Isolation Baseline`
 
 ## Goal
 
-Publish the existing backend-free, call-disabled owner-calibration shell at a separate Railway
-staging HTTPS endpoint so a human can create the LIFF app without enabling any integration.
+Separate Command Center, Engineering Runtime and Persona Lab execution while preserving PLM as the
+single system of record and preventing cross-thread branch or source-asset contamination.
 
-## Delivered
+## Delivered locally
 
-- Static Vite entrypoint using the existing owner-calibration shell.
-- Separate Railway service `plm-liff-staging-shell` in `staging`.
-- Public endpoint `https://plm-liff-staging-shell-staging.up.railway.app/` returned HTTPS 200.
-- Call disabled; microphone and all network integrations blocked by code, flags, CSP and
-  Permissions-Policy.
-- No LINE Secret, access token, LIFF ID or provider credential added.
+- Command Center coordination branch and worktree.
+- Thread A retained on the canonical PLM checkout and engineering branch.
+- Thread B moved to a separate Codex worktree and dedicated persona branch.
+- Machine-readable status envelopes and path-ownership contract.
+- Untracked user assets restored to their original PLM paths with hash parity.
+- No production, integration, runtime or persona-release state changed.
 
-## Required human action
+## Required human review
 
-- In the LINE Login channel, create a LIFF app using the public endpoint.
-- Do not send a Channel Secret or Channel Access Token; neither is required for this shell.
+- Confirm the three-thread operating model and isolated worktrees.
+- Separately authorize the next A or B Mission; this baseline does not authorize either one.
 
 ## Explicitly not delivered
 
-- LIFF SDK or LINE identity.
-- Microphone, WebSocket, MiniMax, LiveKit, database, Mem0 or real-user integration.
-- Production deployment, formal voice runtime, or working calls.
+- Thread B's Meeting Record Source Registration mission.
+- LIFF identity or any engineering integration.
+- Release persona, Mem0, provider connection, production deployment or real-user processing.
 
 ## Required stop
 
-`NEEDS_HUMAN_LIFF_APP_CREATION`
+`NEEDS_HUMAN_THREE_THREAD_BASELINE_REVIEW`

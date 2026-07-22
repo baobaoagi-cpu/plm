@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "role": "PERSONA_AND_KNOWLEDGE_LAB",
+  "thread_id": "019f8820-5dee-7a41-b6f2-676926d07a89",
+  "worktree": "C:\\Users\\waiti\\.codex\\worktrees\\0408\\PLM",
+  "branch": "codex/xiewenxian-persona-lab",
+  "head": "5fe45f88ef3d578b2a05b544b16b1cac17bc6040",
+  "isolation": "VERIFIED_SEPARATE_WORKTREE",
+  "mission_state": "AWAITING_COMMAND_CENTER_MISSION",
+  "recommended_first_mission": "MEETING_RECORD_SOURCE_REGISTRATION_AND_OWNER_INTERVIEW_TRACEABILITY",
+  "primary_write_scope": [
+    "docs/persona/xiewenxian/",
+    "future governed persona packages",
+    "assigned persona evidence and run records"
+  ],
+  "runtime_or_infrastructure_write_allowed": false,
+  "release_persona_authorized": false,
+  "production_authorized": false,
+  "external_uploads_authorized": false
+}

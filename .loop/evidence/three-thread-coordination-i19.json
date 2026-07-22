@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "iteration": 19,
+  "milestone": "Three-Thread Coordination and Worktree Isolation Baseline",
+  "coordination_branch": "codex/three-thread-coordination-baseline",
+  "initial_published_commit": "021aa4e112c7a9e455da0b75d8452bbef77ac019",
+  "draft_pull_request": "https://github.com/baobaoagi-cpu/plm/pull/8",
+  "github_actions_initial_publish": "PASS_RUN_29891959723",
+  "thread_read_only_acknowledgements": {
+    "thread_a": "VERIFIED_AWAITING_COMMAND_CENTER_MISSION",
+    "thread_b": "VERIFIED_AWAITING_COMMAND_CENTER_MISSION"
+  },
+  "worktrees": {
+    "thread_a": {
+      "path": "C:\\Users\\waiti\\PLM",
+      "branch": "codex/liff-staging-bootstrap",
+      "head": "5fe45f88ef3d578b2a05b544b16b1cac17bc6040"
+    },
+    "thread_b": {
+      "path": "C:\\Users\\waiti\\.codex\\worktrees\\0408\\PLM",
+      "branch": "codex/xiewenxian-persona-lab",
+      "head": "5fe45f88ef3d578b2a05b544b16b1cac17bc6040"
+    },
+    "command_center": {
+      "path": "C:\\tmp\\plm-three-thread-coordination",
+      "branch": "codex/three-thread-coordination-baseline",
+      "head_before_baseline_commit": "5fe45f88ef3d578b2a05b544b16b1cac17bc6040"
+    }
+  },
+  "automatic_shared_conversation_memory": false,
+  "synchronization": "EXPLICIT_THREAD_MESSAGES_AND_VERSIONED_GIT_RECORDS",
+  "user_owned_untracked_assets": {
+    "restored_to_original_checkout": true,
+    "hash_parity_verified": true,
+    "committed": false,
+    "copies_in_thread_b_worktree": 0,
+    "assets": {
+      "CODEX_handoff.md": {
+        "sha256": "6a764cf773f6ea9d94bfac3a3d4066612a685d1fb69632ee3742cbc3f908d485",
+        "size_bytes": 4333
+      },
+      "meeting_record_docx": {
+        "sha256": "ed2215566a028e4ac31b1e77f410bef961f5423a122dedd270c3664fb796209c",
+        "size_bytes": 15762
+      },
+      "v2_prompt": {
+        "sha256": "5585cdde72525432729fc1ce2b15411ecf1e60d7df7b5fb19d785d0a620a817f",
+        "size_bytes": 27291
+      }
+    }
+  },
+  "production_changed": false,
+  "external_integrations_enabled": false,
+  "release_persona_created": false,
+  "stop_condition": "NEEDS_HUMAN_THREE_THREAD_BASELINE_REVIEW"
+}
