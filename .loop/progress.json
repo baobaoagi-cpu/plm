@@ -94,8 +94,11 @@
     "production_changed": false
   },
   "three_thread_coordination_baseline": {
-    "status": "COMPLETED_LOCALLY",
+    "status": "COMPLETED_PUBLISHED",
     "coordination_branch": "codex/three-thread-coordination-baseline",
+    "initial_published_commit": "021aa4e112c7a9e455da0b75d8452bbef77ac019",
+    "pull_request": "https://github.com/baobaoagi-cpu/plm/pull/8",
+    "github_actions_initial_publish": "PASS_RUN_29891959723",
     "command_center_thread_id": "019f78f0-bc9c-7350-b200-ff925593c19a",
     "thread_a_id": "019f8813-f8dc-7001-97a8-4768806aed86",
     "thread_a_branch": "codex/liff-staging-bootstrap",
@@ -103,6 +106,8 @@
     "thread_b_id": "019f8820-5dee-7a41-b6f2-676926d07a89",
     "thread_b_branch": "codex/xiewenxian-persona-lab",
     "thread_b_isolation": "VERIFIED_CODEX_WORKTREE",
+    "thread_a_read_only_ack": "VERIFIED",
+    "thread_b_read_only_ack": "VERIFIED",
     "automatic_shared_conversation_memory": false,
     "sync_mode": "EXPLICIT_THREAD_MESSAGES_AND_VERSIONED_GIT_RECORDS",
     "user_owned_untracked_assets_restored": true,

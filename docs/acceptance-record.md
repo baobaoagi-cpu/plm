@@ -293,14 +293,18 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 
 ## Three-Thread Coordination and Worktree Isolation Baseline
 
-- Status: `COMPLETED_LOCALLY / NEEDS_HUMAN_THREE_THREAD_BASELINE_REVIEW`
+- Status: `COMPLETED_PUBLISHED / NEEDS_HUMAN_THREE_THREAD_BASELINE_REVIEW`
 - Command Center branch: `codex/three-thread-coordination-baseline`
+- Initial published commit: `021aa4e112c7a9e455da0b75d8452bbef77ac019`
+- Stacked Draft PR: `https://github.com/baobaoagi-cpu/plm/pull/8`
+- GitHub Actions initial publish: `PASS / run 29891959723`
 - Thread A checkout/branch: `C:\Users\waiti\PLM / codex/liff-staging-bootstrap`
 - Thread B worktree/branch: `C:\Users\waiti\.codex\worktrees\0408\PLM / codex/xiewenxian-persona-lab`
 - Separate working directories: `VERIFIED`
 - Shared Git object database only: `EXPECTED`
 - Automatic shared conversation memory: `NO`
 - Explicit Codex thread messaging: `AVAILABLE / VERIFIED`
+- A and B read-only isolation acknowledgements: `VERIFIED / AWAITING_COMMAND_CENTER_MISSION`
 - Versioned coordination envelopes: `CREATED`
 - Untracked user assets returned to original paths: `VERIFIED_SHA256_PARITY`
 - Runtime, LINE, voice, provider, database or production change: `NO`

@@ -3,6 +3,13 @@
   "iteration": 19,
   "milestone": "Three-Thread Coordination and Worktree Isolation Baseline",
   "coordination_branch": "codex/three-thread-coordination-baseline",
+  "initial_published_commit": "021aa4e112c7a9e455da0b75d8452bbef77ac019",
+  "draft_pull_request": "https://github.com/baobaoagi-cpu/plm/pull/8",
+  "github_actions_initial_publish": "PASS_RUN_29891959723",
+  "thread_read_only_acknowledgements": {
+    "thread_a": "VERIFIED_AWAITING_COMMAND_CENTER_MISSION",
+    "thread_b": "VERIFIED_AWAITING_COMMAND_CENTER_MISSION"
+  },
   "worktrees": {
     "thread_a": {
       "path": "C:\\Users\\waiti\\PLM",
