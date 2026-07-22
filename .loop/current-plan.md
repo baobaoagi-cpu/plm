@@ -2,41 +2,44 @@
 
 ## Milestone
 
-`Phase 3C — Offline Duplex Architecture Hardening`
+`Gate DB-1 — Local PostgreSQL RLS Execution Proof`
 
 ## Goal
 
-Lock the configuration, protocol, lease, audio queue, generation and provider-adapter boundaries
-before any real staging credential is used.
+Execute the existing Phase 3B migration on a disposable real PostgreSQL 15 server and prove forced
+RLS, synthetic identity isolation, data-class separation, least-privilege roles and guarded
+rollback without any external database or production connection.
 
 ## Delivered locally
 
-- Machine-readable environment contract with offline fail-closed defaults.
-- Strict Protocol v1 client/server schemas and bounded parser.
-- Stale-safe per-principal Session Registry.
-- Independent bounded microphone and generation-scoped playback queues.
-- Offline duplex harness with interruption, hangup, backpressure and race proofs.
-- Provider-neutral STT, LLM, TTS, identity and transport contracts.
-- Reusable deterministic fakes and bounded provider error/timeout mapping.
+- Reproducible PowerShell runner using an official PostgreSQL 15 image.
+- Network-disabled container, no host port, tmpfs data and unconditional cleanup.
+- Three fail-closed provider roles and synthetic owner/student A/student B identities.
+- Fifteen executable RLS/data-class assertions and four migration/role/rollback checks.
+- Migration rerun defect repaired with transaction-local staging tenant context.
+- Static regression assertion plus machine-readable evidence and acceptance records.
 
-## Validation complete
+## Verified
 
-- Final full regression, architecture-boundary, dependency-integrity and security scans passed.
-- Evidence hashes and iteration record are committed.
-- Phase 3C branch and Draft PR #3 are published; both GitHub Actions quality runs passed.
+- PostgreSQL 15.18 migration applied twice in one fresh database.
+- Student A/B conversations, memories and prompt logs remained isolated.
+- Owner Evidence and Student Memory rejected cross-class writes.
+- Missing context failed closed; forced RLS constrained the table owner.
+- Admin-readonly could read its selected scope and could not write.
+- Unguarded rollback was rejected without changes; guarded staging rollback removed the schema.
+- Disposable container and all synthetic rows were removed.
 
 ## Pending human action
 
-- Human Phase 3C review.
+- Human Gate DB-1 review.
 
 ## Explicitly not delivered
 
-- Local or external PostgreSQL execution.
-- Formal MiniMaxTTSService or any provider connection.
-- Pipecat Pipeline, LINE activation, LIFF identity SDK or LiveKit integration.
-- Real identity, owner/student data, Mem0, R2, audio recording or production.
-- Release persona or owner-confirmed evidence.
+- External staging database, persistence adapter or connection-pool context lifecycle.
+- Real LINE/Partner identity, owner/student data, Mem0, R2 or admin UI.
+- Formal MiniMaxTTSService, Pipecat Pipeline, LINE activation or LiveKit integration.
+- Phase 3D, Task 005, release persona or production deployment.
 
 ## Required stop
 
-`NEEDS_HUMAN_PHASE_3C_REVIEW`
+`NEEDS_HUMAN_GATE_DB1_REVIEW`

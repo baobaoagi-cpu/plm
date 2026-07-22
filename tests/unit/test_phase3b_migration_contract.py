@@ -24,6 +24,7 @@ def test_migration_is_staging_scoped_and_provider_role_safe() -> None:
     sql = _sql()
 
     assert "create schema if not exists xiewenxian_staging" in sql
+    assert "set_config('app.current_tenant_id', 'xie_wenxian', true)" in sql
     assert "current_database()" in sql
     assert "server_version_num" in sql
     assert "from pg_roles where rolname = 'xiewenxian_staging_app'" in sql
@@ -72,6 +73,17 @@ def test_all_tables_enable_and_force_rls() -> None:
     assert sql.count("create policy ") == 6
     assert "app.current_effective_user_id" in sql
     assert "app.current_tenant_id" in sql
+
+
+def test_rls_correlations_qualify_the_outer_target_relation() -> None:
+    sql = _sql()
+
+    for table in ("conversations", "student_memory", "prompt_log", "owner_evidence"):
+        assert f"p.id = {table}.principal_id" in sql
+        assert f"p.tenant_id = {table}.tenant_id" in sql
+
+    assert "p.id = principal_id" not in sql
+    assert "p.tenant_id = tenant_id" not in sql
 
 
 def test_foreign_keys_and_rls_filter_columns_are_indexed() -> None:

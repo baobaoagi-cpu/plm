@@ -162,3 +162,36 @@ recorded in `.loop/runs/iteration-006-reuse-and-final.md`.
 - Draft PR: `https://github.com/baobaoagi-cpu/plm/pull/3`
 - Formal MiniMaxTTSService / Pipecat Pipeline created: `NO`
 - Stop condition after publication: `NEEDS_HUMAN_PHASE_3C_REVIEW`
+
+## Gate DB-1 — Local PostgreSQL RLS Execution Proof
+
+- Status: `COMPLETED / NEEDS_HUMAN_GATE_DB1_REVIEW`
+- PostgreSQL: `15.18 / VERIFIED`
+- Container isolation: `network=none`, no published port, tmpfs storage
+- Synthetic-only identities/data: `VERIFIED`
+- Migration apply count: `2 / PASS`
+- Real RLS/data-class behaviors: `15 / PASS`
+- Total gate checks: `19 / PASS`
+- Forced RLS tables: `6 / VERIFIED`
+- Student A/B conversation, memory and prompt-log isolation: `VERIFIED`
+- Owner Evidence / Student Memory separation: `VERIFIED`
+- Missing identity context fail-closed: `VERIFIED`
+- Table owner constrained by forced RLS: `VERIFIED`
+- App/admin roles non-login, non-superuser, non-`BYPASSRLS`: `VERIFIED`
+- Admin role write attempt: `REJECTED`
+- Rollback without staging guard: `REJECTED / SCHEMA RETAINED`
+- Rollback with staging guard: `PASS / SCHEMA REMOVED`
+- Migration defect found: second apply originally failed after forced RLS
+- Migration defect repaired: transaction-local fixed staging tenant context
+- Acceptance threshold modified: `NO`
+- External DB/provider/production connections: `0`
+- Real identity/content records: `0`
+- Paid API cost: `USD 0.00`
+- Disposable container/data cleanup: `PASS`
+- Ruff: `PASS`
+- mypy strict: `PASS` (79 source files)
+- pytest: `PASS` (232)
+- TypeScript strict: `PASS`
+- npm dependency tree: `PASS`
+- JSON / Git diff / secret / forbidden-runtime scans: `PASS`
+- Stop condition: `NEEDS_HUMAN_GATE_DB1_REVIEW`

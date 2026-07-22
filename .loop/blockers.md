@@ -22,9 +22,11 @@
 
 ## B-006 - External staging database identity
 
-- Status: `NOT_CONFIGURED / NOT_CONTACTED`
-- Phase 3B provides a PostgreSQL 15+ schema and migration contract only.
-- Blocks: applying migration, persistence integration, DB-backed RLS smoke and admin database reads.
+- Status: `LOCAL_RLS_PROOF_RESOLVED / EXTERNAL_NOT_CONFIGURED_OR_CONTACTED`
+- Gate DB-1 executed the Phase 3B migration twice on disposable PostgreSQL 15.18 and verified
+  forced RLS, roles, data-class separation and guarded rollback with synthetic data.
+- Blocks: external staging migration, persistence integration, connection-pool context reset and
+  live admin database reads.
 - Resolution: human supplies a dedicated staging DB identity, approved application roles, retention
   policy and rollback window in a later milestone. Production credentials are never acceptable.
 
