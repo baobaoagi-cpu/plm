@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "iteration": 19,
+  "mission": "Meeting Record Source Registration and Traceability",
+  "persona_slug": "xiewenxian",
+  "source": {
+    "source_id": "xww-meeting-record-owner-interview-157-158",
+    "raw_filename": "會議記錄_憲哥AI分身.docx",
+    "bytes": 15762,
+    "sha256": "ED2215566A028E4AC31B1E77F410BEF961F5423A122DEDD270C3664FB796209C",
+    "raw_committed": false,
+    "raw_copied": false,
+    "raw_audio_accessed": false,
+    "document_parse": "PASS_DOCX_STRUCTURE_AND_FULL_TEXT",
+    "render_review": "NOT_COMPLETED_SOFFICE_UNAVAILABLE"
+  },
+  "classification": {
+    "evidence_state": "E0_SUMMARY_UNVERIFIED",
+    "record_count": 22,
+    "editorial_inference": 1,
+    "team_statement_or_summary": 1,
+    "meeting_decision": 4,
+    "product_requirement_or_action_item": 6,
+    "owner_attributed_summary_pending_verification": 10,
+    "existing_candidate_count_unchanged": 46,
+    "candidate_increment_recommendations": 5,
+    "owner_confirmation_queue_increment": 10,
+    "owner_quotes_nonempty": 0,
+    "owner_confirmed_records": 0,
+    "release_persona_created": false
+  },
+  "boundaries": {
+    "runtime_changed": false,
+    "infrastructure_changed": false,
+    "production_connected": false,
+    "mem0_connected": false,
+    "line_connected": false,
+    "voice_service_connected": false,
+    "tracy_assets_used": false,
+    "secrets_added": 0
+  },
+  "validation": {
+    "json_parse": "PASS",
+    "schema_invariants": "PASS_COUNTS_REFERENCES_OWNER_QUOTE_GATES",
+    "secret_scan": "PASS_HIGH_CONFIDENCE_PATTERNS_0",
+    "privacy_scan": "PASS_MINIMUM_NECESSARY_NO_RAW_SENSITIVE_DETAILS",
+    "tracy_pollution_scan": "PASS_NEGATIVE_GOVERNANCE_REFERENCES_ONLY",
+    "git_raw_source_exclusion": "PASS",
+    "targeted_pytest": "PASS_11_TESTS_PHASE3B_PERSONA_ADMIN"
+  },
+  "stop": "NEEDS_HUMAN_MEETING_RECORD_SOURCE_REVIEW"
+}

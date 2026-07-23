@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T12:15:00+08:00",
+  "updated_at": "2026-07-23T00:00:00+08:00",
   "project": "plm-xie-wenxian-owner-calibration",
   "canonical_repository": "https://github.com/baobaoagi-cpu/plm",
-  "current_milestone": "LIFF Staging Frontend Bootstrap",
-  "current_iteration": 18,
-  "status": "NEEDS_HUMAN_LIFF_APP_CREATION",
+  "current_milestone": "Meeting Record Source Registration and Traceability",
+  "current_iteration": 19,
+  "status": "NEEDS_HUMAN_MEETING_RECORD_SOURCE_REVIEW",
   "tasks": {
     "task_001": {"status": "COMPLETED"},
     "task_002": {"status": "COMPLETED"},
@@ -93,6 +93,19 @@
     "secrets_added": 0,
     "production_changed": false
   },
-  "next_allowed_action": "Human creates a LIFF app in the dedicated LINE Login channel using the published staging endpoint; no secret or access token is required.",
-  "forbidden_next_action": "Do not add a LIFF ID, enable LINE identity, WebSocket, microphone, MiniMax, LiveKit, Mem0, R2 or database, start real calls, deploy production, or begin another phase without separate approval."
+  "meeting_record_source_registration": {
+    "status": "COMPLETED_PENDING_HUMAN_REVIEW",
+    "branch": "codex/xiewenxian-persona-lab",
+    "source_sha256": "ED2215566A028E4AC31B1E77F410BEF961F5423A122DEDD270C3664FB796209C",
+    "source_evidence_state": "E0_SUMMARY_UNVERIFIED",
+    "derived_record_count": 22,
+    "candidate_count_unchanged": 46,
+    "candidate_increment_recommendations": 5,
+    "owner_confirmation_increment_questions": 10,
+    "owner_quotes_nonempty": 0,
+    "raw_source_committed": false,
+    "production_changed": false
+  },
+  "next_allowed_action": "Human reviews the meeting-record source classification, decides whether primary recordings may be used for speaker/timecode verification, and selects 1-3 proposed confirmation questions.",
+  "forbidden_next_action": "Do not populate owner_quote, upgrade evidence to OWNER_CONFIRMED, create a release persona, publish raw meeting material, or connect runtime, Mem0, LINE, voice, database or production without separate approval."
 }
