@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1",
+  "persona_slug": "xiewenxian",
+  "source_id": "xww-meeting-record-owner-interview-157-158",
+  "source_sha256": "ED2215566A028E4AC31B1E77F410BEF961F5423A122DEDD270C3664FB796209C",
+  "status": "PROPOSED_INCREMENT_NOT_OWNER_CONFIRMED",
+  "merge_into_canonical_queue": false,
+  "instructions": {
+    "batch_size": "1_to_3",
+    "primary_media_required_for_quote": true,
+    "owner_quote_population_allowed": false,
+    "privacy_review_required": true
+  },
+  "items": [
+    {
+      "queue_id": "xww-meeting-confirm-001",
+      "priority": "P0",
+      "record_ids": ["xww-mr-editorial-001"],
+      "candidate_ids": [],
+      "question": "請確認錄製 157／158 的錄音所有權、受訪與保存同意、可使用範圍、保存期限、撤回與刪除方式；並提供可核對 speaker 與時間碼的原始錄音或核准逐字稿。",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-meeting-confirm-002",
+      "priority": "P0",
+      "record_ids": ["xww-mr-claim-002"],
+      "candidate_ids": ["xww-v2-values-001", "xww-v2-claim-004"],
+      "question": "會議摘要記載的三項價值排序，是您在當時人生階段的情境排序，還是跨情境的核心價值排序？精確順序與不可被忽略的家庭界線為何？",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-meeting-confirm-003",
+      "priority": "P0",
+      "record_ids": ["xww-mr-claim-003", "xww-mr-decision-002"],
+      "candidate_ids": ["xww-v2-method-001", "xww-v2-safety-003", "xww-v2-claim-003"],
+      "question": "「四成準備即可行動」的精確說法、最低專業門檻、最壞結果門檻與絕對禁用情境是什麼？它是否只適用於可回復的小型實驗？",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-meeting-confirm-004",
+      "priority": "P0",
+      "record_ids": ["xww-mr-claim-006"],
+      "candidate_ids": ["xww-v2-method-007", "xww-v2-claim-006"],
+      "question": "請確認「極限賽局」公式的精確符號、連結是否屬於公式構面、各項定義、公開來源、方法權利及允許使用的名稱。",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-meeting-confirm-005",
+      "priority": "P0",
+      "record_ids": ["xww-mr-requirement-003", "xww-mr-decision-001"],
+      "candidate_ids": [],
+      "question": "是否授權使用既有演講、廣播、說書或其他媒體作為聲音素材？請逐一界定素材權利、用途、聲音複製範圍、保存期限、撤回及第三方出版者同意；本題不等同正式聲音服務發布。",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-meeting-confirm-006",
+      "priority": "P0",
+      "record_ids": ["xww-mr-claim-004", "xww-mr-claim-005", "xww-mr-claim-009", "xww-mr-claim-010"],
+      "candidate_ids": ["xww-v2-style-004", "xww-v2-claim-008"],
+      "question": "哪些人生與家庭故事可供分身使用？請逐項標示可公開、僅限內部校準、必須去識別或禁止使用，並確認第三人隱私與可能涉及金額、健康、衝突的內容。",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-meeting-confirm-007",
+      "priority": "P1",
+      "record_ids": ["xww-mr-claim-007", "xww-mr-claim-008"],
+      "candidate_ids": ["xww-v2-values-002", "xww-v2-decision-003", "xww-v2-claim-003", "xww-v2-claim-007"],
+      "question": "「樹枝／翅膀」「好玩／意義」「與其更好不如不同」「眼界／邊界」哪些是您會使用的原句？各自的適用情境與避免誤用的限制為何？",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-meeting-confirm-008",
+      "priority": "P1",
+      "record_ids": ["xww-mr-claim-003", "xww-mr-claim-009"],
+      "candidate_ids": ["xww-v2-decision-005", "xww-v2-safety-004"],
+      "question": "「一次只改一件事」「人多的地方不要去」「看到紅利進場、擁擠時退後」是否為可教的方法？請確認適用前提、退出條件與不可套用的高風險領域。",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-meeting-confirm-009",
+      "priority": "P1",
+      "record_ids": ["xww-mr-claim-001"],
+      "candidate_ids": ["xww-v2-persona-004", "xww-v2-stage-004", "xww-v2-values-005"],
+      "question": "會議摘要所述的職涯轉場、公共價值與傳承活動，哪些仍是目前立場？哪些內容可公開、可作情境模型，哪些只是當時規劃？",
+      "decision": null
+    },
+    {
+      "queue_id": "xww-meeting-confirm-010",
+      "priority": "P2",
+      "record_ids": ["xww-mr-decision-003", "xww-mr-requirement-005"],
+      "candidate_ids": [],
+      "question": "橘色與棒球的視覺方向是否仍有效？它屬於品牌規範、活動概念或當次會議提案，最終核准者是誰？",
+      "decision": null
+    }
+  ],
+  "item_count": 10,
+  "decisions_recorded": 0
+}

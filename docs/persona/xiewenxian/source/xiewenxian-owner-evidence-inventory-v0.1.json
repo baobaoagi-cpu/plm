@@ -23,6 +23,23 @@
     }
   ],
   "approved_engineering_source_count": 1,
+  "registered_pending_evidence_sources": [
+    {
+      "source_id": "xww-meeting-record-owner-interview-157-158",
+      "title": "會議記錄_憲哥AI分身.docx",
+      "source_kind": "AUTOMATED_TRANSCRIPT_DERIVED_MEETING_SUMMARY",
+      "classification": "PROJECT_OWNER_AUTHORIZED_SOURCE_REGISTRATION",
+      "evidence_state": "E0_SUMMARY_UNVERIFIED",
+      "owner_confirmed": false,
+      "source_sha256": "ED2215566A028E4AC31B1E77F410BEF961F5423A122DEDD270C3664FB796209C",
+      "source_bytes": 15762,
+      "raw_source_git_status": "REFERENCE_ONLY_UNTRACKED",
+      "source_registration": "docs/persona/xiewenxian/source/xiewenxian-meeting-record-source-registration-v0.1.md",
+      "primary_media_mapped": false,
+      "owner_quotes_created": 0
+    }
+  ],
+  "registered_pending_evidence_source_count": 1,
   "missing_authorization": [
     "owner confirmation for each candidate claim",
     "approved name, vocatives, likeness and voice scope",
@@ -46,6 +63,12 @@
     "docs/persona/xiewenxian/source/xiewenxian-v2-candidate-register-v0.1.json",
     "docs/persona/xiewenxian/source/xiewenxian-owner-confirmation-queue-v0.1.json",
     "docs/persona/xiewenxian/source/xiewenxian-v2-traceability-conflict-gap-report-v0.1.md"
+  ],
+  "meeting_record_source_registration_outputs": [
+    "docs/persona/xiewenxian/source/xiewenxian-meeting-record-source-registration-v0.1.md",
+    "docs/persona/xiewenxian/source/xiewenxian-meeting-record-classification-v0.1.json",
+    "docs/persona/xiewenxian/source/xiewenxian-meeting-record-traceability-conflict-gap-report-v0.1.md",
+    "docs/persona/xiewenxian/source/xiewenxian-owner-confirmation-queue-meeting-increment-v0.1.json"
   ],
   "candidates_created": 46,
   "candidate_status": "PROJECT_OWNER_APPROVED_ENGINEERING_INTERPRETATION",

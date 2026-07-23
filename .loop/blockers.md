@@ -85,3 +85,13 @@
   WebSocket transport and any real call.
 - Resolution: a human creates the LIFF app in the dedicated LINE Login channel using the documented
   endpoint. Activating identity or any integration remains a separate milestone.
+
+## B-012 - Meeting record primary-media verification and consent
+
+- Status: `E0_SUMMARY_UNVERIFIED / NEEDS_HUMAN_SOURCE_REVIEW`
+- The registered DOCX is an automated-transcript-derived summary, not a speaker/timecode verified
+  transcript. It explicitly warns that names, dates, amounts and specialist terms may be inaccurate.
+- Blocks: populating `owner_quote`, upgrading any attributed claim to owner-confirmed evidence,
+  publishing biographical/family details, or treating public media as authorized voice/knowledge data.
+- Resolution: approve source custody and consent, map claims to primary recording timestamps, verify
+  exact wording and third-party privacy, and complete source-by-source rights review.
